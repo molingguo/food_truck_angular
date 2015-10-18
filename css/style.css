@@ -9,3 +9,9 @@
 .truck {
 	margin-bottom: 1rem;
 }
+
+.yelp-widget {
+	padding: 2rem;
+	border: 1px solid #eee;
+	border-radius: 10px;
+}
