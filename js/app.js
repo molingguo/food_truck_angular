@@ -10,16 +10,12 @@ var timeOfDay = ["Breadfast", "Lunch", "Dinner"];
 		//INITIALIZE
 		$scope.trucks = [];
 
-		$http.get('/food-truck-api/http.php').success(function(data) {
+		$http.get('food-truck-api/http.php').success(function(data) {
 			var allTrucks = data.food_trucks;
-			// allTrucks.forEach(function(truck, i) {
-			// 	truck.id = i;
-			// });
-			//console.log(allTrucks);
 			$scope.trucks = allTrucks;
 			$scope.setCurrentFilter();
 		});
-
+		
 		$scope.dayOfWeekOrder = function(item) {
    			return dayOfWeek.indexOf(item.day_of_week);
 		};
@@ -49,4 +45,14 @@ var timeOfDay = ["Breadfast", "Lunch", "Dinner"];
 			return _.uniq(arr, function(a) { return a[field]; });
 		};
 	});
+
+	app.controller('logoController', ['$http', '$scope', function($http, $scope) {
+		var backendfile = "/backend/backend.php";
+		//backendfile = "/foodtrucks" + backendfile;
+		
+		$http.get(backendfile).success(function(data) {
+			$scope.logos = data.records;
+			//console.log($scope.logos);
+		});
+	}]);
 })();
