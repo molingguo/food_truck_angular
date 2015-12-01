@@ -45,6 +45,17 @@
 	color: #23527c;
 }
 
+
+.pompiere {
+	font-family: 'Pompiere', cursive;
+}
+
+#map {
+	width: 100%;
+	height: 500px;
+}
+
+
 .styleguide-section#logos .logo-container {
 	height: 300px;
 }

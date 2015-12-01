@@ -1,0 +1,251 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,300,600|Open+Sans+Condensed:300,700);
+body {
+  font-family: "Raleway", sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans Condensed", sans-serif; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
+body {
+  padding-top: 60px; }
+
+ul {
+  list-style: none; }
+
+.navbar {
+  min-height: 60px;
+  margin-bottom: 0;
+  background-color: #fff; }
+
+.navbar-brand {
+  height: 60px; }
+
+.navbar-header .logo a {
+  color: #999999; }
+.navbar-header .brand-name {
+  color: #999999;
+  line-height: 1;
+  font-size: 3rem;
+  margin-top: -10px; }
+  .navbar-header .brand-name span {
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: bold;
+    color: #469b9d;
+    font-size: 5rem;
+    padding-right: 1rem; }
+.navbar-header .glyphicon-menu-hamburger {
+  font-size: 2rem; }
+
+.navbar-nav {
+  float: right;
+  margin-top: 10px;
+  font-size: 2rem; }
+  .navbar-nav li.active a {
+    background-color: #fff !important;
+    color: #f5734b; }
+  .navbar-nav li a:hover {
+    background-color: #fff !important; }
+
+.splash {
+  height: 500px;
+  background-color: #9cc4e4; }
+
+.find-trucks {
+  margin-top: 4rem; }
+
+.searchbox .search-truck {
+  font-size: 2rem;
+  height: 45px; }
+.searchbox .glyphicon-search {
+  font-size: 2rem;
+  position: absolute;
+  top: 1.2rem;
+  right: 3rem;
+  color: #999999; }
+
+.filter {
+  margin-top: 2rem; }
+
+.filter-dropdown {
+  margin-bottom: 1rem; }
+  .filter-dropdown .dropdown-wrapper {
+    position: relative; }
+  .filter-dropdown .filter-button {
+    width: 100%;
+    padding: 6px 20px;
+    background-color: #f5734b;
+    color: white;
+    font-weight: 500;
+    font-size: 1.6rem; }
+    .filter-dropdown .filter-button .glyphicon-chevron-down {
+      top: 3px;
+      left: 3px; }
+  .filter-dropdown .filter-dropdown-menu {
+    background-color: #f5734b;
+    color: white;
+    width: 100%; }
+    .filter-dropdown .filter-dropdown-menu > li {
+      padding: 0.5rem 1rem; }
+      .filter-dropdown .filter-dropdown-menu > li:hover {
+        cursor: pointer;
+        background-color: #f78f6e; }
+
+.map-wrapper {
+  margin-top: 2rem; }
+
+.map-list {
+  position: absolute;
+  height: 450px;
+  width: 350px;
+  z-index: 2;
+  background-color: #9cc4e4;
+  -ms-transform: translateX(-300px);
+  /* IE 9 */
+  -webkit-transform: translateX(-300px);
+  /* Safari */
+  transform: translateX(-300px);
+  transition: all 0.5s; }
+  .map-list.active {
+    -ms-transform: translateX(0);
+    /* IE 9 */
+    -webkit-transform: translateX(0);
+    /* Safari */
+    transform: translateX(0); }
+    .map-list.active .scroll-list {
+      pointer-events: auto; }
+  .map-list .toggle-list {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 3rem;
+    color: white;
+    z-index: 2; }
+    .map-list .toggle-list:hover {
+      cursor: pointer;
+      color: #eee; }
+  .map-list .scroll-list {
+    position: relative;
+    overflow-y: scroll;
+    height: 450px;
+    pointer-events: none; }
+  .map-list .map-truck-list {
+    margin-top: 3rem;
+    margin-left: -1rem;
+    padding-left: 0; }
+    .map-list .map-truck-list > li {
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
+      transition: all 0.2s; }
+      .map-list .map-truck-list > li:hover {
+        background-color: #1b325f;
+        color: white;
+        cursor: pointer; }
+    .map-list .map-truck-list .truck-icon img {
+      max-width: 45px;
+      position: relative;
+      top: 6px; }
+    .map-list .map-truck-list .truck-name {
+      font-size: 1.8rem; }
+    .map-list .map-truck-list .truck-foodtype, .map-list .map-truck-list .truck-review {
+      font-size: 1.2rem; }
+
+#map {
+  width: 100%;
+  height: 450px; }
+
+.mapbox-logo {
+  display: none; }
+
+.featured-trucks {
+  margin-top: 2rem; }
+  .featured-trucks .truck-logo {
+    height: 280px; }
+    .featured-trucks .truck-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      transition: all .16s; }
+      .featured-trucks .truck-logo img:hover {
+        cursor: pointer;
+        transform: scale(1.075); }
+  .featured-trucks .view-all-trucks h2 {
+    margin-top: 0; }
+
+.truck-news {
+  background-color: #1b325f;
+  height: 400px;
+  color: white; }
+
+.footer {
+  background-color: #999999;
+  height: 50px;
+  font-size: 1.6rem; }
+
+.footer-wrapper {
+  margin-top: 1.5rem; }
+
+ul.sitemap li {
+  display: inline-block;
+  border-right: 1px solid black;
+  padding: 0 2rem 0 1.5rem; }
+  ul.sitemap li:last-child {
+    border: none; }
+
+.truck-illustration {
+  background-color: #469b9d;
+  position: relative; }
+  .truck-illustration .large-truck {
+    position: relative;
+    top: 2rem;
+    left: -600px;
+    z-index: 2;
+    width: 50%; }
+    .truck-illustration .large-truck img {
+      min-width: 100%; }
+  .truck-illustration .truck-name {
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    top: 6rem;
+    width: 42%; }
+    .truck-illustration .truck-name h1 {
+      font-size: 6rem;
+      font-weight: bold; }
+  .truck-illustration .truck-info {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 2rem; }
+    .truck-illustration .truck-info .truck-info-icon {
+      margin-right: 1rem; }
+    .truck-illustration .truck-info > div {
+      margin-bottom: 1rem; }
+
+.truck-description {
+  background-color: #9cc4e4; }
+
+.description-wrapper {
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
+  .description-wrapper .description {
+    font-size: 1.75rem;
+    padding-right: 3rem; }
+  .description-wrapper .schedule {
+    padding-right: 0; }
+    .description-wrapper .schedule ul.schedule-list {
+      padding-left: 0; }
+    .description-wrapper .schedule .schedule-day {
+      display: inline-block;
+      width: 5rem; }
+    .description-wrapper .schedule .schedule-time {
+      display: inline-block;
+      width: 7rem; }
+
+.menu {
+  background: #fad089;
+  padding-bottom: 4rem; }
+
+/*# sourceMappingURL=style.css.map */

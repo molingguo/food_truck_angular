@@ -3,14 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 	<title>Food Truck</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/test.css">
+	<link href='https://fonts.googleapis.com/css?family=Pompiere' rel='stylesheet' type='text/css'>
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/angular.min.js"></script>
 	<script src="js/underscore-min.js"></script>
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 	<script src="js/app.js"></script>
+
 </head>
 <body ng-controller="logoController">
 	<div class="side-nav">
@@ -19,6 +24,7 @@
 				<li><a href="#colors">Colors</a></li>
 				<li><a href="#typography">Typography</a></li>
 				<li><a href="#iconography">Iconography</a></li>
+				<li><a href="#section-map">Map</a></li>
 				<li><a href="#buttons-links">Buttons & Links</a></li>
 				<li><a href="#lists">Lists</a></li>
 				<li><a href="#forms">Forms</a></li>
@@ -36,9 +42,18 @@
 		</section>
 		<section class="styleguide-section" id="typography">
 			<h3>Typography</h3>
+			<div class="pompiere">
+				<h1>Food Truck Experience</h1>
+				<h4>Pompiere, Normal 400</h4>
+			</div>
 		</section>
 		<section class="styleguide-section" id="iconography">
 			<h3>Iconography</h3>
+		</section>
+		<section class="styleguide-section" id="section-map">
+			<h3>Map</h3>
+			<div id='map'></div>
+			<!-- <iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/morning2139.kdon049n/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoibW9ybmluZzIxMzkiLCJhIjoiWWpJNloxOCJ9.mpb_pZ7JT8iNsaiu6OpZmA#12/42.361/-71.121'></iframe> -->
 		</section>
 		<section class="styleguide-section" id="buttons-links">
 			<h3>Buttons & Links</h3>
@@ -96,5 +111,6 @@
 			</div>
 		</section>
 	</div>
+	<script src="js/map.js"></script>
 </body>
 </html>

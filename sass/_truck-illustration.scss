@@ -1,0 +1,81 @@
+.truck-illustration {
+	background-color: $green;
+	position: relative;
+
+	.large-truck {
+		position: relative;
+		top: 2rem;
+		left: -600px;
+		z-index: 2;
+		width: 50%;
+
+		img {
+			min-width: 100%;
+		}
+	}
+
+	.truck-name {
+		text-transform: uppercase;
+		color: white;
+		position: absolute;
+		top: 6rem;
+		width: 42%;
+
+		h1 {
+			font-size: 6rem;
+			font-weight: bold;
+		}
+	}
+
+	.truck-info {
+		margin-top: 4rem;
+		margin-bottom: 2rem;
+		color: white;
+		font-size: 2rem;
+
+		.truck-info-icon {
+			margin-right: 1rem;
+		}
+
+		> div {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+.truck-description {
+	background-color: $light-blue;
+}
+
+.description-wrapper {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+
+	.description {
+		font-size: 1.75rem;
+		padding-right: 3rem;
+	}
+
+	.schedule {
+		padding-right: 0;
+
+		ul.schedule-list {
+			padding-left: 0;
+		}
+
+		.schedule-day {
+			display: inline-block;
+			width: 5rem;
+		}
+
+		.schedule-time {
+			display: inline-block;
+			width: 7rem;
+		}
+	}
+}
+
+.menu {
+	background: $yellow;
+	padding-bottom: 4rem;
+}

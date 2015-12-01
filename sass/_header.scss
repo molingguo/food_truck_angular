@@ -1,0 +1,59 @@
+.navbar {
+	min-height: $navbar-height;
+	margin-bottom: 0;
+	background-color: $navbar-background;
+}
+
+.navbar-brand {
+	height: $navbar-height;
+}
+
+.navbar-header {
+	.logo {
+		//TODO: change link color to base link color; use image for logo
+		a {
+			color: $gray;
+		}
+	}
+
+	.brand-name {
+		color: $gray;
+		line-height: 1;
+		font-size: 3rem;
+		margin-top: -10px;
+
+		span{
+			font-family: $header-font;
+			font-weight: bold;
+			color: $green;
+			font-size: 5rem;
+			padding-right: 1rem;
+		}
+	}
+
+	.glyphicon-menu-hamburger {
+		font-size: 2rem;
+	}
+}
+
+.navbar-nav {
+	float: right;
+	margin-top: 10px;
+	font-size: 2rem;
+	
+	li.active a {
+		background-color: $navbar-background !important;
+		color: $orange;
+	}
+
+	li a {
+		&:hover {
+			background-color: $navbar-background !important;
+		}
+	}
+}
+
+.splash {
+	height: 500px;
+	background-color: $light-blue;
+}

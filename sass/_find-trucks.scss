@@ -1,0 +1,148 @@
+.find-trucks {
+	margin-top: 4rem;
+}
+
+.searchbox {
+	
+	.search-truck {
+		font-size: 2rem;
+		height: 45px;
+	}
+
+	.glyphicon-search {
+		font-size: 2rem;
+		position: absolute;
+		top: 1.2rem;
+		right: 3rem;
+		color: $gray;
+	}
+}
+
+.filter {
+	margin-top: 2rem;
+}
+
+.filter-dropdown {
+	margin-bottom: 1rem;
+
+	.dropdown-wrapper {
+		position: relative;
+	}
+
+	.filter-button {
+		width: 100%;
+		padding: 6px 20px;
+		background-color: $orange;
+		color: white;
+		font-weight: 500;
+		font-size: 1.6rem;
+
+		.glyphicon-chevron-down {
+			top: 3px;
+			left: 3px;
+		}
+	}
+
+	.filter-dropdown-menu {
+		background-color: #f5734b;
+		color: white;
+		width: 100%;
+
+		> li {
+			padding: 0.5rem 1rem;
+
+			&:hover {
+				cursor: pointer;
+				background-color: $light-orange;
+			}
+		}
+	}
+}
+
+.map-wrapper {
+	margin-top: 2rem;
+}
+
+.map-list {
+	position: absolute;
+	height: $map-height;
+	width: $map-list-width;
+    z-index: 2;
+	background-color: $light-blue;
+	-ms-transform: translateX(-$map-list-width+50px); /* IE 9 */
+   	-webkit-transform: translateX(-$map-list-width+50px); /* Safari */
+    transform: translateX(-$map-list-width+50px);
+	transition: all 0.5s;
+
+	&.active {
+		-ms-transform: translateX(0); /* IE 9 */
+   		-webkit-transform: translateX(0); /* Safari */
+    	transform: translateX(0);
+
+    	.scroll-list {
+    		pointer-events: auto;
+    	}
+	}
+
+	.toggle-list {
+		position: absolute;
+		right: 1rem;
+    	top: 1rem;
+    	font-size: 3rem;
+    	color: white;
+    	z-index: 2;
+
+    	&:hover {
+    		cursor: pointer;
+    		color: #eee;
+    	}
+	}
+
+	.scroll-list {
+		position: relative;
+    	overflow-y: scroll;
+    	height: $map-height;
+    	pointer-events: none;
+	}
+
+	.map-truck-list {
+		margin-top: 3rem;
+    	margin-left: -1rem;
+    	padding-left: 0;
+
+    	> li {
+    		padding-top: 1.2rem;
+    		padding-bottom: 1.2rem;
+    		transition: all 0.2s;
+
+    		&:hover {
+    			background-color: $dark-blue;
+    			color: white;
+    			cursor: pointer;
+    		}
+    	}
+
+		.truck-icon img {
+			max-width: 45px;
+    		position: relative;
+    		top: 6px;
+		}
+
+		.truck-name {
+			font-size: 1.8rem;
+		}
+
+		.truck-foodtype, .truck-review {
+			font-size: 1.2rem;
+		}
+	}
+}
+
+#map {
+	width: 100%;
+	height: $map-height;
+}
+
+.mapbox-logo {
+	display: none;
+}

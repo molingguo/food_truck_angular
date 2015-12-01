@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html ng-app="foodTruck">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<title>Food Truck</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="sass/style.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+	<script src="js/app.js"></script>
+</head>
+<body ng-controller="foodTruckController">
+	<nav class="navbar navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+				</button>
+				<a class="navbar-brand logo" href="/">
+					<!-- <img alt="Brand" src="..."> -->
+					<div class="brand-name"><span>CHEW</span>boston</div>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Find Food</a></li>
+					<li class="active"><a href="#">Trucks</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="truck-illustration">
+		<div class="container">
+			<div class="large-truck">
+				<img src="img/food_truck.svg" alt="">
+			</div>
+			<div class="truck-name">
+				<h1>Roxy's Gourmet Grilled Cheese</h1>
+			</div>
+			<div class="row truck-info">
+				<div class="col-xs-12 col-sm-6">
+					<span class="glyphicon glyphicon-tags truck-info-icon"></span>
+					Sandwiches
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<span class="glyphicon glyphicon-heart truck-info-icon"></span>
+					Featured Food:
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<span class="glyphicon glyphicon-star truck-info-icon"></span>
+					Reviews:
+<!-- 					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star-empty"></span> -->
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<span class="glyphicon glyphicon-map-marker truck-info-icon"></span>
+					Current Truck
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="truck-description">
+		<div class="container">
+			<div class="row description-wrapper">
+				<div class="description col-xs-12 col-sm-6">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+				</div>
+				<div class="schedule col-xs-12 col-sm-6">
+					<ul class="schedule-list">
+						<li>
+							<span class="schedule-day">Mon</span>
+							<span class="schedule-time">11 - 2:30</span>
+							<span class="schedule-location">BU East</span>
+						</li>
+						<li>
+							<span class="schedule-day">Mon</span>
+							<span class="schedule-time">11 - 2:30</span>
+							<span class="schedule-location">Dewey Square on the Greenway</span>
+						</li>
+					    <li>
+					    	<span class="schedule-day">Wed</span>
+					    	<span class="schedule-time">11 - 2:30</span>
+					    	<span class="schedule-location">Rowes Wharf Plaza on the Greenway</span>
+					    </li>
+					    <li>
+					    	<span class="schedule-day">Wed</span>
+					    	<span class="schedule-time">11 - 2:30</span>
+					    	<span class="schedule-location">Boston Public Library at Boylston St & Dartmouth St</span>
+					    </li>
+					    <li>
+					    	<span class="schedule-day">Wed</span>
+					    	<span class="schedule-time">4 - 8</span>
+					    	<span class="schedule-location">BU East</span>
+					    </li>
+					    <li>
+					    	<span class="schedule-day">Thu</span>
+					    	<span class="schedule-time">11 - 3</span>
+					    	<span class="schedule-location">Fenway Food Trucks</span>
+					    </li>
+					    <li>
+					    	<span class="schedule-day">Thu</span>
+					    	<span class="schedule-time">11 - 7</span>
+					    	<span class="schedule-location">Harvard Science Center</span>
+					    </li>
+					    <li>
+					    	<span class="schedule-day">Fri</span>
+					    	<span class="schedule-time">11 - 3</span>
+					    	<span class="schedule-location">Dewey Square on the Greenway</span>
+					    </li>
+					    <li>
+					    	<span class="schedule-day">Fri</span>
+					    	<span class="schedule-time">11 - 7</span>
+					    	<span class="schedule-location">Harvard Science Center</span>
+					    </li>
+					    <li>
+					    	<span class="schedule-day">Sat</span>
+					    	<span class="schedule-time">11 - 3</span>
+					    	<span class="schedule-location">Harvard Science Center</span>
+					    </li>
+					    <li>
+					    	<span class="schedule-day">Sun</span>
+					    	<span class="schedule-time">11 - 3</span>
+					    	<span class="schedule-location">Harvard Science Center</span>
+					    </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="instagram">
+		<div class="container">
+		<iframe src="//users.instush.com/accordion-zoom/?w=1000&size=80&border=4&shadow=false&crowded=false&sl=true&bg_item=ffffff&bg=ffffff&lpc=ffffff&hc=e72476&ltc=3f3f3f&user_id=289679394&username=molingmolingmoling&sid=28115247&susername=roxysgrilledcheese&tag=-1&stype=user&t=999999CcXojmSRei5XrWtIJcGhbAMEw6Hc28tQZaWofr8nu1XJI4euOY5XKxI7alW7mUQa0-iwqpfuWWI" allowtransparency="true" frameborder="0" scrolling="yes"  style="display:block;width:100%;height:220px;border:none;overflow:scroll;" ></iframe>
+		</div>
+	</div>
+	<div class="menu">
+		<div class="container">
+			<h1 class="text-center">Menu</h1>
+			<div class="row">
+				<div class="menu-section col-xs-12 col-md-4">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+				</div>
+				<div class="menu-section col-xs-12 col-md-4">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+				</div>
+				<div class="menu-section col-xs-12 col-md-4">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div id='map'></div>
+	</div>
+	<div class="footer">
+		<div class="container-fluid">
+			<div class="footer-wrapper row">
+				<div class="copyright col-xs-8">
+					© 2015 ChewBoston. All rights reserved.
+				</div>
+				<ul class="sitemap col-xs-4 text-right">
+				    <li>Trucks</li>
+					<li>About</li>
+					<li>Contact</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="js/animation.js"></script>
+	<script src="js/map.js"></script>
+</body>
+</html>

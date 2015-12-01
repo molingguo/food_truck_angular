@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="foodTruck">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Food Truck</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src="js/app.js"></script>
+</head>
+<body ng-controller="foodTruckController">
+	<div class="container">
+		<div class="row header col-xs-12">
+			<div class="row">
+				<div class="col-xs-8">
+					<h2>Boston Food Trucks</h2>
+				</div>
+				<div class="col-xs-4">
+					<a href="styleguide.html"><h4>Style Guide</h4></a>
+				</div>
+			</div>
+		</div>
+		<div class="filter">
+			<div class="row col-xs-12 search">
+				<label>Search: <input ng-model="searchText" class="form-control"></label>
+			</div>
+			<div class="row select">
+				<div class="col-xs-12 col-sm-3">
+					<label>Name: 
+						<select ng-model="selectTruck.company" class="form-control">
+							<option value="">All</option>
+							<option ng-repeat="truck in trucks | unique: 'company'| orderBy: 'company'">{{truck.company}}</option>
+						</select>
+					</label>
+				</div>
+				<div class="col-xs-6 col-sm-2">
+					<label>Day: 
+						<select ng-model="selectTruck.day_of_week" class="form-control">
+							<option value="">All</option>
+							<option ng-repeat="truck in trucks | unique: 'day_of_week' | orderBy: dayOfWeekOrder">{{truck.day_of_week}}</option>
+						</select>
+					</label>
+				</div>
+				<div class="col-xs-6 col-sm-2">
+					<label>Time: 
+						<select ng-model="selectTruck.time_of_day" class="form-control">
+							<option value="">All</option>
+							<option ng-repeat="truck in trucks | unique: 'time_of_day' | orderBy: timeOfDayOrder">{{truck.time_of_day}}</option>
+						</select>
+					</label>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<label>Location: 
+						<select ng-model="selectTruck.location" class="form-control">
+							<option value="">All</option>
+							<option ng-repeat="truck in trucks | unique: 'location' | orderBy: 'location'">{{truck.location}}</option>
+						</select>
+					</label>
+				</div>
+			</div>
+<!-- 			<div class="filter-placeholder">
+				<button class="btn btn-success" ng-if="searchText">{{searchText}}</button>
+				<button class="btn btn-success" ng-if="selectTruck.day_of_week">{{selectTruck.day_of_week}}</button>
+				<button class="btn btn-success" ng-if="selectTruck.time_of_day">{{selectTruck.time_of_day}}</button>
+			</div> -->
+		    <div class="clear-filter">
+		    	<button class="btn btn-info" ng-click="setCurrentFilter()">Today</button>
+				<button class="btn btn-default" ng-click="searchText=undefined; selectTruck=undefined">Clear All Filters</button>
+			</div>
+		</div>
+		<div class="row truck" ng-repeat="aTruck in trucks | filter:searchText | filter:selectTruck">
+			<div class="col-xs-12 col-sm-3 truck-name">
+				<div ng-if="aTruck.company_url != ''">
+					<a ng-href="{{aTruck.company_url}}" target="_blank">{{aTruck.company}}</a>
+				</div>
+				<div ng-if="aTruck.company_url == ''">
+					{{aTruck.company}}
+				</div>
+			</div>
+			<div class="col-xs-4 col-sm-2 truck-day">
+				{{aTruck.day_of_week}}
+			</div>
+			<div class="col-xs-8 col-sm-2 truck-time">
+				{{aTruck.time_of_day}}
+			</div>
+			<div class="col-xs-12 col-sm-5 truck-location">
+				{{aTruck.location}}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

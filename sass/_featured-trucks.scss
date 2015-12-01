@@ -1,0 +1,31 @@
+.featured-trucks {
+	margin-top: 2rem;
+
+	.truck-logo {
+		height: 280px;
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+			transition: all .16s;
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.075);
+			}
+		}
+	}
+
+	.view-all-trucks {
+		h2 {
+			margin-top: 0;
+		}
+	}
+}
+
+.truck-news {
+	background-color: $dark-blue;
+	height: 400px;
+	color: white;
+}
+

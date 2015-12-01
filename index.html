@@ -3,102 +3,311 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 	<title>Food Truck</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="sass/style.css">
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/angular.min.js"></script>
 	<script src="js/underscore-min.js"></script>
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 	<script src="js/app.js"></script>
 </head>
 <body ng-controller="foodTruckController">
-	<div class="container">
-		<div class="row header col-xs-12">
-			<div class="row">
-				<div class="col-xs-8">
-					<h2>Boston Food Trucks</h2>
-				</div>
-				<div class="col-xs-4">
-					<a href="styleguide.html"><h4>Style Guide</h4></a>
-				</div>
+	<nav class="navbar navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+				</button>
+				<a class="navbar-brand logo" href="/">
+					<!-- <img alt="Brand" src="..."> -->
+					<div class="brand-name"><span>CHEW</span>boston</div>
+				</a>
 			</div>
-			<div class="row">
-				<div class="col-xs-3 col-sm-2 col-md-1">Breakfast</div>
-				<div class="col-xs-9 col-sm-10 col-md-11">Before 10AM</div>
-				<div class="col-xs-3 col-sm-2 col-md-1">Lunch</div>
-				<div class="col-xs-9 col-sm-10 col-md-11">10AM - 3PM</div>
-				<div class="col-xs-3 col-sm-2 col-md-1">Dinner</div>
-				<div class="col-xs-9 col-sm-10 col-md-11">After 3PM</div>
-			</div>
-		</div>
-		<div class="filter">
-			<div class="row col-xs-12 search">
-				<label>Search: <input ng-model="searchText" class="form-control"></label>
-			</div>
-			<div class="row select">
-				<div class="col-xs-12 col-sm-3">
-					<label>Name: 
-						<select ng-model="selectTruck.company" class="form-control">
-							<option value="">All</option>
-							<option ng-repeat="truck in trucks | unique: 'company'| orderBy: 'company'">{{truck.company}}</option>
-						</select>
-					</label>
-				</div>
-				<div class="col-xs-6 col-sm-2">
-					<label>Day: 
-						<select ng-model="selectTruck.day_of_week" class="form-control">
-							<option value="">All</option>
-							<option ng-repeat="truck in trucks | unique: 'day_of_week' | orderBy: dayOfWeekOrder">{{truck.day_of_week}}</option>
-						</select>
-					</label>
-				</div>
-				<div class="col-xs-6 col-sm-2">
-					<label>Time: 
-						<select ng-model="selectTruck.time_of_day" class="form-control">
-							<option value="">All</option>
-							<option ng-repeat="truck in trucks | unique: 'time_of_day' | orderBy: timeOfDayOrder">{{truck.time_of_day}}</option>
-						</select>
-					</label>
-				</div>
-				<div class="col-xs-12 col-sm-5">
-					<label>Location: 
-						<select ng-model="selectTruck.location" class="form-control">
-							<option value="">All</option>
-							<option ng-repeat="truck in trucks | unique: 'location' | orderBy: 'location'">{{truck.location}}</option>
-						</select>
-					</label>
-				</div>
-			</div>
-<!-- 			<div class="filter-placeholder">
-				<button class="btn btn-success" ng-if="searchText">{{searchText}}</button>
-				<button class="btn btn-success" ng-if="selectTruck.day_of_week">{{selectTruck.day_of_week}}</button>
-				<button class="btn btn-success" ng-if="selectTruck.time_of_day">{{selectTruck.time_of_day}}</button>
-			</div> -->
-		    <div class="clear-filter">
-		    	<button class="btn btn-info" ng-click="setCurrentFilter()">Today</button>
-				<button class="btn btn-default" ng-click="searchText=undefined; selectTruck=undefined">Clear All Filters</button>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Find Food</a></li>
+					<li><a href="#">Trucks</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
 			</div>
 		</div>
-		<div class="row truck" ng-repeat="aTruck in trucks | filter:searchText | filter:selectTruck">
-			<div class="col-xs-12 col-sm-3 truck-name">
-				<div ng-if="aTruck.company_url != ''">
-					<a ng-href="{{aTruck.company_url}}" target="_blank">{{aTruck.company}}</a>
+	</nav>
+	<div class="splash">
+		<div class="container">
+			<h1 class="text-center" style="margin-top: 200px">Splash</h1>
+		</div>
+	</div>
+	<div class="find-trucks">
+		<div class="container">
+			<div class="row">
+				<div class="searchbox col-sm-6 col-sm-offset-3">
+					<input class="form-control search-truck" placeholder="What are you craving?">
+					<span class="glyphicon glyphicon-search"></span>
 				</div>
-				<div ng-if="aTruck.company_url == ''">
-					{{aTruck.company}}
+			</div>
+			<div class="row filter">
+				<div class="dropdown filter-dropdown col-xs-6 col-md-3">
+					<div class="dropdown-wrapper">
+						<button class="btn filter-button dropdown-toggle" type="button" id="dayFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							Day
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</button>
+						<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="dayFilter">
+							<li ng-repeat="truck in trucks | unique: 'day_of_week' | orderBy: dayOfWeekOrder">{{truck.day_of_week}}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="dropdown filter-dropdown col-xs-6 col-md-3">
+					<div class="dropdown-wrapper">
+						<button class="btn filter-button dropdown-toggle" type="button" id="timeFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							Time
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</button>
+						<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="timeFilter">
+							<li ng-repeat="truck in trucks | unique: 'time_of_day' | orderBy: timeOfDayOrder">{{truck.time_of_day}}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="dropdown filter-dropdown col-xs-6 col-md-3">
+					<div class="dropdown-wrapper">
+						<button class="btn filter-button dropdown-toggle" type="button" id="foodTypeFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							Food Type
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</button>
+						<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="foodTypeFilter">
+						    <li>Burgers</li>
+						    <li>Mexican</li>
+						    <li>Asian</li>
+						    <li>Dessert</li>
+						    <li>Drinks</li>
+						    <li>Vegetarian</li>
+						</ul>
+					</div>
+				</div>
+				<div class="dropdown filter-dropdown col-xs-6 col-md-3">
+					<div class="dropdown-wrapper">
+						<button class="btn filter-button dropdown-toggle" type="button" id="neighborhoodFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							Neighborhood
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</button>
+						<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="neighborhoodFilter">
+						    <li>Back Bay</li>
+						    <li>Green Way</li>
+						    <li>Financial District</li>
+						    <li>Chinatown</li>
+						    <li>NEU</li>
+						    <li>BU</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			<div class="col-xs-4 col-sm-2 truck-day">
-				{{aTruck.day_of_week}}
+		</div>
+		<div class="map-wrapper">
+			<div class="map-list active">
+				<div class="toggle-list">
+					<span class="glyphicon glyphicon-circle-arrow-left toggle-list-button"></span>
+				</div>
+				<div class="scroll-list">
+					<ul class="map-truck-list">
+						<li class="col-xs-12">
+							<div class="truck-icon col-xs-2">
+								<img src="img/food_truck.svg" alt="">
+							</div>
+							<div class="truck-name col-xs-10">
+								Bon Me
+							</div>
+							<div class="truck-foodtype col-xs-4">
+								Asian
+							</div>
+							<div class="truck-review col-xs-6">
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</div>
+						</li>
+						<li class="col-xs-12">
+							<div class="truck-icon col-xs-2">
+								<img src="img/food_truck.svg" alt="">
+							</div>
+							<div class="truck-name col-xs-10">
+								Roxy's Grilled Cheese
+							</div>
+							<div class="truck-foodtype col-xs-4">
+								Sandwiches
+							</div>
+							<div class="truck-review col-xs-6">
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</div>
+						</li>
+						<li class="col-xs-12">
+							<div class="truck-icon col-xs-2">
+								<img src="img/food_truck.svg" alt="">
+							</div>
+							<div class="truck-name col-xs-10">
+								Chicken & Rice Guys
+							</div>
+							<div class="truck-foodtype col-xs-4">
+								Meat, Rice
+							</div>
+							<div class="truck-review col-xs-6">
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</div>
+						</li>
+						<li class="col-xs-12">
+							<div class="truck-icon col-xs-2">
+								<img src="img/food_truck.svg" alt="">
+							</div>
+							<div class="truck-name col-xs-10">
+								Cookie Monstah
+							</div>
+							<div class="truck-foodtype col-xs-4">
+								Dessert
+							</div>
+							<div class="truck-review col-xs-6">
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</div>
+						</li>
+						<li class="col-xs-12">
+							<div class="truck-icon col-xs-2">
+								<img src="img/food_truck.svg" alt="">
+							</div>
+							<div class="truck-name col-xs-10">
+								Boston Burger Company
+							</div>
+							<div class="truck-foodtype col-xs-4">
+								Burgers
+							</div>
+							<div class="truck-review col-xs-6">
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</div>
+						</li>
+						<li class="col-xs-12">
+							<div class="truck-icon col-xs-2">
+								<img src="img/food_truck.svg" alt="">
+							</div>
+							<div class="truck-name col-xs-10">
+								Stoked Wood Fired Pizza
+							</div>
+							<div class="truck-foodtype col-xs-4">
+								Pizza
+							</div>
+							<div class="truck-review col-xs-6">
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</div>
+						</li>
+						<li class="col-xs-12">
+							<div class="truck-icon col-xs-2">
+								<img src="img/food_truck.svg" alt="">
+							</div>
+							<div class="truck-name col-xs-10">
+								Taco Party
+							</div>
+							<div class="truck-foodtype col-xs-4">
+								Tacos
+							</div>
+							<div class="truck-review col-xs-6">
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-xs-8 col-sm-2 truck-time">
-				{{aTruck.time_of_day}}
+			<div id='map'></div>
+		</div>
+	</div>
+	<div class="featured-trucks">
+		<div class="container">
+			<h1>Featured Trucks</h1>
+			<div class="row">
+				<div class="truck-logo col-xs-6 col-md-3">
+					<h3 class="text-center">Bon me</h3>
+					<img ng-src="img/logos/logo_bonme.png" />
+				</div>
+				<div class="truck-logo col-xs-6 col-md-3">
+					<h3 class="text-center">Roxy's Grilled Cheese</h3>
+					<a href="roxy.html"><img ng-src="img/logos/logo_roxysgrilledcheese.png" /></a>
+				</div>
+				<div class="truck-logo col-xs-6 col-md-3">
+					<h3 class="text-center">Chicken & Rice Guys</h3>
+					<img ng-src="img/logos/logo_chicken_riceguys.png" />
+				</div>
+				<div class="truck-logo col-xs-6 col-md-3">
+					<h3 class="text-center">Cookie Monstah</h3>
+					<img ng-src="img/logos/logo_cookiemonstah2.png" />
+				</div>
+				<div class="truck-logo col-xs-6 col-md-3">
+					<h3 class="text-center">Moyzilla</h3>
+					<img ng-src="img/logos/logo_moyzilla.00_png_srb.png" />
+				</div>
+				<div class="truck-logo col-xs-6 col-md-3">
+					<h3 class="text-center">Boston Burger Company</h3>
+					<img ng-src="img/logos/logo_bostonburgercompany.jpeg" />
+				</div>
+				<div class="truck-logo col-xs-6 col-md-3">
+					<h3 class="text-center">Stoked Wood Fired Pizza</h3>
+					<img ng-src="img/logos/logo_stokedwoodfiredpizza.png" />
+				</div>
+				<div class="truck-logo col-xs-6 col-md-3">
+					<h3 class="text-center">Taco Party</h3>
+					<img ng-src="img/logos/logo_tacoparty.png" />
+				</div>
 			</div>
-			<div class="col-xs-12 col-sm-5 truck-location">
-				{{aTruck.location}}
+			<div class="view-all-trucks">
+				<a href="#" class="text-center"><h2>View All Trucks</h2></a>
 			</div>
 		</div>
 	</div>
+	<div class="truck-news">
+		<div class="container">
+			<h1>Truck News</h1>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container-fluid">
+			<div class="footer-wrapper row">
+				<div class="copyright col-xs-8">
+					© 2015 ChewBoston. All rights reserved.
+				</div>
+				<ul class="sitemap col-xs-4 text-right">
+				    <li>Trucks</li>
+					<li>About</li>
+					<li>Contact</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="js/map.js"></script>
+	<script src="js/animation.js"></script>
 </body>
 </html>

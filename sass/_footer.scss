@@ -1,0 +1,21 @@
+.footer {
+	background-color: $gray;
+	height: 50px;
+	font-size: 1.6rem;
+}
+
+.footer-wrapper {
+	margin-top: 1.5rem;
+}
+
+ul.sitemap {
+	li {
+		display: inline-block;
+		border-right: 1px solid black;
+		padding: 0 2rem 0 1.5rem;
+
+		&:last-child {
+			border: none;
+		}
+	}
+}
