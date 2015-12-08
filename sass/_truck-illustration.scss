@@ -1,81 +1,178 @@
 .truck-illustration {
-	background-color: $green;
+	background-color: $very-light-gray;
 	position: relative;
+	padding-bottom: 2rem;
 
 	.large-truck {
 		position: relative;
-		top: 2rem;
+		top: 5rem;
 		left: -600px;
 		z-index: 2;
-		width: 50%;
+		width: 35%;
 
 		img {
 			min-width: 100%;
 		}
 	}
 
-	.truck-name {
-		text-transform: uppercase;
-		color: white;
+	.truck-name-wrapper {
+		color: $dark-green;
 		position: absolute;
 		top: 6rem;
-		width: 42%;
+		width: 50%;
+	}
 
-		h1 {
-			font-size: 6rem;
-			font-weight: bold;
-		}
+	.truck-name-logo {
+		max-width: 10%;
+	}
+
+	.truck-name {
+		display: inline-block;
+		padding-left: 1rem;
+		font-size: 4rem;
+		font-weight: bold;
+		font-family: $header-font;
+		text-transform: uppercase;
+	}
+
+	.truck-description {
+		width: 80%;
+		margin-top: 3rem;
+		color: $green;
 	}
 
 	.truck-info {
-		margin-top: 4rem;
+		margin-top: 10rem;
 		margin-bottom: 2rem;
-		color: white;
-		font-size: 2rem;
 
-		.truck-info-icon {
-			margin-right: 1rem;
+		.truck-info-section {
+			padding: 0;
 		}
 
-		> div {
-			margin-bottom: 1rem;
+		.info-type {
+			color: $gray;
+			text-transform: uppercase;
+			font-size: 1.6rem;
+			font-weight: bold;
+			border-bottom: 1px solid $pink;
+		}
+
+		.info-image {
+			margin-top: 2rem;
+			height: 120px;
+
+			img {
+				max-width: 50%;
+			}
+
+			i, span {
+				font-size: 9rem;
+				color: $pink;
+			}
+		}
+
+		.info-type-content {
+			color: $gray;
+			font-size: 1.5rem;
 		}
 	}
 }
 
-.truck-description {
-	background-color: $light-blue;
-}
+.truck-schedule {
+	padding-top: 2rem;
+	padding-bottom: 5rem;
+	background-color: $pink;
+	color: white;
 
-.description-wrapper {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-
-	.description {
-		font-size: 1.75rem;
-		padding-right: 3rem;
+	h1, h5 {
+		text-transform: uppercase;
 	}
 
-	.schedule {
-		padding-right: 0;
+	h1 {
+		font-weight: bold;
+	}
 
-		ul.schedule-list {
-			padding-left: 0;
-		}
+	h5 {
+		color: $dark-blue;
+		font-size: 1.6rem;
+	}
+
+	.schedule-list {
+		padding: 1.2rem 0;
+		border-bottom: 1px solid $light-gray;
 
 		.schedule-day {
-			display: inline-block;
-			width: 5rem;
+			font-weight: bold;
+			text-transform: uppercase;
+			font-size: 1.6rem;
 		}
 
-		.schedule-time {
-			display: inline-block;
-			width: 7rem;
+		.schedule-location {
+			padding-left: 5rem;
+
+			.glyphicon-map-marker {
+				font-size: 3rem;
+				color: $dark-pink;
+				position: absolute;
+				left: 0;
+				top: -6px;
+			}
 		}
 	}
 }
 
 .menu {
-	background: $yellow;
+	background-image: url("../img/paper_texture.jpg");
 	padding-bottom: 4rem;
+
+	.menu-title {
+		color: $pink;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	h5 {
+		color: $dark-blue;
+		font-size: 1.6rem;
+	}
+
+	.menu-section {
+		margin-top: 2rem;
+	}
+
+	.menu-list {
+		margin: 2rem 0;
+	}
+
+	.price {
+		color: $red;
+		font-size: 4rem;
+		font-weight: bold;
+	}
+
+	.menu-item {
+		font-size: 2rem;
+		font-weight: bold;
+		color: $gray;
+		text-transform: uppercase;
+		margin-top: 1rem;
+	}
+
+	.menu-item-description {
+		color: $pink;
+		font-size: 1.5rem;
+	}
+}
+
+.instagram {
+
+	h1 {
+		color: $pink;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
+
+.featured-truck.truck-page {
+	background-image: url("../img/paper_texture.jpg");
 }

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	// $(window).load(function() {
-		$(".truck-illustration .large-truck").delay(1000).animate({left: '50%'}, 1500);
+		$(".truck-illustration .large-truck").delay(1000).animate({left: '60%'}, 1500);
 	// });
 	// 
 	// 

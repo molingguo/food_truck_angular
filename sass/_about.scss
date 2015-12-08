@@ -1,0 +1,43 @@
+.about {
+	padding-top: 5rem;
+	background-color: $light-green;
+
+
+	h1 {
+		font-family: $header-font;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $dark-green;
+		margin-bottom: 5rem;
+	}
+
+	.about-wrapper {
+		padding-bottom: 5rem;
+
+		.about-text {
+			font-size: 1.5rem;
+			color: white;
+		}
+	}
+
+	.contact-wrapper {
+		padding-bottom: 5rem;
+
+		.contact-form {
+			input, textarea {
+				padding: 1rem;
+				margin-bottom: 2rem;
+				width: 100%;
+				border-radius: 0;
+			}
+
+			.name-field {
+				padding-left: 0;
+			}
+
+			.email-field {
+				padding-right: 0;
+			}
+		}
+	}
+}

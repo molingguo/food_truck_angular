@@ -1,0 +1,47 @@
+.splash {
+	height: $splash-height;
+	background-color: $splash-background;
+
+	.splash-header, .splash-sub-header {
+		text-transform: uppercase;
+		color: $dark-green;
+	}
+
+	.splash-header {
+		margin-top: 5.5rem;
+		font-weight: bold;
+		font-family: $header-font;
+		font-size: 5rem;
+	}
+
+	.splash-sub-header {
+		margin-top: 0;
+		font-family: $body-font;
+		font-size: 2rem;
+	}
+
+	.splash-image {
+		margin-top: 5rem;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	.splash-text {
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 5rem;
+		color: white;
+		font-size: 1.8rem;
+	}
+
+	.splash-arrow {
+		width: 100%;
+		margin-top: 2rem;
+    	font-size: 3rem;
+    	color: white;
+    	opacity: 0.5;
+	}
+}

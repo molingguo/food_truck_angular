@@ -3,14 +3,29 @@
 // Colors
 $orange: #f5734b;
 $yellow: #fad089;
+$dark-green: #009193;
 $green: #469b9d;
+$medium-green: #6bc2bb;   //nav background
+$light-green: #76c7c0;   //splash background
 $light-blue: #9cc4e4;
+$very-light-blue: #C5EFF7;
+$blue: #446cb3;
 $dark-blue: #1b325f;
+$dark-gray: #666666;
 $gray: #999999;
+$light-gray: #dddddd;
+$very-light-gray: #f3f3f3;
+$red: #ef7271;
+$dark-pink: #f46161;
+$pink: #f78f8f;
 
 $light-orange: #f78f6e;
 
-$navbar-background: #fff;
+$navbar-background: $medium-green;
+$nav-link-color: #fff;
+$nav-link-hover-color: $light-gray;
+
+$splash-background: $light-green;
 
 // Typography
 $header-font: 'Open Sans Condensed', sans-serif;
@@ -19,5 +34,8 @@ $body-font: 'Raleway', sans-serif;
 
 // Measurements
 $navbar-height: 60px;
-$map-height: 450px;
+$splash-height: 520px;
+$map-height: 460px;
 $map-list-width: 350px;
+$map-list-header-height: 55px;
+$footer-height: 50px;

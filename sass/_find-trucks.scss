@@ -18,8 +18,17 @@
 	}
 }
 
+.filter-wrapper {
+	position: absolute;
+    z-index: 2;
+    margin-left: $map-list-width;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: calc(100% - 400px);
+}
+
 .filter {
-	margin-top: 2rem;
+	margin-top: 1rem;
 }
 
 .filter-dropdown {
@@ -32,10 +41,11 @@
 	.filter-button {
 		width: 100%;
 		padding: 6px 20px;
-		background-color: $orange;
+		background-color: $blue;
 		color: white;
 		font-weight: 500;
-		font-size: 1.6rem;
+		font-size: 1.5rem;
+		border-radius: 0;
 
 		.glyphicon-chevron-down {
 			top: 3px;
@@ -44,16 +54,17 @@
 	}
 
 	.filter-dropdown-menu {
-		background-color: #f5734b;
+		background-color: $blue;
 		color: white;
 		width: 100%;
+		border-radius: 0;
 
 		> li {
 			padding: 0.5rem 1rem;
 
 			&:hover {
 				cursor: pointer;
-				background-color: $light-orange;
+				background-color: $dark-blue;
 			}
 		}
 	}
@@ -68,7 +79,7 @@
 	height: $map-height;
 	width: $map-list-width;
     z-index: 2;
-	background-color: $light-blue;
+	background-color: $very-light-blue;
 	-ms-transform: translateX(-$map-list-width+50px); /* IE 9 */
    	-webkit-transform: translateX(-$map-list-width+50px); /* Safari */
     transform: translateX(-$map-list-width+50px);
@@ -85,28 +96,42 @@
 	}
 
 	.toggle-list {
-		position: absolute;
-		right: 1rem;
-    	top: 1rem;
-    	font-size: 3rem;
-    	color: white;
+		position: relative;
+		padding-left: 2rem;
     	z-index: 2;
+    	height: $map-list-header-height;
 
-    	&:hover {
-    		cursor: pointer;
-    		color: #eee;
+    	.find-food {
+    		font-size: 2.6rem;
+    		padding: 1rem 0;
+    		font-family: $header-font;
+    		font-weight: bold;
+    		text-transform: uppercase;
+    		color: $blue;
+    	}
+
+    	.toggle-list-button {
+    		position: absolute;
+    		right: 1rem;
+    		top: 1.2rem;
+    		font-size: 3rem;
+    		color: $blue;
+
+    		&:hover {
+    			cursor: pointer;
+    			color: $dark-blue;
+    		}
     	}
 	}
 
 	.scroll-list {
 		position: relative;
     	overflow-y: scroll;
-    	height: $map-height;
+    	height: $map-height - $map-list-header-height;
     	pointer-events: none;
 	}
 
 	.map-truck-list {
-		margin-top: 3rem;
     	margin-left: -1rem;
     	padding-left: 0;
 
@@ -114,6 +139,7 @@
     		padding-top: 1.2rem;
     		padding-bottom: 1.2rem;
     		transition: all 0.2s;
+    		color: $dark-blue;
 
     		&:hover {
     			background-color: $dark-blue;
@@ -122,18 +148,30 @@
     		}
     	}
 
-		.truck-icon img {
-			max-width: 45px;
-    		position: relative;
-    		top: 6px;
+		.truck-icon {
+			font-size: 2.5rem;
+			color: $blue;
 		}
+		// .truck-icon img {
+		// 	max-width: 45px;
+  //   		position: relative;
+  //   		top: 6px;
+		// }
 
 		.truck-name {
 			font-size: 1.8rem;
+			padding-left: 0;
+			// color: $dark-blue;
+			text-decoration: underline;
 		}
 
 		.truck-foodtype, .truck-review {
 			font-size: 1.2rem;
+			color: $gray;
+		}
+
+		.truck-foodtype {
+			padding-left: 0;
 		}
 	}
 }

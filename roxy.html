@@ -24,15 +24,16 @@
 					<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
 				</button>
 				<a class="navbar-brand logo" href="/">
-					<!-- <img alt="Brand" src="..."> -->
-					<div class="brand-name"><span>CHEW</span>boston</div>
+					<img alt="brand-logo" src="img/sitelogo.png">
+<!-- 				<div class="brand-name"><span>CHEW</span>boston</div> -->
 				</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="#">Find Food</a></li>
-					<li class="active"><a href="#">Trucks</a></li>
+					<li><a href="#">The Trucks</a></li>
 					<li><a href="#">About</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -42,119 +43,209 @@
 			<div class="large-truck">
 				<img src="img/food_truck.svg" alt="">
 			</div>
-			<div class="truck-name">
-				<h1>Roxy's Gourmet Grilled Cheese</h1>
+			<div class="truck-name-wrapper">
+				<img src="img/logos/logo_roxysgrilledcheese.png" class="truck-name-logo" alt="">
+				<div class="truck-name">Roxy's Gourmet Grilled Cheese</div>
+				<div class="truck-description">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+				</div>
 			</div>
 			<div class="row truck-info">
-				<div class="col-xs-12 col-sm-6">
-					<span class="glyphicon glyphicon-tags truck-info-icon"></span>
-					Sandwiches
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+					<div class="info-type text-center">Ratings</div>
+					<div class="info-image text-center">
+						<i class="icon-yelp"></i>
+					</div>
+					<div class="info-type-content text-center">
+						2425 Reviews
+					</div>
 				</div>
-				<div class="col-xs-12 col-sm-6">
-					<span class="glyphicon glyphicon-heart truck-info-icon"></span>
-					Featured Food:
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+					<div class="info-type text-center">Type</div>
+					<div class="info-image text-center">
+						<img src="img/hamburger.svg" alt="">
+					</div>
+					<div class="info-type-content text-center">American</div>
 				</div>
-				<div class="col-xs-12 col-sm-6">
-					<span class="glyphicon glyphicon-star truck-info-icon"></span>
-					Reviews:
-<!-- 					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star-empty"></span> -->
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+					<div class="info-type text-center">Popular Item</div>
+					<div class="info-image text-center">
+						<span class="glyphicon glyphicon-heart"></span>
+					</div>
+					
+					<div class="info-type-content text-center">Rookie Melt</div>
 				</div>
-				<div class="col-xs-12 col-sm-6">
-					<span class="glyphicon glyphicon-map-marker truck-info-icon"></span>
-					Current Truck
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+					<div class="info-type text-center">Current Location</div>
+					<div class="info-image text-center">
+						<span class="glyphicon glyphicon-map-marker"></span>
+					</div>
+					<div class="info-type-content text-center">Government Center</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="truck-description">
+	<div class="truck-schedule">
 		<div class="container">
-			<div class="row description-wrapper">
-				<div class="description col-xs-12 col-sm-6">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+			<h1>Schedule</h1>
+			<h5>(Subject to change)</h5>
+			<div class="schedule col-md-10 col-md-offset-1">
+				<div class="row schedule-list">
+					<div class="col-xs-3 schedule-day">Monday</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>Dewey Square on the Greenway</div>
+					<div class="col-xs-3 schedule-time">11 - 2: 30PM</div>
 				</div>
-				<div class="schedule col-xs-12 col-sm-6">
-					<ul class="schedule-list">
-						<li>
-							<span class="schedule-day">Mon</span>
-							<span class="schedule-time">11 - 2:30</span>
-							<span class="schedule-location">BU East</span>
-						</li>
-						<li>
-							<span class="schedule-day">Mon</span>
-							<span class="schedule-time">11 - 2:30</span>
-							<span class="schedule-location">Dewey Square on the Greenway</span>
-						</li>
-					    <li>
-					    	<span class="schedule-day">Wed</span>
-					    	<span class="schedule-time">11 - 2:30</span>
-					    	<span class="schedule-location">Rowes Wharf Plaza on the Greenway</span>
-					    </li>
-					    <li>
-					    	<span class="schedule-day">Wed</span>
-					    	<span class="schedule-time">11 - 2:30</span>
-					    	<span class="schedule-location">Boston Public Library at Boylston St & Dartmouth St</span>
-					    </li>
-					    <li>
-					    	<span class="schedule-day">Wed</span>
-					    	<span class="schedule-time">4 - 8</span>
-					    	<span class="schedule-location">BU East</span>
-					    </li>
-					    <li>
-					    	<span class="schedule-day">Thu</span>
-					    	<span class="schedule-time">11 - 3</span>
-					    	<span class="schedule-location">Fenway Food Trucks</span>
-					    </li>
-					    <li>
-					    	<span class="schedule-day">Thu</span>
-					    	<span class="schedule-time">11 - 7</span>
-					    	<span class="schedule-location">Harvard Science Center</span>
-					    </li>
-					    <li>
-					    	<span class="schedule-day">Fri</span>
-					    	<span class="schedule-time">11 - 3</span>
-					    	<span class="schedule-location">Dewey Square on the Greenway</span>
-					    </li>
-					    <li>
-					    	<span class="schedule-day">Fri</span>
-					    	<span class="schedule-time">11 - 7</span>
-					    	<span class="schedule-location">Harvard Science Center</span>
-					    </li>
-					    <li>
-					    	<span class="schedule-day">Sat</span>
-					    	<span class="schedule-time">11 - 3</span>
-					    	<span class="schedule-location">Harvard Science Center</span>
-					    </li>
-					    <li>
-					    	<span class="schedule-day">Sun</span>
-					    	<span class="schedule-time">11 - 3</span>
-					    	<span class="schedule-location">Harvard Science Center</span>
-					    </li>
-					</ul>
+				<div class="row schedule-list">
+					<div class="col-xs-3 schedule-day">Wednesday</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>Rowes Wharf Plaza on the Greenway</div>
+					<div class="col-xs-3 schedule-time">11 - 2: 30PM</div>
+				</div>
+				<div class="row schedule-list">
+					<div class="col-xs-3 schedule-day">Wednesday</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>Boston Public Library at Boylston St & Dartmouth St</div>
+					<div class="col-xs-3 schedule-time">11 - 2: 30PM</div>
+				</div>
+				<div class="row schedule-list">
+					<div class="col-xs-3 schedule-day">Thursday</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>Fenway Food Trucks</div>
+					<div class="col-xs-3 schedule-time">11 - 3PM</div>
+				</div>
+				<div class="row schedule-list">
+					<div class="col-xs-3 schedule-day">Thursday</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>Harvard Science Center</div>
+					<div class="col-xs-3 schedule-time">11 - 7PM</div>
+				</div>
+				<div class="row schedule-list">
+					<div class="col-xs-3 schedule-day">Friday</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>Dewey Square on the Greenway</div>
+					<div class="col-xs-3 schedule-time">11 - 3PM</div>
+				</div>
+				<div class="row schedule-list">
+					<div class="col-xs-3 schedule-day">Saturday</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>Harvard Science Center</div>
+					<div class="col-xs-3 schedule-time">11 - 3PM</div>
+				</div>
+				<div class="row schedule-list">
+					<div class="col-xs-3 schedule-day">Sunday</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>Harvard Science Center</div>
+					<div class="col-xs-3 schedule-time">11 - 3PM</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu">
+		<div class="container">
+			<h1 class="menu-title">Menu</h1>
+			<h5>(Subject to change)</h5>
+			<div class="row">
+				<div class="menu-section col-xs-12 col-sm-6">
+					<div class="row menu-list">
+						<div class="price col-xs-2">
+							$7
+						</div>
+						<div class="menu-item col-xs-10">
+							MUNSTER GRILLED CHEESE
+						</div>
+						<div class="menu-item-description col-xs-10">
+							muenster, bacon, house made guacamole
+						</div>
+					</div>
+					<div class="row menu-list">
+						<div class="price col-xs-2">
+							$6
+						</div>
+						<div class="menu-item col-xs-10">
+							Tomato Soup
+						</div>
+						<div class="menu-item-description col-xs-10">
+							(seasonal)
+						</div>
+					</div>
+					<div class="row menu-list">
+						<div class="price col-xs-2">
+							$6
+						</div>
+						<div class="menu-item col-xs-10">
+							BACON CHEDDAR SANDWICH
+						</div>
+						<div class="menu-item-description col-xs-10">
+							house made guacamole
+						</div>
+					</div>
+				</div>
+				<div class="menu-section col-xs-12 col-sm-6">
+					<div class="row menu-list">
+						<div class="price col-xs-2">
+							$4
+						</div>
+						<div class="menu-item col-xs-10">
+							HANDCUT TRUFFLE FRIES
+						</div>
+						<div class="menu-item-description col-xs-10">
+							quis nisi vitae
+						</div>
+					</div>
+					<div class="row menu-list">
+						<div class="price col-xs-2">
+							$6
+						</div>
+						<div class="menu-item col-xs-10">
+							MUNSTER GRILLED CHEESE
+						</div>
+						<div class="menu-item-description col-xs-10">
+							muenster, bacon, house made guacamole
+						</div>
+					</div>
+					<div class="row menu-list">
+						<div class="price col-xs-2">
+							$3
+						</div>
+						<div class="menu-item col-xs-10">
+							Housemade Lemonade
+						</div>
+						<div class="menu-item-description col-xs-10">
+							quis nisi vitae
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="instagram">
 		<div class="container">
+		<h1>Instagram</h1>
 		<iframe src="//users.instush.com/accordion-zoom/?w=1000&size=80&border=4&shadow=false&crowded=false&sl=true&bg_item=ffffff&bg=ffffff&lpc=ffffff&hc=e72476&ltc=3f3f3f&user_id=289679394&username=molingmolingmoling&sid=28115247&susername=roxysgrilledcheese&tag=-1&stype=user&t=999999CcXojmSRei5XrWtIJcGhbAMEw6Hc28tQZaWofr8nu1XJI4euOY5XKxI7alW7mUQa0-iwqpfuWWI" allowtransparency="true" frameborder="0" scrolling="yes"  style="display:block;width:100%;height:220px;border:none;overflow:scroll;" ></iframe>
 		</div>
 	</div>
-	<div class="menu">
+	<div class="featured-truck truck-page">
 		<div class="container">
-			<h1 class="text-center">Menu</h1>
-			<div class="row">
-				<div class="menu-section col-xs-12 col-md-4">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+			<div class="row content-wrapper">
+				<div class="col-xs-12 col-md-4 featured-text">
+					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo. </p>
+					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis.</p>
 				</div>
-				<div class="menu-section col-xs-12 col-md-4">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+				<div class="col-xs-12 col-md-4 featured-highlight">
+					<h1 class="text-center large-text">On average</h1>
+					<h1 class="text-center large-number">780</h1>
+					<h1 class="text-center large-text">Sandwiches</h1>
+					<h1 class="text-center medium-text">sold per week</h1>
 				</div>
-				<div class="menu-section col-xs-12 col-md-4">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.
+				<div class="col-xs-12 col-md-4 featured-image">
+					<img src="img/cheese.png" alt="">
+				</div>
+			</div>
+			<div class="row featured-quote">
+				<div class="col-xs-3 quote-mark text-right">
+					&#8220;
+				</div>
+				<div class="col-xs-6 quote-body text-center">
+					We make the best grilled cheese sandwiches in all of boston, ever, ever
+				</div>
+				<div class="col-xs-3 quote-mark">
+					&#8221;
+				</div>
+				<div class="col-xs-12 text-center quote-credit">
+					CEO John Smith Sanders
 				</div>
 			</div>
 		</div>
@@ -165,13 +256,21 @@
 	<div class="footer">
 		<div class="container-fluid">
 			<div class="footer-wrapper row">
-				<div class="copyright col-xs-8">
-					© 2015 ChewBoston. All rights reserved.
+				<div class="copyright col-xs-6">
+					<img alt="brand-logo" src="img/sitelogo.png">
+					© 2015 All rights reserved.
 				</div>
-				<ul class="sitemap col-xs-4 text-right">
-				    <li>Trucks</li>
-					<li>About</li>
-					<li>Contact</li>
+<!-- 				<ul class="sitemap col-xs-4">
+				    <li>FIND FOOD</li>
+					<li>THE TRUCKS</li>
+					<li>ABOUT</li>
+				</ul> -->
+				<ul class="social-media col-xs-6 text-right">
+					<li><i class="icon-envelope"></i></li>
+					<li><i class="icon-twitter"></i></li>
+					<li><i class="icon-facebook"></i></li>
+					<li><i class="icon-instagram"></i></li>
+					<li><i class="icon-yelp"></i></li>
 				</ul>
 			</div>
 		</div>

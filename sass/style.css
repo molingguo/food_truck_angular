@@ -1,4 +1,38 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,300,600|Open+Sans+Condensed:300,700);
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?y5txq8");
+  src: url("../fonts/icomoon.eot?y5txq8#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?y5txq8") format("truetype"), url("../fonts/icomoon.woff?y5txq8") format("woff"), url("../fonts/icomoon.svg?y5txq8#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-twitter:before {
+  content: "\f099"; }
+
+.icon-facebook:before {
+  content: "\f09a"; }
+
+.icon-envelope:before {
+  content: "\f0e0"; }
+
+.icon-instagram:before {
+  content: "\f16d"; }
+
+.icon-yelp:before {
+  content: "\f1e9"; }
+
 body {
   font-family: "Raleway", sans-serif; }
 
@@ -19,40 +53,68 @@ ul {
 .navbar {
   min-height: 60px;
   margin-bottom: 0;
-  background-color: #fff; }
+  background-color: #6bc2bb;
+  border-bottom: 1px solid white; }
 
 .navbar-brand {
   height: 60px; }
 
-.navbar-header .logo a {
-  color: #999999; }
-.navbar-header .brand-name {
-  color: #999999;
-  line-height: 1;
-  font-size: 3rem;
-  margin-top: -10px; }
-  .navbar-header .brand-name span {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-weight: bold;
-    color: #469b9d;
-    font-size: 5rem;
-    padding-right: 1rem; }
+.navbar-header .logo img {
+  max-width: 65px; }
 .navbar-header .glyphicon-menu-hamburger {
   font-size: 2rem; }
 
 .navbar-nav {
   float: right;
   margin-top: 10px;
-  font-size: 2rem; }
+  font-size: 2rem;
+  letter-spacing: 1px; }
+  .navbar-nav > li {
+    padding-left: 2rem; }
   .navbar-nav li.active a {
-    background-color: #fff !important;
+    background-color: #6bc2bb !important;
     color: #f5734b; }
-  .navbar-nav li a:hover {
-    background-color: #fff !important; }
+  .navbar-nav li a {
+    color: #fff;
+    text-transform: uppercase; }
+    .navbar-nav li a:hover {
+      background-color: #6bc2bb !important;
+      color: #dddddd; }
+    .navbar-nav li a span.glyphicon-search {
+      top: -1px; }
 
 .splash {
-  height: 500px;
-  background-color: #9cc4e4; }
+  height: 520px;
+  background-color: #76c7c0; }
+  .splash .splash-header, .splash .splash-sub-header {
+    text-transform: uppercase;
+    color: #009193; }
+  .splash .splash-header {
+    margin-top: 5.5rem;
+    font-weight: bold;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 5rem; }
+  .splash .splash-sub-header {
+    margin-top: 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 2rem; }
+  .splash .splash-image {
+    margin-top: 5rem; }
+    .splash .splash-image img {
+      max-width: 100%; }
+  .splash .splash-text {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    color: white;
+    font-size: 1.8rem; }
+  .splash .splash-arrow {
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 3rem;
+    color: white;
+    opacity: 0.5; }
 
 .find-trucks {
   margin-top: 4rem; }
@@ -67,8 +129,16 @@ ul {
   right: 3rem;
   color: #999999; }
 
+.filter-wrapper {
+  position: absolute;
+  z-index: 2;
+  margin-left: 350px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: calc(100% - 400px); }
+
 .filter {
-  margin-top: 2rem; }
+  margin-top: 1rem; }
 
 .filter-dropdown {
   margin-bottom: 1rem; }
@@ -77,32 +147,34 @@ ul {
   .filter-dropdown .filter-button {
     width: 100%;
     padding: 6px 20px;
-    background-color: #f5734b;
+    background-color: #446cb3;
     color: white;
     font-weight: 500;
-    font-size: 1.6rem; }
+    font-size: 1.5rem;
+    border-radius: 0; }
     .filter-dropdown .filter-button .glyphicon-chevron-down {
       top: 3px;
       left: 3px; }
   .filter-dropdown .filter-dropdown-menu {
-    background-color: #f5734b;
+    background-color: #446cb3;
     color: white;
-    width: 100%; }
+    width: 100%;
+    border-radius: 0; }
     .filter-dropdown .filter-dropdown-menu > li {
       padding: 0.5rem 1rem; }
       .filter-dropdown .filter-dropdown-menu > li:hover {
         cursor: pointer;
-        background-color: #f78f6e; }
+        background-color: #1b325f; }
 
 .map-wrapper {
   margin-top: 2rem; }
 
 .map-list {
   position: absolute;
-  height: 450px;
+  height: 460px;
   width: 350px;
   z-index: 2;
-  background-color: #9cc4e4;
+  background-color: #C5EFF7;
   -ms-transform: translateX(-300px);
   /* IE 9 */
   -webkit-transform: translateX(-300px);
@@ -118,134 +190,303 @@ ul {
     .map-list.active .scroll-list {
       pointer-events: auto; }
   .map-list .toggle-list {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    font-size: 3rem;
-    color: white;
-    z-index: 2; }
-    .map-list .toggle-list:hover {
-      cursor: pointer;
-      color: #eee; }
+    position: relative;
+    padding-left: 2rem;
+    z-index: 2;
+    height: 55px; }
+    .map-list .toggle-list .find-food {
+      font-size: 2.6rem;
+      padding: 1rem 0;
+      font-family: "Open Sans Condensed", sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #446cb3; }
+    .map-list .toggle-list .toggle-list-button {
+      position: absolute;
+      right: 1rem;
+      top: 1.2rem;
+      font-size: 3rem;
+      color: #446cb3; }
+      .map-list .toggle-list .toggle-list-button:hover {
+        cursor: pointer;
+        color: #1b325f; }
   .map-list .scroll-list {
     position: relative;
     overflow-y: scroll;
-    height: 450px;
+    height: 405px;
     pointer-events: none; }
   .map-list .map-truck-list {
-    margin-top: 3rem;
     margin-left: -1rem;
     padding-left: 0; }
     .map-list .map-truck-list > li {
       padding-top: 1.2rem;
       padding-bottom: 1.2rem;
-      transition: all 0.2s; }
+      transition: all 0.2s;
+      color: #1b325f; }
       .map-list .map-truck-list > li:hover {
         background-color: #1b325f;
         color: white;
         cursor: pointer; }
-    .map-list .map-truck-list .truck-icon img {
-      max-width: 45px;
-      position: relative;
-      top: 6px; }
+    .map-list .map-truck-list .truck-icon {
+      font-size: 2.5rem;
+      color: #446cb3; }
     .map-list .map-truck-list .truck-name {
-      font-size: 1.8rem; }
+      font-size: 1.8rem;
+      padding-left: 0;
+      text-decoration: underline; }
     .map-list .map-truck-list .truck-foodtype, .map-list .map-truck-list .truck-review {
-      font-size: 1.2rem; }
+      font-size: 1.2rem;
+      color: #999999; }
+    .map-list .map-truck-list .truck-foodtype {
+      padding-left: 0; }
 
 #map {
   width: 100%;
-  height: 450px; }
+  height: 460px; }
 
 .mapbox-logo {
   display: none; }
 
-.featured-trucks {
-  margin-top: 2rem; }
-  .featured-trucks .truck-logo {
-    height: 280px; }
-    .featured-trucks .truck-logo img {
+.the-trucks {
+  padding-top: 2rem;
+  background-color: #9cc4e4; }
+  .the-trucks .the-trucks-title {
+    font-family: "Open Sans Condensed", sans-serif;
+    color: #446cb3;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .the-trucks .truck-logo {
+    height: 300px; }
+    .the-trucks .truck-logo a.image-wrapper {
+      width: 100%;
+      display: inline-block;
+      height: 200px; }
+    .the-trucks .truck-logo img {
       max-width: 100%;
       max-height: 100%;
       transition: all .16s; }
-      .featured-trucks .truck-logo img:hover {
+      .the-trucks .truck-logo img:hover {
         cursor: pointer;
         transform: scale(1.075); }
-  .featured-trucks .view-all-trucks h2 {
+    .the-trucks .truck-logo h3 {
+      color: white; }
+  .the-trucks .view-all-trucks h2 {
     margin-top: 0; }
 
-.truck-news {
-  background-color: #1b325f;
-  height: 400px;
-  color: white; }
+.featured-truck {
+  padding-top: 2rem;
+  padding-bottom: 5rem; }
+  .featured-truck .featured-truck-title {
+    font-family: "Open Sans Condensed", sans-serif;
+    color: #446cb3;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ef7271; }
+  .featured-truck .content-wrapper {
+    margin-top: 5rem; }
+  .featured-truck .featured-text p {
+    font-size: 1.64rem; }
+  .featured-truck .featured-highlight {
+    margin-top: 3rem; }
+    .featured-truck .featured-highlight h1 {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #ef7271;
+      margin: 0;
+      opacity: 0.7; }
+    .featured-truck .featured-highlight .large-number {
+      font-size: 16rem;
+      opacity: 1;
+      line-height: 0.9; }
+    .featured-truck .featured-highlight .large-text {
+      font-size: 4.5rem; }
+    .featured-truck .featured-highlight .medium-text {
+      font-size: 3.8rem; }
+  .featured-truck .featured-image img {
+    max-width: 100%; }
+  .featured-truck .featured-quote {
+    margin-top: 5rem; }
+    .featured-truck .featured-quote .quote-body, .featured-truck .featured-quote .quote-mark {
+      font-family: "Open Sans Condensed", sans-serif;
+      text-transform: uppercase;
+      color: #ef7271;
+      font-size: 3rem;
+      font-weight: bold;
+      opacity: 0.9; }
+    .featured-truck .featured-quote .quote-mark {
+      font-size: 12rem;
+      line-height: 0.6; }
+    .featured-truck .featured-quote .quote-credit {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 2rem; }
+
+.about {
+  padding-top: 5rem;
+  background-color: #76c7c0; }
+  .about h1 {
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #009193;
+    margin-bottom: 5rem; }
+  .about .about-wrapper {
+    padding-bottom: 5rem; }
+    .about .about-wrapper .about-text {
+      font-size: 1.5rem;
+      color: white; }
+  .about .contact-wrapper {
+    padding-bottom: 5rem; }
+    .about .contact-wrapper .contact-form input, .about .contact-wrapper .contact-form textarea {
+      padding: 1rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      border-radius: 0; }
+    .about .contact-wrapper .contact-form .name-field {
+      padding-left: 0; }
+    .about .contact-wrapper .contact-form .email-field {
+      padding-right: 0; }
 
 .footer {
-  background-color: #999999;
+  background-color: #6bc2bb;
   height: 50px;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  color: white;
+  border-top: 1px solid white; }
 
 .footer-wrapper {
   margin-top: 1.5rem; }
+  .footer-wrapper .copyright img {
+    max-width: 50px;
+    margin-right: 2.5rem; }
 
 ul.sitemap li {
   display: inline-block;
-  border-right: 1px solid black;
-  padding: 0 2rem 0 1.5rem; }
-  ul.sitemap li:last-child {
-    border: none; }
+  padding: 0 2rem; }
+
+ul.social-media {
+  margin-top: -7px;
+  margin-bottom: 0; }
+  ul.social-media > li {
+    display: inline-block;
+    font-size: 2.8rem;
+    padding: 0 1rem; }
 
 .truck-illustration {
-  background-color: #469b9d;
-  position: relative; }
+  background-color: #f3f3f3;
+  position: relative;
+  padding-bottom: 2rem; }
   .truck-illustration .large-truck {
     position: relative;
-    top: 2rem;
+    top: 5rem;
     left: -600px;
     z-index: 2;
-    width: 50%; }
+    width: 35%; }
     .truck-illustration .large-truck img {
       min-width: 100%; }
-  .truck-illustration .truck-name {
-    text-transform: uppercase;
-    color: white;
+  .truck-illustration .truck-name-wrapper {
+    color: #009193;
     position: absolute;
     top: 6rem;
-    width: 42%; }
-    .truck-illustration .truck-name h1 {
-      font-size: 6rem;
-      font-weight: bold; }
+    width: 50%; }
+  .truck-illustration .truck-name-logo {
+    max-width: 10%; }
+  .truck-illustration .truck-name {
+    display: inline-block;
+    padding-left: 1rem;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: "Open Sans Condensed", sans-serif;
+    text-transform: uppercase; }
+  .truck-illustration .truck-description {
+    width: 80%;
+    margin-top: 3rem;
+    color: #469b9d; }
   .truck-illustration .truck-info {
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-    color: white;
-    font-size: 2rem; }
-    .truck-illustration .truck-info .truck-info-icon {
-      margin-right: 1rem; }
-    .truck-illustration .truck-info > div {
-      margin-bottom: 1rem; }
+    margin-top: 10rem;
+    margin-bottom: 2rem; }
+    .truck-illustration .truck-info .truck-info-section {
+      padding: 0; }
+    .truck-illustration .truck-info .info-type {
+      color: #999999;
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: bold;
+      border-bottom: 1px solid #f78f8f; }
+    .truck-illustration .truck-info .info-image {
+      margin-top: 2rem;
+      height: 120px; }
+      .truck-illustration .truck-info .info-image img {
+        max-width: 50%; }
+      .truck-illustration .truck-info .info-image i, .truck-illustration .truck-info .info-image span {
+        font-size: 9rem;
+        color: #f78f8f; }
+    .truck-illustration .truck-info .info-type-content {
+      color: #999999;
+      font-size: 1.5rem; }
 
-.truck-description {
-  background-color: #9cc4e4; }
-
-.description-wrapper {
-  margin-top: 2rem;
-  margin-bottom: 2rem; }
-  .description-wrapper .description {
-    font-size: 1.75rem;
-    padding-right: 3rem; }
-  .description-wrapper .schedule {
-    padding-right: 0; }
-    .description-wrapper .schedule ul.schedule-list {
-      padding-left: 0; }
-    .description-wrapper .schedule .schedule-day {
-      display: inline-block;
-      width: 5rem; }
-    .description-wrapper .schedule .schedule-time {
-      display: inline-block;
-      width: 7rem; }
+.truck-schedule {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  background-color: #f78f8f;
+  color: white; }
+  .truck-schedule h1, .truck-schedule h5 {
+    text-transform: uppercase; }
+  .truck-schedule h1 {
+    font-weight: bold; }
+  .truck-schedule h5 {
+    color: #1b325f;
+    font-size: 1.6rem; }
+  .truck-schedule .schedule-list {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #dddddd; }
+    .truck-schedule .schedule-list .schedule-day {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 1.6rem; }
+    .truck-schedule .schedule-list .schedule-location {
+      padding-left: 5rem; }
+      .truck-schedule .schedule-list .schedule-location .glyphicon-map-marker {
+        font-size: 3rem;
+        color: #f46161;
+        position: absolute;
+        left: 0;
+        top: -6px; }
 
 .menu {
-  background: #fad089;
+  background-image: url("../img/paper_texture.jpg");
   padding-bottom: 4rem; }
+  .menu .menu-title {
+    color: #f78f8f;
+    text-transform: uppercase;
+    font-weight: bold; }
+  .menu h5 {
+    color: #1b325f;
+    font-size: 1.6rem; }
+  .menu .menu-section {
+    margin-top: 2rem; }
+  .menu .menu-list {
+    margin: 2rem 0; }
+  .menu .price {
+    color: #ef7271;
+    font-size: 4rem;
+    font-weight: bold; }
+  .menu .menu-item {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #999999;
+    text-transform: uppercase;
+    margin-top: 1rem; }
+  .menu .menu-item-description {
+    color: #f78f8f;
+    font-size: 1.5rem; }
+
+.instagram h1 {
+  color: #f78f8f;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.featured-truck.truck-page {
+  background-image: url("../img/paper_texture.jpg"); }
 
 /*# sourceMappingURL=style.css.map */
