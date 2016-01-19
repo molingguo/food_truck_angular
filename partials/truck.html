@@ -1,0 +1,127 @@
+<div class="truck-illustration">
+		<div class="container">
+			<div class="large-truck">
+				<img src="img/food_truck.svg" alt="">
+			</div>
+			<div class="truck-name-wrapper">
+				<img ng-src="img/logos/{{truck.logo}}" class="truck-name-logo" alt="">
+				<div class="truck-name">{{truck.name}}</div>
+				<div class="truck-description">
+					{{truck.description}}
+					<div ng-hide="truck.description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.</div>
+				</div>
+			</div>
+			<div class="row truck-info">
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+					<div class="info-type text-center">Ratings</div>
+					<div class="info-image text-center">
+						<i class="icon-yelp"></i>
+					</div>
+					<div class="info-type-content text-center">
+						2425 Reviews
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+					<div class="info-type text-center">Type</div>
+					<div class="info-image text-center">
+						<img src="img/hamburger.svg" alt="">
+					</div>
+					<div class="info-type-content text-center">{{truck.food_type}}</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+					<div class="info-type text-center">Popular Item</div>
+					<div class="info-image text-center">
+						<span class="glyphicon glyphicon-heart"></span>
+					</div>
+					
+					<div class="info-type-content text-center">{{truck.popular_dish}}</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+					<div class="info-type text-center">Current Location</div>
+					<div class="info-image text-center">
+						<span class="glyphicon glyphicon-map-marker"></span>
+					</div>
+					<div class="info-type-content text-center">Government Center</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="truck-schedule">
+		<div class="container">
+			<h1>Schedule</h1>
+			<h5>(Subject to change)</h5>
+			<div class="schedule col-md-10 col-md-offset-1">
+				<div class="row schedule-list" ng-repeat="sche in schedule">
+					<div class="col-xs-3 schedule-day">{{sche.day}}</div>
+					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>{{sche.location}}</div>
+					<div class="col-xs-3 schedule-time" ng-if="sche.open_time">{{sche.open_time}} – {{sche.close_time}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu" ng-show="menu[0].menu_item[0]">
+		<div class="container">
+			<h1 class="menu-title">Menu</h1>
+			<h5>(Subject to change)</h5>
+			<div class="menu-section" ng-repeat="amenu in menu">
+				<div class="menu-type col-xs-12" ng-show="amenu.type_name">
+					{{amenu.type_name}}
+				</div>
+				<div class="row">
+					<div class="menu-list col-xs-12 col-md-6" ng-repeat="item in amenu.menu_item">
+						<div class="price col-xs-2" ng-show="item.price">
+							${{item.price}}
+						</div>
+						<div class="menu-item col-xs-10">
+							{{item.name}}
+						</div>
+						<div class="menu-item-description" ng-class="{'col-xs-10' : item.price, 'col-xs-12': !item.price }">
+							{{item.description}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="instagram">
+		<div class="container">
+		<h1>Instagram</h1>
+		<iframe src="//users.instush.com/accordion-zoom/?w=1000&size=80&border=4&shadow=false&crowded=false&sl=true&bg_item=ffffff&bg=ffffff&lpc=ffffff&hc=e72476&ltc=3f3f3f&user_id=289679394&username=molingmolingmoling&sid=28115247&susername=roxysgrilledcheese&tag=-1&stype=user&t=999999CcXojmSRei5XrWtIJcGhbAMEw6Hc28tQZaWofr8nu1XJI4euOY5XKxI7alW7mUQa0-iwqpfuWWI" allowtransparency="true" frameborder="0" scrolling="yes"  style="display:block;width:100%;height:220px;border:none;overflow:scroll;" ></iframe>
+		</div>
+	</div>
+	<div class="featured-truck truck-page">
+		<div class="container">
+			<div class="row content-wrapper">
+				<div class="col-xs-12 col-md-4 featured-text">
+					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo. </p>
+					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis.</p>
+				</div>
+				<div class="col-xs-12 col-md-4 featured-highlight">
+					<h1 class="text-center large-text">On average</h1>
+					<h1 class="text-center large-number">780</h1>
+					<h1 class="text-center large-text">Sandwiches</h1>
+					<h1 class="text-center medium-text">sold per week</h1>
+				</div>
+				<div class="col-xs-12 col-md-4 featured-image">
+					<img src="img/cheese.png" alt="">
+				</div>
+			</div>
+			<div class="row featured-quote">
+				<div class="col-xs-3 quote-mark text-right">
+					&#8220;
+				</div>
+				<div class="col-xs-6 quote-body text-center">
+					We make the best grilled cheese sandwiches in all of boston, ever, ever
+				</div>
+				<div class="col-xs-3 quote-mark">
+					&#8221;
+				</div>
+				<div class="col-xs-12 text-center quote-credit">
+					CEO John Smith Sanders
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div id='map'></div>
+	</div>

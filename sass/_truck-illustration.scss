@@ -123,6 +123,7 @@
 
 .menu {
 	background-image: url("../img/paper_texture.jpg");
+	background-size: cover;
 	padding-bottom: 4rem;
 
 	.menu-title {
@@ -137,30 +138,47 @@
 	}
 
 	.menu-section {
-		margin-top: 2rem;
+		margin: 3rem 0;
+	}
+
+	.menu-type {
+		font-size: 3rem;
+		font-weight: bold;
+		color: $dark-gray;
+		text-transform: uppercase;
 	}
 
 	.menu-list {
-		margin: 2rem 0;
+		margin: 1rem 0;
+		//height: 90px;
+		//
+	}
+
+	@media (min-width: 992px) {
+		.menu-list:nth-child(odd) {
+			clear: left;
+		}
 	}
 
 	.price {
 		color: $red;
-		font-size: 4rem;
+		font-size: 2.75rem;
 		font-weight: bold;
+		letter-spacing: -1px;
 	}
 
 	.menu-item {
-		font-size: 2rem;
+		font-size: 1.75rem;
 		font-weight: bold;
 		color: $gray;
 		text-transform: uppercase;
 		margin-top: 1rem;
+		white-space: nowrap;
 	}
 
 	.menu-item-description {
 		color: $pink;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 	}
 }
 

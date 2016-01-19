@@ -50,6 +50,12 @@ body {
 ul {
   list-style: none; }
 
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
 .navbar {
   min-height: 60px;
   margin-bottom: 0;
@@ -256,18 +262,21 @@ ul {
     font-weight: bold;
     text-transform: uppercase; }
   .the-trucks .truck-logo {
-    height: 300px; }
+    margin: 3rem 0; }
     .the-trucks .truck-logo a.image-wrapper {
       width: 100%;
-      display: inline-block;
-      height: 200px; }
-    .the-trucks .truck-logo img {
-      max-width: 100%;
-      max-height: 100%;
-      transition: all .16s; }
-      .the-trucks .truck-logo img:hover {
-        cursor: pointer;
-        transform: scale(1.075); }
+      display: inline-block; }
+      .the-trucks .truck-logo a.image-wrapper:hover h3 {
+        color: #1b325f; }
+    .the-trucks .truck-logo img.truck-image {
+      transition: all .1s;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0; }
+      .the-trucks .truck-logo img.truck-image:hover {
+        transform: scale(1.08); }
     .the-trucks .truck-logo h3 {
       color: white; }
   .the-trucks .view-all-trucks h2 {
@@ -455,6 +464,7 @@ ul.social-media {
 
 .menu {
   background-image: url("../img/paper_texture.jpg");
+  background-size: cover;
   padding-bottom: 4rem; }
   .menu .menu-title {
     color: #f78f8f;
@@ -464,22 +474,32 @@ ul.social-media {
     color: #1b325f;
     font-size: 1.6rem; }
   .menu .menu-section {
-    margin-top: 2rem; }
+    margin: 3rem 0; }
+  .menu .menu-type {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #666666;
+    text-transform: uppercase; }
   .menu .menu-list {
-    margin: 2rem 0; }
+    margin: 1rem 0; }
+  @media (min-width: 992px) {
+    .menu .menu-list:nth-child(odd) {
+      clear: left; } }
   .menu .price {
     color: #ef7271;
-    font-size: 4rem;
-    font-weight: bold; }
+    font-size: 2.75rem;
+    font-weight: bold;
+    letter-spacing: -1px; }
   .menu .menu-item {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: bold;
     color: #999999;
     text-transform: uppercase;
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    white-space: nowrap; }
   .menu .menu-item-description {
     color: #f78f8f;
-    font-size: 1.5rem; }
+    font-size: 1.25rem; }
 
 .instagram h1 {
   color: #f78f8f;

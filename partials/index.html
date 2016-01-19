@@ -1,0 +1,198 @@
+<div class="splash">
+		<div class="container">
+			<h1 class="text-center splash-header">{{appTitle}}</h1>
+			<h3 class="text-center splash-sub-header">{{appLocation}}</h3>
+			<div class="text-center splash-image">
+				<img src="img/splash-trucks.png" alt="splash-trucks">
+			</div>
+			<div class="text-center splash-text">
+				{{splashText}}
+			</div>
+			<div class="splash-arrow text-center">
+				<span class="glyphicon glyphicon-chevron-down"></span>
+			</div>
+		</div>
+	</div>
+	<div class="find-trucks">
+		<div class="container">
+			<div class="row">
+				<div class="searchbox col-sm-6 col-sm-offset-3">
+					<input class="form-control search-truck" placeholder="{{searchPlaceholder}}">
+					<span class="glyphicon glyphicon-search"></span>
+				</div>
+			</div>
+		</div>
+		<div class="map-wrapper">
+			<div class="map-list active">
+				<div class="toggle-list">
+					<div class="find-food">{{findFoodTitle}}</div>
+					<span class="glyphicon glyphicon-circle-arrow-left toggle-list-button"></span>
+				</div>
+				<div class="scroll-list">
+					<ul class="map-truck-list">
+						<li class="col-xs-12" ng-repeat="truck in trucks">
+							<div class="truck-icon col-xs-2">
+								<span class="glyphicon glyphicon-map-marker"></span>
+							</div>
+							<div class="truck-name col-xs-10">
+								{{truck.name}}
+							</div>
+							<div class="truck-foodtype col-xs-4">
+								{{truck.food_type}}
+							</div>
+							<div class="truck-review col-xs-6">
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="filter-wrapper">
+				<div class="row filter">
+					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
+						<div class="dropdown-wrapper">
+							<button class="btn filter-button dropdown-toggle" type="button" id="dayFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Day
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</button>
+							<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="dayFilter">
+								<li>Monday</li>
+								<li>Tuesday</li>
+								<li>Wednesday</li>
+								<li>Thursday</li>
+								<li>Friday</li>
+								<li>Saturday</li>
+								<li>Sunday</li>
+							</ul>
+						</div>
+					</div>
+					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
+						<div class="dropdown-wrapper">
+							<button class="btn filter-button dropdown-toggle" type="button" id="timeFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Time
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</button>
+							<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="timeFilter">
+								<li>Breakfast</li>
+								<li>Lunch</li>
+								<li>Dinner</li>
+								<li>Late Night</li>
+							</ul>
+						</div>
+					</div>
+					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
+						<div class="dropdown-wrapper">
+							<button class="btn filter-button dropdown-toggle" type="button" id="foodTypeFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Food Type
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</button>
+							<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="foodTypeFilter">
+								<li>Burgers</li>
+								<li>Mexican</li>
+								<li>Asian</li>
+								<li>Dessert</li>
+								<li>Drinks</li>
+								<li>Vegetarian</li>
+							</ul>
+						</div>
+					</div>
+					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
+						<div class="dropdown-wrapper">
+							<button class="btn filter-button dropdown-toggle" type="button" id="neighborhoodFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Neighborhood
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</button>
+							<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="neighborhoodFilter">
+								<li>Back Bay</li>
+								<li>Green Way</li>
+								<li>Financial District</li>
+								<li>Chinatown</li>
+								<li>NEU</li>
+								<li>BU</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='map'></div>
+		</div>
+	</div>
+	<div class="the-trucks">
+		<div class="container">
+			<h1 class="the-trucks-title">{{truckListTitle}}</h1>
+			<div class="row">
+				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in trucks">
+					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
+						<img src="img/trucks/bg.png" class="truck-frame" />
+						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" />
+						<h3 class="text-center">{{truck.name}}</h3>
+					</a>
+				</div>
+			</div>
+			<div class="view-all-trucks">
+				<a href="#"><h2>View All<span class="glyphicon glyphicon-chevron-right"></span></h2></a>
+			</div>
+		</div>
+	</div>
+	<div class="featured-truck">
+		<div class="container">
+			<h1 class="featured-truck-title">Featured: Roxy's Grilled Cheese</h1>
+			<div class="row content-wrapper">
+				<div class="col-xs-12 col-md-4 featured-text">
+					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo. </p>
+					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis.</p>
+				</div>
+				<div class="col-xs-12 col-md-4 featured-highlight">
+					<h1 class="text-center large-text">On average</h1>
+					<h1 class="text-center large-number">780</h1>
+					<h1 class="text-center large-text">Sandwiches</h1>
+					<h1 class="text-center medium-text">sold per week</h1>
+				</div>
+				<div class="col-xs-12 col-md-4 featured-image">
+					<img src="img/cheese.png" alt="">
+				</div>
+			</div>
+			<div class="row featured-quote">
+				<div class="col-xs-3 quote-mark text-right">
+					&#8220;
+				</div>
+				<div class="col-xs-6 quote-body text-center">
+					We make the best grilled cheese sandwiches in all of boston, ever, ever
+				</div>
+				<div class="col-xs-3 quote-mark">
+					&#8221;
+				</div>
+				<div class="col-xs-12 text-center quote-credit">
+					CEO John Smith Sanders
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-6 about-wrapper">
+					<h1>About</h1>
+					<div class="about-text">
+						Northeastern University capstone group project lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin efficitur urna enim, a tempus arcu eleifend ut. Maecenas pretium, enim ut rhoncus feugiat, nibh eros lobortis magna, nec scelerisque quam nulla id urna. Quisque at blandit diam. Sed congue dolor quis massa sagittis, in facilisis arcu sollicitudin. Pellentesque est massa, molestie nec iaculis non, cursus id tortor. Curabitur quis felis accumsan, ullamcorper augue sed, aliquet mauris. Sed a lorem et sapien semper hendrerit et ac turpis. Duis sagittis ac nunc ut pulvinar. Maecenas vitae viverra velit, ac maximus sapien. Sed convallis augue eget massa feugiat, consequat placerat sem dignissim. Nulla lobortis molestie fringilla. Etiam dictum in urna gravida tempor. Pellentesque scelerisque nec enim quis rhoncus.
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-6 contact-wrapper">
+					<h1>Contact</h1>
+					<form class="contact-form">
+						<div class="name-field col-xs-12 col-md-6">
+							<input type="text" placeholder="NAME">
+						</div>
+						<div class="email-field col-xs-12 col-md-6">
+							<input type="text" placeholder="EMAIL">
+						</div>
+						<textarea class="form-control" rows="6" placeholder="MESSAGE"></textarea>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>

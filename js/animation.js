@@ -1,9 +1,5 @@
 $(document).ready(function(){
-	// $(window).load(function() {
-		$(".truck-illustration .large-truck").delay(1000).animate({left: '60%'}, 1500);
-	// });
-	// 
-	// 
+
 	// map-list toggle animation
 	$(".map-wrapper .map-list .toggle-list").on( "click", function() {
   		
@@ -21,3 +17,7 @@ $(document).ready(function(){
 
 	});
 });
+
+var truckAnimation = function() {
+  $(".truck-illustration .large-truck").delay(1000).animate({left: '60%'}, 1500);
+}
