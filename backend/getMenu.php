@@ -27,7 +27,7 @@ $query3 = "select menu_item.name, menu_item.description, ".
 "menu_item.price from menu_item join menu_type where ".
 "menu_item.type_id = menu_type.id ".
 "and menu_item.truck_route like '$routeName' ".
-"order by menu_type.order, menu_item.name";
+"order by menu_type.order";
 
 $result = $conn->query($query1) or die($conn->error.__LINE__);
 

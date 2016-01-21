@@ -14,6 +14,42 @@ app.controller('MainController', ['$http', '$scope', function($http, $scope) {
 		loadMap();
 	});
 
+	$http.get("backend/getLocation.php").success(function(data) {
+		//$scope.markers = data;
+		// angular.extend($scope, {
+		// 	markers: data;
+		// }
+		console.log(data);
+		$scope.addMarkers(data);
+	});
+
+	angular.extend($scope, {
+		boston: {
+			lat: 42.356,
+			lng: -71.121,
+			zoom: 13
+		},
+		defaults: {
+			tileLayer: "http://api.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}",
+			zoomControlPosition: 'bottomright',
+			tileLayerOptions: {
+				//opacity: 0.9,
+				detectRetina: true,
+				reuseTiles: true,
+				apikey: 'pk.eyJ1IjoibW9ybmluZzIxMzkiLCJhIjoiWWpJNloxOCJ9.mpb_pZ7JT8iNsaiu6OpZmA',
+				mapid: 'morning2139.kdon049n'
+			},
+			scrollWheelZoom: false
+		},
+		markers: {} 
+	});
+
+	$scope.addMarkers = function(markers) {
+		angular.extend($scope, {
+			markers: markers
+		});
+	};
+
 	// $http.get('food-truck-api/http.php').success(function(data) {
 	// 	var allTrucks = data.food_trucks;
 	// 	$scope.trucks = allTrucks;
