@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="searchbox col-sm-6 col-sm-offset-3">
-					<input class="form-control search-truck" placeholder="{{searchPlaceholder}}">
+					<input class="form-control search-truck" placeholder="{{searchPlaceholder}}" ng-model="searchText">
 					<span class="glyphicon glyphicon-search"></span>
 				</div>
 			</div>
@@ -30,12 +30,12 @@
 				</div>
 				<div class="scroll-list">
 					<ul class="map-truck-list">
-						<li class="col-xs-12" ng-repeat="truck in trucks">
+						<li class="col-xs-12" ng-repeat="truck in values(markers) | unique: 'truck_name' | filter:searchText" ng-mouseover="highlightMarkers(truck)">
 							<div class="truck-icon col-xs-2">
 								<span class="glyphicon glyphicon-map-marker"></span>
 							</div>
 							<div class="truck-name col-xs-10">
-								{{truck.name}}
+								{{truck.truck_name}}
 							</div>
 							<div class="truck-foodtype col-xs-4">
 								{{truck.food_type}}
@@ -55,65 +55,50 @@
 				<div class="row filter">
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
-							<button class="btn filter-button dropdown-toggle" type="button" id="dayFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								Day
-								<span class="glyphicon glyphicon-chevron-down"></span>
-							</button>
-							<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="dayFilter">
-								<li>Monday</li>
-								<li>Tuesday</li>
-								<li>Wednesday</li>
-								<li>Thursday</li>
-								<li>Friday</li>
-								<li>Saturday</li>
-								<li>Sunday</li>
-							</ul>
+							<span class="icon-caret-down dropdown-caret"></span>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="model1" title="Day" multiple>
+								<li nya-bs-option="day in dayOfWeek">
+									<a>	{{ day }}
+										<span class="glyphicon glyphicon-ok check-mark"></span>
+									</a>
+								</li>
+							</ol>
 						</div>
 					</div>
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
-							<button class="btn filter-button dropdown-toggle" type="button" id="timeFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								Time
-								<span class="glyphicon glyphicon-chevron-down"></span>
-							</button>
-							<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="timeFilter">
-								<li>Breakfast</li>
-								<li>Lunch</li>
-								<li>Dinner</li>
-								<li>Late Night</li>
-							</ul>
+							<span class="icon-caret-down dropdown-caret"></span>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="filterTime" title="Time" multiple>
+								<li nya-bs-option="time in timeOfDay">
+									<a>	{{ time }}
+										<span class="glyphicon glyphicon-ok check-mark"></span>
+									</a>
+								</li>
+							</ol>
 						</div>
 					</div>
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
-							<button class="btn filter-button dropdown-toggle" type="button" id="foodTypeFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								Food Type
-								<span class="glyphicon glyphicon-chevron-down"></span>
-							</button>
-							<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="foodTypeFilter">
-								<li>Burgers</li>
-								<li>Mexican</li>
-								<li>Asian</li>
-								<li>Dessert</li>
-								<li>Drinks</li>
-								<li>Vegetarian</li>
-							</ul>
+							<span class="icon-caret-down dropdown-caret"></span>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="model1" title="Food Type" multiple>
+								<li nya-bs-option="type in foodtype">
+									<a>	{{ type }}
+										<span class="glyphicon glyphicon-ok check-mark"></span>
+									</a>
+								</li>
+							</ol>
 						</div>
 					</div>
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
-							<button class="btn filter-button dropdown-toggle" type="button" id="neighborhoodFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								Neighborhood
-								<span class="glyphicon glyphicon-chevron-down"></span>
-							</button>
-							<ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="neighborhoodFilter">
-								<li>Back Bay</li>
-								<li>Green Way</li>
-								<li>Financial District</li>
-								<li>Chinatown</li>
-								<li>NEU</li>
-								<li>BU</li>
-							</ul>
+							<span class="icon-caret-down dropdown-caret"></span>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="model1" title="Neighborhood" multiple>
+								<li nya-bs-option="neighbor in neighborhood">
+									<a>	{{ neighbor }}
+										<span class="glyphicon glyphicon-ok check-mark"></span>
+									</a>
+								</li>
+							</ol>
 						</div>
 					</div>
 				</div>
@@ -125,7 +110,7 @@
 		<div class="container">
 			<h1 class="the-trucks-title">{{truckListTitle}}</h1>
 			<div class="row">
-				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in trucks">
+				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img src="img/trucks/bg.png" class="truck-frame" />
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" />

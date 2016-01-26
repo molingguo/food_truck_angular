@@ -9,12 +9,12 @@ if(isset($_GET['route_name'])){
 	$routeName = $_GET['route_name'];
 }
 
-$query="select truck.name, truck.route_name, truck.food_type, location.id, location.location, location.latitude, location.longitude, open_time, close_time from truck, schedule, location where
+$query="select truck.name, location.id, location.location, location.latitude, location.longitude, open_time, close_time from truck, schedule, location where
 truck.route_name = schedule.truck_route 
 and location.id = schedule.location_id 
 order by truck.route_name";
 
-$query_truck = "select truck_route, count(*) as count from schedule join truck
+$query_truck = "select truck_route, truck.name, truck.food_type, count(*) as count from schedule join truck
 where schedule.truck_route = truck.route_name
 group by truck_route";
 
@@ -27,14 +27,16 @@ if($result->num_rows > 0) {
 	while($rs = $result_truck->fetch_array(MYSQLI_ASSOC)) {
 		$truckcount = $rs[count];
 		$truckroute = $rs[truck_route];
+		$arr2 = array();
+		$arr2['truck_route'] = $truckroute;
+		$arr2['truck_name'] = $rs[name];
+		$arr2['food_type'] = $rs[food_type];
+		$arr3 = array();
 		
 		for ($x = 0; $x < $truckcount; $x++) {
 			$rs2 = $result->fetch_array(MYSQLI_ASSOC);
 		    $nestedarray = array();
 		    // $nestedarray['group'] = $rs2[id];
-		    $nestedarray['truck_name'] = $rs2[name];
-		    $nestedarray['truck_route'] = $rs2[route_name];
-		    $nestedarray['food_type'] = $rs2[food_type];
 			$nestedarray['lat'] = (float)$rs2[latitude];
 			$nestedarray['lng'] = (float)$rs2[longitude];
 			$nestedarray['message'] = $rs2[location];
@@ -43,8 +45,10 @@ if($result->num_rows > 0) {
 			$nestedarray['focus'] = false;
 			$nestedarray['icon'] = [ "iconUrl" => "img/truckicon.png", "iconAnchor" => [22, 5]];
 			$marker = $truckroute.$x;
-			$arr[$marker] = $nestedarray;
+			$arr3[$marker] = $nestedarray;
 		}
+		$arr2['markers'] = $arr3;
+		$arr[] = $arr2;
 	}
 }
 

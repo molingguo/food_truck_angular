@@ -4,7 +4,7 @@ var dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
 var dayOfWeekShort = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
 var timeOfDay = ["Breadfast", "Lunch", "Dinner"];
 
-var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive']);
+var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive', 'nya.bootstrap.select', 'angular-underscore']);
 
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -22,6 +22,12 @@ app.config(['$routeProvider',
       });
   }]);
 
+
+// app.filter('filterTime', function() {
+// 	return function(truck, timeArray) {
+// 		if (truck.markers)
+// 	}
+// })
 // function makeSameHeight() {
 // 	  //make responsive grid same height in row
 // 	  var heights = $(".menu-list").map(function() {
