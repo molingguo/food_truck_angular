@@ -23,8 +23,7 @@ app.controller('MainController', ['$http', '$scope', '$filter', function($http, 
 		//console.log($scope.trucks);
 
 		//TODO: move this to after view loads
-		maplistAnimation();
-		
+		loadAllAnimations();
 	});
 
 	$scope.$watch('searchText', function(val) { 

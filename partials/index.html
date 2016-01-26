@@ -18,6 +18,7 @@
 			<div class="row">
 				<div class="searchbox col-sm-6 col-sm-offset-3">
 					<input class="form-control search-truck" placeholder="{{searchPlaceholder}}" ng-model="searchText">
+					<span id="searchclear" class="glyphicon glyphicon-remove-circle" ng-click="searchText=undefined"></span>
 					<span class="glyphicon glyphicon-search"></span>
 				</div>
 			</div>
@@ -110,7 +111,16 @@
 		<div class="container">
 			<h1 class="the-trucks-title">{{truckListTitle}}</h1>
 			<div class="row">
-				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks">
+				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks | limitTo:8">
+					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
+						<img src="img/trucks/bg.png" class="truck-frame" />
+						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" />
+						<h3 class="text-center">{{truck.name}}</h3>
+					</a>
+				</div>
+			</div>
+			<div class="row collapse" id="collapseTrucks">
+				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks | limitTo:30:8">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img src="img/trucks/bg.png" class="truck-frame" />
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" />
@@ -119,7 +129,7 @@
 				</div>
 			</div>
 			<div class="view-all-trucks">
-				<a href="#"><h2>View All<span class="glyphicon glyphicon-chevron-right"></span></h2></a>
+				<a class="toggle-truck-list text-center" role="button" data-toggle="collapse" data-target="#collapseTrucks" aria-expanded="false" aria-controls="collapseTrucks"><h2>View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2></a>
 			</div>
 		</div>
 	</div>

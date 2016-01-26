@@ -134,6 +134,12 @@ ul {
 .searchbox .search-truck {
   font-size: 2rem;
   height: 45px; }
+.searchbox #searchclear {
+  position: absolute;
+  right: 6rem;
+  top: 1.1rem;
+  font-size: 2.25rem;
+  color: #999999; }
 .searchbox .glyphicon-search {
   font-size: 2rem;
   position: absolute;
@@ -312,6 +318,9 @@ ul {
       color: white; }
   .the-trucks .view-all-trucks h2 {
     margin-top: 0; }
+  .the-trucks .view-all-trucks .toggle-carets {
+    top: 0.5rem;
+    left: 0.5rem; }
 
 .featured-truck {
   padding-top: 2rem;

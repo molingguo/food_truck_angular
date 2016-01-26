@@ -4,7 +4,7 @@ var dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
 var dayOfWeekShort = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
 var timeOfDay = ["Breadfast", "Lunch", "Dinner"];
 
-var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive', 'nya.bootstrap.select', 'angular-underscore']);
+var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive', 'ui.bootstrap', 'nya.bootstrap.select', 'angular-underscore']);
 
 app.config(['$routeProvider',
   function($routeProvider) {

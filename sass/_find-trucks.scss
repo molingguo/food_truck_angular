@@ -9,6 +9,14 @@
 		height: 45px;
 	}
 
+	#searchclear {
+		position: absolute;
+		right: 6rem;
+		top: 1.1rem;
+		font-size: 2.25rem;
+		color: $gray;
+	}
+
 	.glyphicon-search {
 		font-size: 2rem;
 		position: absolute;

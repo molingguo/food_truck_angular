@@ -2,6 +2,31 @@ $(document).ready(function(){
   
 });
 
+var loadAllAnimations = function() {
+  searchClear();
+  maplistAnimation();
+  truckAnimation();
+
+  $('.toggle-truck-list').click(function () {
+    if ($('.toggle-truck-list span').hasClass('glyphicon-chevron-down')) {
+      $('.toggle-truck-list h2').html('View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span>'); 
+    } else {      
+      $('.toggle-truck-list h2').html('View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span>'); 
+    }
+  }); 
+}
+
+var searchClear = function() {
+  $(".search-truck").keyup(function(){
+    $("#searchclear").toggle(Boolean($(this).val()));
+  });
+  $("#searchclear").toggle(Boolean($("#searchinput").val()));
+  $("#searchclear").click(function(){
+    $(".search-truck").val('').focus();
+    $(this).hide();
+  });
+}
+
 var maplistAnimation = function() {
   // map-list toggle animation
   $(".map-wrapper .map-list .toggle-list").on( "click", function() {
