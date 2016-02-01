@@ -5733,13 +5733,19 @@
 				},
 				{
 					"id": 5,
-					"order": 0,
-					"name": "star"
+					"order": 15,
+					"name": "star",
+					"prevSize": 28,
+					"code": 61445,
+					"tempChar": ""
 				},
 				{
 					"id": 6,
-					"order": 0,
-					"name": "star-o"
+					"order": 16,
+					"name": "star-empty",
+					"prevSize": 28,
+					"code": 61446,
+					"tempChar": ""
 				},
 				{
 					"id": 7,
@@ -6432,7 +6438,7 @@
 					"name": "twitter",
 					"prevSize": 28,
 					"code": 61593,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"id": 145,
@@ -6440,7 +6446,7 @@
 					"name": "facebook",
 					"prevSize": 28,
 					"code": 61594,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"id": 146,
@@ -6668,7 +6674,7 @@
 					"name": "caret-down",
 					"prevSize": 28,
 					"code": 61655,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"id": 191,
@@ -6676,7 +6682,7 @@
 					"name": "caret-up",
 					"prevSize": 28,
 					"code": 61656,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"id": 192,
@@ -6714,7 +6720,7 @@
 					"name": "envelope",
 					"prevSize": 28,
 					"code": 61664,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"id": 199,
@@ -7018,8 +7024,11 @@
 				},
 				{
 					"id": 259,
-					"order": 0,
-					"name": "star-half-empty, star-half-full, star-half-o"
+					"order": 14,
+					"name": "star-half-empty",
+					"prevSize": 28,
+					"code": 61731,
+					"tempChar": ""
 				},
 				{
 					"id": 260,
@@ -7372,7 +7381,7 @@
 					"name": "instagram",
 					"prevSize": 28,
 					"code": 61805,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"id": 330,
@@ -7955,7 +7964,7 @@
 					"name": "yelp",
 					"prevSize": 28,
 					"code": 61929,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"id": 446,
@@ -27487,7 +27496,7 @@
 				"licenseURL": "https://icomoon.io/#icons-icomoon"
 			},
 			"height": 1024,
-			"prevSize": 16,
+			"prevSize": 32,
 			"icons": [
 				{
 					"id": 0,

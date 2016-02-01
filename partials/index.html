@@ -66,15 +66,15 @@
 							<div class="truck-name col-xs-10">
 								{{truck.truck_name}}
 							</div>
-							<div class="truck-foodtype col-xs-4">
+							<div class="truck-foodtype col-xs-5">
 								{{truck.food_type}}
 							</div>
-							<div class="truck-review col-xs-6">
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star-empty"></span>
+							<div class="truck-review col-xs-5">
+								<span ng-repeat="n in [1, 2, 3, 4, 5]">	
+									<i class="icon-star" ng-if="truck.rating>=n"></i>
+									<i class="icon-star-half-empty" ng-if="truck.rating<n&&truck.rating>=(n-0.5)"></i>
+									<i class="icon-star-empty" ng-if="truck.rating<(n-0.5)"></i>
+								</span>
 							</div>
 							<span class="glyphicon glyphicon-ok"></span>
 						</li>

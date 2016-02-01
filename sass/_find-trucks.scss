@@ -246,11 +246,6 @@
 			font-size: 2.5rem;
 			color: $blue;
 		}
-		// .truck-icon img {
-		// 	max-width: 45px;
-  //   		position: relative;
-  //   		top: 6px;
-		// }
 
 		.truck-name {
 			font-size: 1.7rem;
@@ -260,12 +255,13 @@
 		}
 
 		.truck-foodtype, .truck-review {
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 			color: $gray;
+			padding-left: 0;
 		}
 
 		.truck-foodtype {
-			padding-left: 0;
+			line-height: 1;
 		}
 	}
 }

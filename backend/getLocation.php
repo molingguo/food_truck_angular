@@ -9,7 +9,7 @@ if(isset($_GET['route_name'])){
 	$routeName = $_GET['route_name'];
 }
 
-$query="select truck.name, truck.route_name, truck.food_type, location.id, location.location, location.neighborhood, location.latitude, location.longitude, open_time, close_time, schedule.day from truck, schedule, location where
+$query="select truck.name, truck.route_name, truck.food_type, truck.yelp_rating, location.id, location.location, location.neighborhood, location.latitude, location.longitude, open_time, close_time, schedule.day from truck, schedule, location where
 truck.route_name = schedule.truck_route 
 and location.id = schedule.location_id 
 order by truck.route_name";
@@ -51,6 +51,8 @@ if($result->num_rows > 0) {
 		    $nestedarray['truck_name'] = $rs2[name];
 		    $nestedarray['truck_route'] = $rs2[route_name];
 		    $nestedarray['food_type'] = $foodtypes[$rs2[route_name]];
+		    $nestedarray['food_type_single'] = $rs2[food_type];
+		    $nestedarray['rating'] = (float)$rs2[yelp_rating];
 			$nestedarray['lat'] = (float)$rs2[latitude];
 			$nestedarray['lng'] = (float)$rs2[longitude];
 			$nestedarray['neighborhood'] = $rs2[neighborhood];
