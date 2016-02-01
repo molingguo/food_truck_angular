@@ -1,19 +1,46 @@
-<div class="splash">
-		<div class="container">
-			<h1 class="text-center splash-header">{{appTitle}}</h1>
-			<h3 class="text-center splash-sub-header">{{appLocation}}</h3>
-			<div class="text-center splash-image">
-				<img src="img/splash-trucks.png" alt="splash-trucks">
-			</div>
-			<div class="text-center splash-text">
-				{{splashText}}
-			</div>
-			<div class="splash-arrow text-center">
-				<span class="glyphicon glyphicon-chevron-down"></span>
+<nav class="navbar navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+			</button>
+			<div class="navbar-brand logo" ng-click="toTheTop()">
+				<img alt="brand-logo" src="img/sitelogo.png">
+				<!-- 				<div class="brand-name"><span>CHEW</span>boston</div> -->
 			</div>
 		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#find-food" du-smooth-scroll du-scrollspy offset="60">Find Food</a></li>
+				<li><a href="#the-trucks" du-smooth-scroll du-scrollspy offset="60">The Trucks</a></li>
+				<li><a href="#featured" du-smooth-scroll du-scrollspy offset="60">Featured</a></li>
+				<li><a href="#about" du-smooth-scroll du-scrollspy offset="60">About</a></li>
+			</ul>
+		</div>
 	</div>
-	<div class="find-trucks">
+</nav>
+
+<div class="splash" id="splash">
+	<div class="container">
+		<h1 class="text-center splash-header">{{appTitle}}</h1>
+		<h3 class="text-center splash-sub-header">{{appLocation}}</h3>
+		<div class="text-center splash-image">
+			<img src="img/splash-trucks.png" alt="splash-trucks">
+		</div>
+		<div class="text-center splash-text">
+			{{splashText}}
+		</div>
+		<div class="splash-arrow text-center">
+			<a href="#find-food" du-smooth-scroll du-scrollspy offset="60">
+				<span class="glyphicon glyphicon-chevron-down"></span>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div id="container" du-scroll-container>
+	<div class="find-trucks" id="find-food" ng-controller="MainController">
 		<div class="container">
 			<div class="row">
 				<div class="searchbox col-sm-6 col-sm-offset-3">
@@ -24,14 +51,15 @@
 			</div>
 		</div>
 		<div class="map-wrapper">
-			<div class="map-list active">
+			<div class="map-list" ng-class="{'active':mapListActive}">
 				<div class="toggle-list">
 					<div class="find-food">{{findFoodTitle}}</div>
-					<span class="glyphicon glyphicon-circle-arrow-left toggle-list-button"></span>
+					<span class="glyphicon toggle-list-button" ng-click="toggleMapList()" ng-class="{'glyphicon-circle-arrow-left': mapListActive, 'glyphicon-circle-arrow-right':!mapListActive}"></span>
 				</div>
 				<div class="scroll-list">
 					<ul class="map-truck-list">
-						<li class="col-xs-12" ng-repeat="truck in values(markers) | unique: 'truck_name' | filter:searchText" ng-mouseover="highlightMarkers(truck)">
+						<li class="col-xs-12" ng-repeat="truck in markers_trucklist | unique: 'truck_name'" ng-click="selectTruck(truck)" ng-class="{'active':contains(truckFilter, truck.truck_route)}">
+<!-- 						ng-mouseover="highlightMarkers(truck)" -->
 							<div class="truck-icon col-xs-2">
 								<span class="glyphicon glyphicon-map-marker"></span>
 							</div>
@@ -48,6 +76,7 @@
 								<span class="glyphicon glyphicon-star"></span>
 								<span class="glyphicon glyphicon-star-empty"></span>
 							</div>
+							<span class="glyphicon glyphicon-ok"></span>
 						</li>
 					</ul>
 				</div>
@@ -57,7 +86,7 @@
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
 							<span class="icon-caret-down dropdown-caret"></span>
-							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="model1" title="Day" multiple>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="dayFilter" title="Day" multiple>
 								<li nya-bs-option="day in dayOfWeek">
 									<a>	{{ day }}
 										<span class="glyphicon glyphicon-ok check-mark"></span>
@@ -69,7 +98,7 @@
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
 							<span class="icon-caret-down dropdown-caret"></span>
-							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="filterTime" title="Time" multiple>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="timeFilter" title="Time" multiple>
 								<li nya-bs-option="time in timeOfDay">
 									<a>	{{ time }}
 										<span class="glyphicon glyphicon-ok check-mark"></span>
@@ -81,7 +110,7 @@
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
 							<span class="icon-caret-down dropdown-caret"></span>
-							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="model1" title="Food Type" multiple>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="foodTypeFilter" title="Food Type" multiple>
 								<li nya-bs-option="type in foodtype">
 									<a>	{{ type }}
 										<span class="glyphicon glyphicon-ok check-mark"></span>
@@ -93,7 +122,7 @@
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
 							<span class="icon-caret-down dropdown-caret"></span>
-							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="model1" title="Neighborhood" multiple>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="neighborhoodFilter" title="Neighborhood" multiple>
 								<li nya-bs-option="neighbor in neighborhood">
 									<a>	{{ neighbor }}
 										<span class="glyphicon glyphicon-ok check-mark"></span>
@@ -104,10 +133,10 @@
 					</div>
 				</div>
 			</div>
-			<leaflet id='map' lf-center="boston" defaults="defaults" markers="markers"></leaflet>
+			<leaflet id='map' lf-center="mapCenter" defaults="defaults" markers="markers"></leaflet>
 		</div>
 	</div>
-	<div class="the-trucks">
+	<div class="the-trucks" id="the-trucks">
 		<div class="container">
 			<h1 class="the-trucks-title">{{truckListTitle}}</h1>
 			<div class="row">
@@ -133,7 +162,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="featured-truck">
+	<div class="featured-truck" id="featured">
 		<div class="container">
 			<h1 class="featured-truck-title">Featured: Roxy's Grilled Cheese</h1>
 			<div class="row content-wrapper">
@@ -167,7 +196,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="about">
+	<div class="about" id="about">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-md-6 about-wrapper">
@@ -191,3 +220,4 @@
 			</div>
 		</div>
 	</div>
+</div>

@@ -70,6 +70,8 @@ ul {
 
 .navbar-brand {
   height: 60px; }
+  .navbar-brand:hover {
+    cursor: pointer; }
 
 .navbar-header .logo img {
   max-width: 65px; }
@@ -78,20 +80,32 @@ ul {
 
 .navbar-nav {
   float: right;
-  margin-top: 10px;
+  height: 60px;
   font-size: 2rem;
   letter-spacing: 1px; }
   .navbar-nav > li {
-    padding-left: 2rem; }
+    height: 100%; }
   .navbar-nav li.active a {
     background-color: #6bc2bb !important;
     color: #f5734b; }
   .navbar-nav li a {
+    padding-top: 2rem;
+    height: 100%;
     color: #fff;
     text-transform: uppercase; }
     .navbar-nav li a:hover {
-      background-color: #6bc2bb !important;
-      color: #dddddd; }
+      background-color: #469b9d; }
+      .navbar-nav li a:hover:focus {
+        background-color: #469b9d; }
+    .navbar-nav li a.active {
+      background-color: #009193;
+      color: #fff; }
+      .navbar-nav li a.active:focus {
+        background-color: #009193;
+        color: #fff; }
+    .navbar-nav li a:focus {
+      background-color: #6bc2bb;
+      color: #fff; }
     .navbar-nav li a span.glyphicon-search {
       top: -1px; }
 
@@ -129,7 +143,7 @@ ul {
     opacity: 0.5; }
 
 .find-trucks {
-  margin-top: 4rem; }
+  padding-top: 4rem; }
 
 .searchbox .search-truck {
   font-size: 2rem;
@@ -211,6 +225,21 @@ ul {
 
 .map-wrapper {
   margin-top: 2rem; }
+  .map-wrapper .leaflet-popup-content {
+    line-height: 1; }
+    .map-wrapper .leaflet-popup-content h2 {
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      margin-bottom: 0;
+      margin-top: 1rem; }
+    .map-wrapper .leaflet-popup-content h4 {
+      font-family: "Raleway", sans-serif;
+      margin-bottom: 0;
+      font-size: 1.3rem; }
+    .map-wrapper .leaflet-popup-content h5 {
+      font-family: "Raleway", sans-serif;
+      margin-top: 1rem;
+      color: #f46161; }
 
 .map-list {
   position: absolute;
@@ -270,6 +299,14 @@ ul {
         background-color: #1b325f;
         color: white;
         cursor: pointer; }
+      .map-list .map-truck-list > li.active .glyphicon-ok {
+        display: inherit; }
+      .map-list .map-truck-list > li .glyphicon-ok {
+        display: none;
+        position: absolute;
+        font-size: 2rem;
+        right: 1.25rem;
+        top: 2rem; }
     .map-list .map-truck-list .truck-icon {
       font-size: 2.5rem;
       color: #446cb3; }
@@ -372,6 +409,7 @@ ul {
 
 .about {
   padding-top: 5rem;
+  padding-bottom: 5rem;
   background-color: #76c7c0; }
   .about h1 {
     font-family: "Open Sans Condensed", sans-serif;
@@ -505,7 +543,8 @@ ul.social-media {
 .menu {
   background-image: url("../img/paper_texture.jpg");
   background-size: cover;
-  padding-bottom: 4rem; }
+  padding-bottom: 4rem;
+  padding-top: 2rem; }
   .menu .menu-title {
     color: #f78f8f;
     text-transform: uppercase;
@@ -541,10 +580,13 @@ ul.social-media {
     color: #f78f8f;
     font-size: 1.25rem; }
 
-.instagram h1 {
-  color: #f78f8f;
-  text-transform: uppercase;
-  font-weight: bold; }
+.instagram {
+  padding-top: 2rem;
+  padding-bottom: 4rem; }
+  .instagram h1 {
+    color: #f78f8f;
+    text-transform: uppercase;
+    font-weight: bold; }
 
 .featured-truck.truck-page {
   background-image: url("../img/paper_texture.jpg"); }

@@ -1,4 +1,28 @@
-<div class="truck-illustration">
+<nav class="navbar navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+			</button>
+			<a class="navbar-brand logo" href="#/">
+				<img alt="brand-logo" src="img/sitelogo.png">
+				<!-- 				<div class="brand-name"><span>CHEW</span>boston</div> -->
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#overview" du-smooth-scroll du-scrollspy offset="60">Overview</a></li>
+				<li><a href="#schedule" du-smooth-scroll du-scrollspy offset="60" ng-show="schedule[0]">Schedule</a></li>
+				<li><a href="#menu" du-smooth-scroll du-scrollspy offset="60" ng-show="menu[0].menu_item[0]">Menu</a></li>
+				<li><a href="#instagram" du-smooth-scroll du-scrollspy offset="60">Instagram</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div id="container" du-scroll-container>
+	<div class="truck-illustration" id="overview">
 		<div class="container">
 			<div class="large-truck">
 				<img src="img/food_truck.svg" alt="">
@@ -46,20 +70,20 @@
 			</div>
 		</div>
 	</div>
-	<div class="truck-schedule">
+	<div class="truck-schedule" id="schedule" ng-show="schedule[0]">
 		<div class="container">
 			<h1>Schedule</h1>
 			<h5>(Subject to change)</h5>
 			<div class="schedule col-md-10 col-md-offset-1">
 				<div class="row schedule-list" ng-repeat="sche in schedule">
-					<div class="col-xs-3 schedule-day">{{sche.day}}</div>
+					<div class="col-xs-3 schedule-day">{{sche.day_format}}</div>
 					<div class="col-xs-6 schedule-location"><span class="glyphicon glyphicon-map-marker"></span>{{sche.location}}</div>
-					<div class="col-xs-3 schedule-time" ng-if="sche.open_time">{{sche.open_time}} – {{sche.close_time}}</div>
+					<div class="col-xs-3 schedule-time" ng-if="sche.open_time">{{sche.open_time_format}} – {{sche.close_time_format}}</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="menu" ng-show="menu[0].menu_item[0]">
+	<div class="menu" ng-show="menu[0].menu_item[0]" id="menu">
 		<div class="container">
 			<h1 class="menu-title">Menu</h1>
 			<h5>(Subject to change)</h5>
@@ -83,10 +107,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="instagram">
+	<div class="instagram" id="instagram">
 		<div class="container">
-		<h1>Instagram</h1>
-		<iframe src="//users.instush.com/accordion-zoom/?w=1000&size=80&border=4&shadow=false&crowded=false&sl=true&bg_item=ffffff&bg=ffffff&lpc=ffffff&hc=e72476&ltc=3f3f3f&user_id=289679394&username=molingmolingmoling&sid=28115247&susername=roxysgrilledcheese&tag=-1&stype=user&t=999999CcXojmSRei5XrWtIJcGhbAMEw6Hc28tQZaWofr8nu1XJI4euOY5XKxI7alW7mUQa0-iwqpfuWWI" allowtransparency="true" frameborder="0" scrolling="yes"  style="display:block;width:100%;height:220px;border:none;overflow:scroll;" ></iframe>
+			<h1>Instagram</h1>
+			<!-- 		<iframe src="//users.instush.com/accordion-zoom/?w=1000&size=80&border=4&shadow=false&crowded=false&sl=true&bg_item=ffffff&bg=ffffff&lpc=ffffff&hc=e72476&ltc=3f3f3f&user_id=289679394&username=molingmolingmoling&sid=28115247&susername=roxysgrilledcheese&tag=-1&stype=user&t=999999CcXojmSRei5XrWtIJcGhbAMEw6Hc28tQZaWofr8nu1XJI4euOY5XKxI7alW7mUQa0-iwqpfuWWI" allowtransparency="true" frameborder="0" scrolling="yes"  style="display:block;width:100%;height:220px;border:none;overflow:scroll;" ></iframe> -->
+			<script src="//instansive.com/widget/js/instansive.js"></script><iframe ng-src="{{truck.instagram_iframe | trusted}}" ng-attr-id="{{truck.instagram_id}}" ng-attr-name="{{truck.instagram_id}}"  scrolling="no" allowtransparency="true" class="instansive-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
 		</div>
 	</div>
 	<div class="featured-truck truck-page">
@@ -126,3 +151,4 @@
 	<div>
 		<div id='map'></div>
 	</div>
+</div>

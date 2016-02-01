@@ -3,11 +3,15 @@
 var dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 var dayOfWeekShort = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
 var timeOfDay = ["Breadfast", "Lunch", "Dinner"];
+var mapCenter = {lat: 42.356, lng: -71.121, zoom: 13};
 
-var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive', 'ui.bootstrap', 'nya.bootstrap.select', 'angular-underscore']);
+var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive', 'ui.bootstrap', 'nya.bootstrap.select', 'angular-underscore', 'duScroll']);
 
-app.config(['$routeProvider',
-  function($routeProvider) {
+app.config(['$routeProvider', '$logProvider', 
+  function($routeProvider, $logProvider) {
+  	//TODO: turn it on later, maybe?
+  	$logProvider.debugEnabled(false);
+
     $routeProvider.
       when('/', {
         templateUrl: 'partials/index.html',
@@ -23,69 +27,129 @@ app.config(['$routeProvider',
   }]);
 
 
-// app.filter('filterTime', function() {
-// 	return function(truck, timeArray) {
-// 		if (truck.markers)
-// 	}
-// })
-// function makeSameHeight() {
-// 	  //make responsive grid same height in row
-// 	  var heights = $(".menu-list").map(function() {
-// 	  	return $(this).height();
-// 	  }).get(),
+app.filter('selectTime', function() {
+	return function(input, timeArray) {
+		//console.log(input);
+		var out = [];
 
-// 	  maxHeight = Math.max.apply(null, heights);
-// 	  console.log(maxHeight);
+		timeArray = timeArray || [];
+		if(timeArray.length == 0) return input;
 
-// 	  $(".menu-list").height(maxHeight);
-// 	}
+		for (i = 0; i < timeArray.length; i++) {
+			switch(timeArray[i]) {
+				case 'Breakfast':
+					out = out.concat(filterTimeHelper(input, 10, 1));
+					break;
+				case 'Lunch':
+					out = out.concat(filterTimeHelper(input, 15, 10));
+					break;
+				case 'Dinner':
+					out = out.concat(filterTimeHelper(input, 24, 17));
+					break;
+				case 'Late Night':
+					out = out.concat(filterTimeHelper(input, 24, 21));
+					break;
+				default:
+					break;
+			}
+		}
+		//console.log("selectTime - Output");
+		//console.log(out);
+		return out;
+	}
+})
 
-	// app.controller('foodTruckController', ['$http', '$scope', function($http, $scope) {
-	// 	//INITIALIZE
-	// 	$scope.trucks = [];
+function filterTimeHelper(markers, opentime, closetime) {
+	var result = [];
 
-	// 	$http.get('food-truck-api/http.php').success(function(data) {
-	// 		var allTrucks = data.food_trucks;
-	// 		$scope.trucks = allTrucks;
-	// 		$scope.setCurrentFilter();
-	// 	});
+	_.each(markers, function(marker) {
+		if ((marker.open_time <= opentime) && (marker.close_time >= closetime)) {
+			result.push(marker);
+		}
+	})
+
+	return result;
+}
+
+app.filter('selectGeneral', function() {
+	return function(inputArray, filtertype, filterArray) {
+		var out = [];
+
+		filterArray = filterArray || [];
+		if (filterArray.length == 0) return inputArray;
+
+		_.each(filterArray, function(afilter) {
+
+			//filter day case
+			if (filtertype == "day") {
+				target = (dayOfWeek.indexOf(afilter)+1).toString();
+			} 
+			else {
+				target = afilter;
+			}
+
+			_.each(inputArray, function(input) {
+				if (input[filtertype].indexOf(target) > -1) {
+					out.push(input);
+				}
+			})
+		})
+		//console.log("selectGeneral - "+filtertype+" - Output");
+		//console.log(out);
+		return out;
+	}
+})
+
+app.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
+
+//convert number into actual day of week
+var processDays = function(scheduleArray) {
+	for (i = 0; i < scheduleArray.length; i++) {
+		processDay(scheduleArray[i]);
+	}
+}
+
+var processDay = function(schedule) {
+	//format time
+	if (schedule.open_time && schedule.close_time) {
+		schedule['open_time_format'] = processTime(schedule.open_time);
+		schedule['close_time_format'] = processTime(schedule.close_time);
+	}
+
+	if (schedule.day.length > 1) {
+		//convert string to array split by comma
+		splitArray = schedule.day.split(",");
 		
-	// 	$scope.dayOfWeekOrder = function(item) {
- //   			return dayOfWeek.indexOf(item.day_of_week);
-	// 	};
+		if (splitArray.length > 3 && checkInRow(splitArray)) {
+			schedule['day_format'] = dayOfWeekShort[Number(splitArray[0])-1] + " – " + dayOfWeekShort[Number(splitArray[splitArray.length-1])-1];
+		} else {
+			schedule['day_format'] = _.map(splitArray, function(day) {return dayOfWeekShort[Number(day)-1]}).join(", ");
+		}
+	} else {
+		schedule['day_format'] = dayOfWeek[Number(schedule.day)-1];
+	}
+}
 
-	// 	$scope.timeOfDayOrder = function(item) {
- //   			return timeOfDay.indexOf(item.time_of_day);
-	// 	};
+var processTime = function(timeString) {
+	time = Number(timeString);
+	result = "";
 
-	// 	//get current day and time and set up filters
-	// 	$scope.setCurrentFilter = function() {
-	// 		var currentdate = new Date();
-	// 		var currentDay = currentdate.getDay();
-	// 		var currentHour = currentdate.getHours();
-	// 		var currentFilter = {};
-	// 		currentFilter.day_of_week = dayOfWeek[currentDay-1];
-	// 		if (currentHour <= 15) {
-	// 			currentFilter.time_of_day = timeOfDay[1];
-	// 		} else {
-	// 			currentFilter.time_of_day = timeOfDay[2];
-	// 		}
-	// 		$scope.selectTruck = currentFilter;
-	// 	}
-	// }]);
+	if (time > 12) {
+		time = time - 12;
+	}
 
-	// app.filter('unique', function() {
-	// 	return function (arr, field) {
-	// 		return _.uniq(arr, function(a) { return a[field]; });
-	// 	};
-	// });
+	if (time == parseInt(time)) {
+		result = time;
+	} else {
+		result = Math.floor(time) + ":" + (time - Math.floor(time))*60;
+	}
+	return result;
+}
 
-	// app.controller('logoController', ['$http', '$scope', function($http, $scope) {
-	// 	var backendfile = "/backend/backend.php";
-	// 	//backendfile = "/foodtrucks" + backendfile;
-		
-	// 	$http.get(backendfile).success(function(data) {
-	// 		$scope.logos = data.records;
-	// 		//console.log($scope.logos);
-	// 	});
-	//}]);
+var checkInRow = function(numberArray) {
+	return (numberArray[numberArray.length-1] - numberArray[0]) == (numberArray.length - 1);
+}

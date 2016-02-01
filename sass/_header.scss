@@ -7,6 +7,10 @@
 
 .navbar-brand {
 	height: $navbar-height;
+
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .navbar-header {
@@ -38,12 +42,12 @@
 
 .navbar-nav {
 	float: right;
-	margin-top: 10px;
+	height: $navbar-height;
 	font-size: 2rem;
 	letter-spacing: 1px;
 	
 	> li {
-		padding-left: 2rem;
+		height: 100%;
 	}
 
 	li.active a {
@@ -52,12 +56,32 @@
 	}
 
 	li a {
+		padding-top: 2rem;
+		height: 100%;
 		color: $nav-link-color;
 		text-transform: uppercase;
 
 		&:hover {
-			background-color: $navbar-background !important;
-			color: $nav-link-hover-color;
+			background-color: $green;
+
+			&:focus {
+				background-color: $green;
+			}
+		}
+
+		&.active {
+			background-color: $dark-green;
+			color: $nav-link-color;
+
+			&:focus {
+				background-color: $dark-green;
+				color: $nav-link-color;
+			}
+		}
+
+		&:focus {
+			background-color: $navbar-background;
+			color: $nav-link-color;
 		}
 
 		span.glyphicon-search {

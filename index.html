@@ -14,6 +14,7 @@
 	<script src="js/shared/angular-route.min.js"></script>
 	<script src="js/shared/underscore-min.js"></script>
 	<script src="js/shared/angular-underscore.min.js"></script>
+	<script src="js/shared/angular-scroll.min.js"></script>
 	<script src="js/shared/moment.js"></script>
 	<script src="js/shared/nya-bs-select.min.js"></script>
 	<script src="js/shared/ui-bootstrap-tpls-1.1.1.min.js"></script>
@@ -23,28 +24,6 @@
 	<script src="js/shared/angular-leaflet-directive.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-				</button>
-				<a class="navbar-brand logo" href="#/">
-					<img alt="brand-logo" src="img/sitelogo.png">
-<!-- 				<div class="brand-name"><span>CHEW</span>boston</div> -->
-				</a>
-			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="#/">Find Food</a></li>
-					<li><a href="#/">The Trucks</a></li>
-					<li><a href="#/">About</a></li>
-					<li><a href="#/"><span class="glyphicon glyphicon-search"></span></a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
 	<div ng-view autoscroll="true"></div>
 	
 	<div class="footer">
@@ -69,7 +48,6 @@
 			</div>
 		</div>
 	</div>
-    <script src="js/map.js"></script>
     <script src="js/animation.js"></script>
 
 	<!-- Modules -->

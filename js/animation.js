@@ -4,7 +4,6 @@ $(document).ready(function(){
 
 var loadAllAnimations = function() {
   searchClear();
-  maplistAnimation();
   truckAnimation();
 
   $('.toggle-truck-list').click(function () {
@@ -24,25 +23,6 @@ var searchClear = function() {
   $("#searchclear").click(function(){
     $(".search-truck").val('').focus();
     $(this).hide();
-  });
-}
-
-var maplistAnimation = function() {
-  // map-list toggle animation
-  $(".map-wrapper .map-list .toggle-list").on( "click", function() {
-      
-      var $mapList = $(this).closest('.map-list');
-      var $mapListButton = $(this).find('.toggle-list-button');
-      if ($mapList.hasClass('active')) {
-        $mapListButton.removeClass("glyphicon-circle-arrow-left");
-        $mapListButton.addClass("glyphicon-circle-arrow-right");
-      } else {
-        $mapListButton.removeClass("glyphicon-circle-arrow-right");
-        $mapListButton.addClass("glyphicon-circle-arrow-left");
-      }
-
-      $mapList.toggleClass('active');
-
   });
 }
 
