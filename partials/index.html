@@ -71,9 +71,9 @@
 							</div>
 							<div class="truck-review col-xs-5">
 								<span ng-repeat="n in [1, 2, 3, 4, 5]">	
-									<i class="icon-star" ng-if="truck.rating>=n"></i>
-									<i class="icon-star-half-empty" ng-if="truck.rating<n&&truck.rating>=(n-0.5)"></i>
-									<i class="icon-star-empty" ng-if="truck.rating<(n-0.5)"></i>
+									<i class="icon-star" ng-if="truck.yelp_rating>=n"></i>
+									<i class="icon-star-half-empty" ng-if="truck.yelp_rating<n&&truck.yelp_rating>=(n-0.5)"></i>
+									<i class="icon-star-empty" ng-if="truck.yelp_rating<(n-0.5)"></i>
 								</span>
 							</div>
 							<span class="glyphicon glyphicon-ok"></span>

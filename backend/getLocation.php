@@ -52,7 +52,7 @@ if($result->num_rows > 0) {
 		    $nestedarray['truck_route'] = $rs2[route_name];
 		    $nestedarray['food_type'] = $foodtypes[$rs2[route_name]];
 		    $nestedarray['food_type_single'] = $rs2[food_type];
-		    $nestedarray['rating'] = (float)$rs2[yelp_rating];
+		    $nestedarray['yelp_rating'] = (float)$rs2[yelp_rating];
 			$nestedarray['lat'] = (float)$rs2[latitude];
 			$nestedarray['lng'] = (float)$rs2[longitude];
 			$nestedarray['neighborhood'] = $rs2[neighborhood];

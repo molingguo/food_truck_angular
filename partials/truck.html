@@ -42,7 +42,12 @@
 						<i class="icon-yelp"></i>
 					</div>
 					<div class="info-type-content text-center">
-						2425 Reviews
+<!-- 						2425 Reviews -->
+						<span ng-repeat="n in [1, 2, 3, 4, 5]">	
+							<i class="icon-star" ng-if="truck.yelp_rating>=n"></i>
+							<i class="icon-star-half-empty" ng-if="truck.yelp_rating<n&&truck.yelp_rating>=(n-0.5)"></i>
+							<i class="icon-star-empty" ng-if="truck.yelp_rating<(n-0.5)"></i>
+						</span>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
