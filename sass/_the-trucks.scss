@@ -43,6 +43,11 @@
 	}
 
 	.view-all-trucks {
+
+		.toggle-truck-list:hover {
+			cursor: pointer;
+		}
+
 		h2 {
 			margin-top: 0;
 		}

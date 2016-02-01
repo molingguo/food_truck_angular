@@ -353,6 +353,8 @@ ul {
         transform: scale(1.08); }
     .the-trucks .truck-logo h3 {
       color: white; }
+  .the-trucks .view-all-trucks .toggle-truck-list:hover {
+    cursor: pointer; }
   .the-trucks .view-all-trucks h2 {
     margin-top: 0; }
   .the-trucks .view-all-trucks .toggle-carets {

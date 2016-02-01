@@ -15,6 +15,7 @@ app.controller('MainController',
 	$scope.truckFilter = [];
 	$scope.mapCenter = mapCenter;
 	$scope.mapListActive = true;
+	$scope.isCollapsed = true;
 
 	$scope.toTheTop = function() {
 		$("html,body").animate({ scrollTop: 0 }, "slow");

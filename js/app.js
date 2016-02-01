@@ -5,7 +5,7 @@ var dayOfWeekShort = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
 var timeOfDay = ["Breadfast", "Lunch", "Dinner"];
 var mapCenter = {lat: 42.356, lng: -71.121, zoom: 13};
 
-var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive', 'ui.bootstrap', 'nya.bootstrap.select', 'angular-underscore', 'duScroll']);
+var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive', 'ui.bootstrap', 'ngAnimate', 'nya.bootstrap.select', 'angular-underscore', 'duScroll']);
 
 app.config(['$routeProvider', '$logProvider', 
   function($routeProvider, $logProvider) {

@@ -136,7 +136,7 @@
 			<leaflet id='map' lf-center="mapCenter" defaults="defaults" markers="markers"></leaflet>
 		</div>
 	</div>
-	<div class="the-trucks" id="the-trucks">
+	<div class="the-trucks" id="the-trucks" ng-controller="MainController">
 		<div class="container">
 			<h1 class="the-trucks-title">{{truckListTitle}}</h1>
 			<div class="row">
@@ -148,7 +148,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="row collapse" id="collapseTrucks">
+			<div class="row" uib-collapse="isCollapsed">
 				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks | limitTo:30:8">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img src="img/trucks/bg.png" class="truck-frame" />
@@ -158,7 +158,10 @@
 				</div>
 			</div>
 			<div class="view-all-trucks">
-				<a class="toggle-truck-list text-center" role="button" data-toggle="collapse" data-target="#collapseTrucks" aria-expanded="false" aria-controls="collapseTrucks"><h2>View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2></a>
+				<a class="toggle-truck-list text-center" ng-click="isCollapsed = !isCollapsed">
+					<h2 ng-show="isCollapsed">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2>
+					<h2 ng-show="!isCollapsed">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></h2>		
+				</a>
 			</div>
 		</div>
 	</div>
