@@ -1,21 +1,26 @@
 
 app.controller('MainController', 
-	['$http', '$scope', '$filter', 'selectTimeFilter', 'selectGeneralFilter', function($http, $scope, $filter, selectTimeFilter, selectGeneralFilter) {
+	['$http', '$scope', '$filter', '$timeout', 'selectTimeFilter', 'selectGeneralFilter', function($http, $scope, $filter, $timeout, selectTimeFilter, selectGeneralFilter) {
 	//INITIALIZE
-	$scope.appTitle = "Truck Tracker";
+	$scope.appTitle = "Hungry Hunter";
 	$scope.appLocation = "Boston";
 	$scope.splashText = "Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.";
-	$scope.searchPlaceholder = "What are you craving?";
+	$scope.searchPlaceholder = "Search for Trucks";
 	$scope.findFoodTitle = "Find Food";
 	$scope.truckListTitle = "The Trucks";
+	$scope.noResultText = "No results match your search"
 	$scope.dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-	$scope.timeOfDay = ["Breakfast", "Lunch", "Dinner", "Late Night"];
+	$scope.timeOfDay = timeOfDay;
 	$scope.foodtype = ["American", "Asian", "Burgers", "Dessert", "Drinks", "Healthy", "International", "Local", "Mexican", "Pizza", "Sandwiches"];
 	$scope.neighborhood = ["Back Bay", "Cambridge", "Chinatown", "Downtown", "Fenway Kenmore", "Financial District", "South Boston", "South End", "West End"];
 	$scope.truckFilter = [];
+	$scope.tooltipNearMe = "requires your permission to get your location";
 	$scope.mapCenter = mapCenter;
 	$scope.mapListActive = true;
 	$scope.isCollapsed = true;
+	$scope.featured_id = "655557534334455808";
+
+	$timeout(function () { twttr.widgets.load(); }, 1000);
 
 	$scope.toTheTop = function() {
 		$("html,body").animate({ scrollTop: 0 }, "slow");
@@ -30,16 +35,19 @@ app.controller('MainController',
 		$scope.allmarkers = data;
 		$scope.markers_trucklist = processMarkerMessage(data);
 
+		//set default filter to be now
+		$scope.filterNow();
+
 		//TODO: move this to after view loads
 		loadAllAnimations();
 	});
 
-	$scope.$watchCollection('[searchText, dayFilter, timeFilter, foodTypeFilter, neighborhoodFilter]', function(newValues, oldValues){
-		filteredSearch = $filter('filter')($scope.allmarkers, newValues[0]);
-		filteredDay = selectGeneralFilter(filteredSearch, "day", newValues[1]);
-		filteredTime = selectTimeFilter(filteredDay, newValues[2]);
-		filteredType = selectGeneralFilter(filteredTime, "food_type", newValues[3]);
-		filteredNeighbor = selectGeneralFilter(filteredType, "neighborhood", newValues[4]);
+	$scope.$watchCollection('[dayFilter, timeFilter, foodTypeFilter, neighborhoodFilter]', function(newValues, oldValues){
+		//filteredSearch = $filter('filter')($scope.allmarkers, newValues[0]);
+		filteredDay = selectGeneralFilter($scope.allmarkers, "day", newValues[0]);
+		filteredTime = selectTimeFilter(filteredDay, newValues[1]);
+		filteredType = selectGeneralFilter(filteredTime, "food_type", newValues[2]);
+		filteredNeighbor = selectGeneralFilter(filteredType, "neighborhood", newValues[3]);
 		$scope.markers = processMarkerMessage(filteredNeighbor);
 		$scope.markers_trucklist = processMarkerMessage(filteredNeighbor);
 		//$scope.focusMarker();
@@ -55,7 +63,7 @@ app.controller('MainController',
 		filteredTruck = selectGeneralFilter($scope.markers_trucklist, "truck_route", $scope.truckFilter);
 		$scope.markers = processMarkerMessage(filteredTruck);
 		
-		$scope.focusMarker();
+		//$scope.focusMarker();
 	}
 
 	//if only one marker, focus and center it
@@ -98,6 +106,44 @@ app.controller('MainController',
         } 
 	});
 
+	$scope.filterNow = function() {
+		var currentdate = new Date();
+		var currentDay = currentdate.getDay();
+		var currentHour = currentdate.getHours();
+
+		//set the day
+		dayIndex = currentDay-1;
+		if (dayIndex == -1) dayIndex = 6;
+		$scope.dayFilter = [dayOfWeek[dayIndex]];
+
+		//set the time
+		if (currentHour <= 10) {
+			$scope.timeFilter = [timeOfDay[0]];
+		}
+		else if (currentHour <= 15) {
+			$scope.timeFilter = [timeOfDay[1]];
+		}
+		else if (currentHour <= 19) {
+			$scope.timeFilter = [timeOfDay[2]];
+		} else {
+			$scope.timeFilter = [timeOfDay[3]];
+		}
+	}
+
+	$scope.filterNearMe = function() {
+		$scope.mapCenter = {autoDiscover: true};
+		$scope.mapCenter.zoom = 15;
+	}
+
+	$scope.clearFilters = function() {
+		$scope.dayFilter = [];
+		$scope.timeFilter = [];
+		$scope.foodTypeFilter = [];
+		$scope.neighborhoodFilter = [];
+		$scope.truckFilter = [];
+		$scope.mapCenter = mapCenter;
+	}
+
 	// $scope.highlightMarkers = function(truck) {
 	// 	_.mapObject($scope.markers, function(val, key) {
 	// 		if (val.truck_route == truck.truck_route) {
@@ -107,50 +153,4 @@ app.controller('MainController',
 	// 		}
 	// 	});
 	// }
-
-	// //get current day and time and set up filters
-	// $scope.setCurrentFilter = function() {
-	// 	var currentdate = new Date();
-	// 	var currentDay = currentdate.getDay();
-	// 	var currentHour = currentdate.getHours();
-	// 	var currentFilter = {};
-	// 	currentFilter.day_of_week = dayOfWeek[currentDay-1];
-	// 	if (currentHour <= 15) {
-	// 		currentFilter.time_of_day = timeOfDay[1];
-	// 	} else {
-	// 		currentFilter.time_of_day = timeOfDay[2];
-	// 	}
-	// 	$scope.selectTruck = currentFilter;
-	// }
 }]);
-
-var processMarkerMessage = function(inputMarkers) {
-	var counters = {};
-	inputMarkers = _.sortBy(inputMarkers, 'truck_route', 'day');
-
-	result = _.map(inputMarkers, function(value) {
-		processDay(value);
-		counters[value.location_id] = counters[value.location_id] || "";
-		var truckFormat = "<h2>" + value.truck_name + "</h2>";
-		var scheduleFormat = "<h4>" + value.day_format + "&nbsp;&nbsp;&nbsp;" + value.open_time_format + "-" + value.close_time_format + "</h4>";
-
-		//if message doesn't not contain the truck name, add to it, as well as the schedule
-		if(counters[value.location_id].indexOf(value.truck_name) <= -1) {
-			counters[value.location_id] = counters[value.location_id] + truckFormat;
-			counters[value.location_id] = counters[value.location_id] + scheduleFormat;
-		}
-
-		//if contains the truck name, check if the schedule exists
-		else {
-			if (counters[value.location_id].indexOf(scheduleFormat) <= -1) {
-				counters[value.location_id] = counters[value.location_id] + scheduleFormat;
-			}
-		}
-
-		value.message = counters[value.location_id] + "<h5>" + value.location + "</h5>";
-		return value;
-	});
-	//console.log("processMarkerMessage");
-	//console.log(result);
-	return result;
-}

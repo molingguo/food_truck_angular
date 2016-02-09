@@ -2,7 +2,7 @@
 //Global CONSTANTS
 var dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 var dayOfWeekShort = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
-var timeOfDay = ["Breadfast", "Lunch", "Dinner"];
+var timeOfDay = ["Breadfast", "Lunch", "Dinner", "Late Night"];
 var mapCenter = {lat: 42.356, lng: -71.121, zoom: 13};
 
 var app = angular.module('foodTruck',['ngRoute', 'leaflet-directive', 'ui.bootstrap', 'ngAnimate', 'nya.bootstrap.select', 'angular-underscore', 'duScroll']);
@@ -116,8 +116,9 @@ var processDays = function(scheduleArray) {
 var processDay = function(schedule) {
 	//format time
 	if (schedule.open_time && schedule.close_time) {
-		schedule['open_time_format'] = processTime(schedule.open_time);
-		schedule['close_time_format'] = processTime(schedule.close_time);
+		schedule['time_format'] = processTime(schedule.open_time) + " – " + processTime(schedule.close_time);
+	} else {
+		schedule['time_format'] = schedule['time'];
 	}
 
 	if (schedule.day.length > 1) {
@@ -137,9 +138,11 @@ var processDay = function(schedule) {
 var processTime = function(timeString) {
 	time = Number(timeString);
 	result = "";
+	am = "AM";
 
 	if (time > 12) {
 		time = time - 12;
+		am = "PM";
 	}
 
 	if (time == parseInt(time)) {
@@ -147,9 +150,40 @@ var processTime = function(timeString) {
 	} else {
 		result = Math.floor(time) + ":" + (time - Math.floor(time))*60;
 	}
-	return result;
+	return result+am;
 }
 
 var checkInRow = function(numberArray) {
 	return (numberArray[numberArray.length-1] - numberArray[0]) == (numberArray.length - 1);
+}
+
+var processMarkerMessage = function(inputMarkers) {
+	var counters = {};
+	inputMarkers = _.sortBy(inputMarkers, 'truck_route', 'day');
+
+	result = _.map(inputMarkers, function(value) {
+		processDay(value);
+		counters[value.location_id] = counters[value.location_id] || "";
+		var truckFormat = "<h2>" + value.truck_name + "</h2>";
+		var scheduleFormat = "<h4>" + value.day_format + "&nbsp;&nbsp;&nbsp;" + value.time_format + "</h4>";
+
+		//if message doesn't not contain the truck name, add to it, as well as the schedule
+		if(counters[value.location_id].indexOf(value.truck_name) <= -1) {
+			counters[value.location_id] = counters[value.location_id] + truckFormat;
+			counters[value.location_id] = counters[value.location_id] + scheduleFormat;
+		}
+
+		//if contains the truck name, check if the schedule exists
+		else {
+			if (counters[value.location_id].indexOf(scheduleFormat) <= -1) {
+				counters[value.location_id] = counters[value.location_id] + scheduleFormat;
+			}
+		}
+
+		value.message = counters[value.location_id] + "<h5>" + value.location + "</h5>";
+		return value;
+	});
+	//console.log("processMarkerMessage");
+	//console.log(result);
+	return result;
 }

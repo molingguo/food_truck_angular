@@ -16,7 +16,7 @@ $query1 = "select menu_type.name, count(*) as count from menu_item, menu_type wh
 "menu_item.type_id = menu_type.id ".
 "and menu_item.truck_route like '$routeName' ".
 "group by menu_item.type_id ".
-"order by menu_type.order";
+"order by menu_type.order, menu_type.name";
 
 //No Menu Type -- just get all menu items
 $query2 = "select name, description, price from menu_item where ".
@@ -27,7 +27,7 @@ $query3 = "select menu_item.name, menu_item.description, ".
 "menu_item.price from menu_item join menu_type where ".
 "menu_item.type_id = menu_type.id ".
 "and menu_item.truck_route like '$routeName' ".
-"order by menu_type.order";
+"order by menu_type.order, menu_type.name, menu_item.id";
 
 $result = $conn->query($query1) or die($conn->error.__LINE__);
 
@@ -43,6 +43,7 @@ if($result->num_rows > 0) {
 
 		for ($x = 0; $x < $typecount; $x++) {
 			$rs2 = $result2->fetch_array(MYSQLI_ASSOC);
+			if($rs2[price]) $rs2[price] = (float)$rs2[price];
 			$nestedarray[] = $rs2;
 		}
 		$arr2 = array();
@@ -59,6 +60,7 @@ else {
 	$arr2["type_name"] = NULL;
 	if($result->num_rows > 0) {
 		while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+			if($rs[price]) $rs[price] = (float)$rs[price];
 			$nestedarray[] = $rs;
 		}
 	}

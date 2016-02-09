@@ -12,6 +12,7 @@ if(isset($_GET['route_name'])){
 $query="SELECT * FROM schedule JOIN location ON ".
 "schedule.location_id = location.id ".
 "and schedule.truck_route like '$routeName' ".
+"and schedule.is_open = true ".
 "order by schedule.day";
 
 $result = $conn->query($query) or die($conn->error.__LINE__);

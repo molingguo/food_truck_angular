@@ -41,7 +41,7 @@
 
 <div id="container" du-scroll-container>
 	<div class="find-trucks" id="find-food" ng-controller="MainController">
-		<div class="container">
+<!-- 		<div class="container">
 			<div class="row">
 				<div class="searchbox col-sm-6 col-sm-offset-3">
 					<input class="form-control search-truck" placeholder="{{searchPlaceholder}}" ng-model="searchText">
@@ -49,22 +49,36 @@
 					<span class="glyphicon glyphicon-search"></span>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="map-wrapper">
 			<div class="map-list" ng-class="{'active':mapListActive}">
 				<div class="toggle-list">
 					<div class="find-food">{{findFoodTitle}}</div>
 					<span class="glyphicon toggle-list-button" ng-click="toggleMapList()" ng-class="{'glyphicon-circle-arrow-left': mapListActive, 'glyphicon-circle-arrow-right':!mapListActive}"></span>
+
+					<div class="special-filter-wrapper">
+						<div class="col-xs-4">
+							<button ng-click="filterNow()"><span class="glyphicon glyphicon-time"></span>Now</button>
+						</div>
+						<div class="col-xs-4">
+							<button tooltip-placement="top-left" uib-tooltip="{{tooltipNearMe}}" ng-click="filterNearMe()"><span class="glyphicon glyphicon-screenshot"></span>Near Me</button>
+						</div>
+						<div class="col-xs-4">
+							<button ng-click="clearFilters()"><span class="glyphicon glyphicon-remove"></span>Clear All</button>
+						</div>
+					</div>
 				</div>
 				<div class="scroll-list">
+					<div class="no-result-match" ng-show="markers_trucklist.length==0">
+							{{noResultText}}
+					</div>
 					<ul class="map-truck-list">
 						<li class="col-xs-12" ng-repeat="truck in markers_trucklist | unique: 'truck_name'" ng-click="selectTruck(truck)" ng-class="{'active':contains(truckFilter, truck.truck_route)}">
-<!-- 						ng-mouseover="highlightMarkers(truck)" -->
 							<div class="truck-icon col-xs-2">
 								<span class="glyphicon glyphicon-map-marker"></span>
 							</div>
 							<div class="truck-name col-xs-10">
-								{{truck.truck_name}}
+								<a href="#{{truck.truck_route}}">{{truck.truck_name}}</a>
 							</div>
 							<div class="truck-foodtype col-xs-5">
 								{{truck.food_type}}
@@ -133,14 +147,23 @@
 					</div>
 				</div>
 			</div>
-			<leaflet id='map' lf-center="mapCenter" defaults="defaults" markers="markers"></leaflet>
+			<leaflet id='map1' lf-center="mapCenter" defaults="defaults" markers="markers"></leaflet>
 		</div>
 	</div>
 	<div class="the-trucks" id="the-trucks" ng-controller="MainController">
 		<div class="container">
-			<h1 class="the-trucks-title">{{truckListTitle}}</h1>
 			<div class="row">
-				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks | limitTo:8">
+				<div class="col-xs-12 col-sm-6">
+					<h1 class="the-trucks-title">{{truckListTitle}}</h1>
+				</div>
+				<div class="searchbox col-xs-12 col-sm-6">
+					<input class="form-control search-truck" placeholder="{{searchPlaceholder}}" ng-model="searchText">
+					<span id="searchclear" class="glyphicon glyphicon-remove-circle" ng-click="searchText=undefined"></span>
+					<span class="glyphicon glyphicon-search"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in filteredTruck = (alltrucks | filter:searchText) | limitTo:8">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img src="img/trucks/bg.png" class="truck-frame" />
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" />
@@ -149,7 +172,7 @@
 				</div>
 			</div>
 			<div class="row" uib-collapse="isCollapsed">
-				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks | limitTo:30:8">
+				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks | filter:searchText | limitTo:30:8">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img src="img/trucks/bg.png" class="truck-frame" />
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" />
@@ -159,8 +182,8 @@
 			</div>
 			<div class="view-all-trucks">
 				<a class="toggle-truck-list text-center" ng-click="isCollapsed = !isCollapsed">
-					<h2 ng-show="isCollapsed">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2>
-					<h2 ng-show="!isCollapsed">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></h2>		
+					<h2 ng-show="isCollapsed && filteredTruck.length > 8">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2>
+					<h2 ng-show="!isCollapsed && filteredTruck.length > 8">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></h2>		
 				</a>
 			</div>
 		</div>
@@ -170,8 +193,10 @@
 			<h1 class="featured-truck-title">Featured: Roxy's Grilled Cheese</h1>
 			<div class="row content-wrapper">
 				<div class="col-xs-12 col-md-4 featured-text">
-					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo. </p>
-					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis.</p>
+					<a class="twitter-timeline" href="https://twitter.com/RoxysGrilledChz" data-widget-id="{{featured_id}}" data-chrome="noheader nofooter noborders transparent">Tweets by @RoxysGrilledChz</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!-- 					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo. </p>
+					<p>Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.  Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis.</p> -->
 				</div>
 				<div class="col-xs-12 col-md-4 featured-highlight">
 					<h1 class="text-center large-text">On average</h1>
