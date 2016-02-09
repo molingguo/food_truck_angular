@@ -29,7 +29,7 @@
 				<img src="img/food_truck.svg" alt="">
 			</div>
 			<div class="truck-name-wrapper">
-				<img ng-src="img/logos/{{truck.logo}}" class="truck-name-logo" alt="">
+<!-- 				<img ng-src="img/logos/{{truck.logo}}" class="truck-name-logo" alt="" ng-show="truck.logo"> -->
 				<div class="truck-name">{{truck.name}}</div>
 				<div class="truck-description">
 					{{truck.description}}
@@ -133,23 +133,21 @@
 					<h1 class="text-center large-text" ng-show="!truck.tidbit">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
 				</div>
 				<div class="col-xs-12 col-md-4 featured-image">
-					<img src="img/truck_food/{{truck.food_image}}" alt="">
+					<img src="img/truck_food/{{truck.food_image}}" alt="" ng-show="truck.food_image">
 				</div>
 			</div>
-<!-- 			<div class="row featured-quote">
-				<div class="col-xs-3 quote-mark text-right">
+			<div class="row featured-quote" ng-show="truck.tweet">
+				<div class="col-xs-2 quote-mark text-right">
 					&#8220;
 				</div>
-				<div class="col-xs-6 quote-body text-center">
-					We make the best grilled cheese sandwiches in all of boston, ever, ever
+				<div class="col-xs-8 quote-body text-center">
+					<div ng-bind-html="twitter_embed" class="twitter_quote">
+					</div>
 				</div>
-				<div class="col-xs-3 quote-mark">
+				<div class="col-xs-2 quote-mark">
 					&#8221;
 				</div>
-				<div class="col-xs-12 text-center quote-credit">
-					CEO John Smith Sanders
-				</div>
-			</div> -->
+			</div>
 		</div>
 	</div>
 	<div class="map-wrapper" id="map">

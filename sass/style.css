@@ -402,12 +402,13 @@ ul {
 .featured-truck {
   padding-top: 2rem;
   padding-bottom: 5rem; }
-  .featured-truck .featured-truck-title {
+  .featured-truck .featured-truck-title a {
     font-family: "Open Sans Condensed", sans-serif;
-    color: #446cb3;
     font-weight: bold;
     text-transform: uppercase;
     color: #ef7271; }
+    .featured-truck .featured-truck-title a:hover {
+      color: #ea4443; }
   .featured-truck .content-wrapper {
     margin-top: 5rem; }
   .featured-truck .featured-text p {
@@ -432,20 +433,21 @@ ul {
     max-width: 100%; }
   .featured-truck .featured-quote {
     margin-top: 5rem; }
-    .featured-truck .featured-quote .quote-body, .featured-truck .featured-quote .quote-mark {
+    .featured-truck .featured-quote .quote-credit, .featured-truck .featured-quote .twitter_quote {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #999999;
+      text-transform: initial; }
+    .featured-truck .featured-quote .quote-body, .featured-truck .featured-quote .quote-mark, .featured-truck .featured-quote .twitter_quote > p {
       font-family: "Open Sans Condensed", sans-serif;
       text-transform: uppercase;
       color: #ef7271;
-      font-size: 3rem;
+      font-size: 2.75rem;
       font-weight: bold;
       opacity: 0.9; }
     .featured-truck .featured-quote .quote-mark {
-      font-size: 12rem;
+      font-size: 8rem;
       line-height: 0.6; }
-    .featured-truck .featured-quote .quote-credit {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-top: 2rem; }
 
 .about {
   padding-top: 5rem;
@@ -520,7 +522,6 @@ ul.social-media {
     max-width: 10%; }
   .truck-illustration .truck-name {
     display: inline-block;
-    padding-left: 1rem;
     font-size: 4rem;
     font-weight: bold;
     font-family: "Open Sans Condensed", sans-serif;

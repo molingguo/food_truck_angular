@@ -2,12 +2,15 @@
 	padding-top: 2rem;
 	padding-bottom: 5rem;
 
-	.featured-truck-title {
+	.featured-truck-title a {
 		font-family: $header-font;
-		color: $blue;
 		font-weight: bold;
 		text-transform: uppercase;
 		color: $red;
+
+		&:hover {
+			color: darken($red, 10%);
+		}
 	}
 
 	.content-wrapper {
@@ -53,24 +56,27 @@
 	.featured-quote {
 		margin-top: 5rem;
 
-		.quote-body, .quote-mark {
+		.quote-credit, .twitter_quote {
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: $gray;
+			text-transform: initial;
+		}
+
+		.quote-body, .quote-mark, .twitter_quote > p {
 			font-family: $header-font;
 			text-transform: uppercase;
 			color: $red;
-			font-size: 3rem;
+			font-size: 2.75rem;
 			font-weight: bold;
 			opacity: 0.9
 		}
 
 		.quote-mark {
-			font-size: 12rem;
+			font-size: 8rem;
 			line-height: 0.6;
 		}
 
-		.quote-credit {
-			font-size: 1.5rem;
-			font-weight: bold;
-			margin-top: 2rem;
-		}
+
 	}
 }

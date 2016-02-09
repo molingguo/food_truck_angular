@@ -164,7 +164,7 @@ var processMarkerMessage = function(inputMarkers) {
 	result = _.map(inputMarkers, function(value) {
 		processDay(value);
 		counters[value.location_id] = counters[value.location_id] || "";
-		var truckFormat = "<h2>" + value.truck_name + "</h2>";
+		var truckFormat = "<h2><a href='#/" + value.truck_route + "'>" + value.truck_name + "</a></h2>";
 		var scheduleFormat = "<h4>" + value.day_format + "&nbsp;&nbsp;&nbsp;" + value.time_format + "</h4>";
 
 		//if message doesn't not contain the truck name, add to it, as well as the schedule

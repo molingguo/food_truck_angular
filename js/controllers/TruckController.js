@@ -1,5 +1,5 @@
-app.controller('TruckController', ['$http', '$scope', '$routeParams', '$timeout', 
-	function($http, $scope, $routeParams, $timeout) {
+app.controller('TruckController', ['$http', '$scope', '$routeParams', '$timeout', '$sce', 
+	function($http, $scope, $routeParams, $timeout, $sce) {
 		$scope.truckRoute = $routeParams.truckRoute;
 		$scope.mapCenter = {lat: 42.356, lng: -71.08, zoom: 13};
 		$scope.defaults = {
@@ -21,6 +21,7 @@ app.controller('TruckController', ['$http', '$scope', '$routeParams', '$timeout'
 		$http.get("backend/getTruck.php?route_name="+$scope.truckRoute).success(function(data) {
 			$scope.truck = data[0];  //only one truck
 			//console.log($scope.truck);
+			if ($scope.truck.tweet) $scope.embedQuote();
 			$timeout(function () { twttr.widgets.load(); }, 1000); 
 		});
 
@@ -48,5 +49,33 @@ app.controller('TruckController', ['$http', '$scope', '$routeParams', '$timeout'
 				$scope.showMap = false;
 			}
 		});
+
+		//TODO: Current Location: deal with multiple locations?
+		$scope.getCurrentSchedule = function(schedulearray) {
+			var currentdate = new Date();
+			var currentDay = currentdate.getDay();
+			var currentHour = currentdate.getHours();
+
+			//set the day
+			dayIndex = currentDay-1;
+			if (dayIndex == -1) dayIndex = 6;
+		}
+
+		$scope.embedQuote = function() {
+			$http.get("https://api.twitter.com/1/statuses/oembed.json", {
+				params: { 
+					url: $scope.truck.tweet,
+					hide_thread: true,
+					hide_media: true,
+					omit_script: true,
+					align: 'center'
+				}
+			}).success(function(data) {
+				var rawdata = data.html;
+				rawdata = rawdata.replace(/<blockquote[^>]*>?/g, '');
+				rawdata = rawdata.replace(/<\/blockquote>/g, '');
+				$scope.twitter_embed = $sce.trustAsHtml(rawdata);
+			});
+		}
 	}
 ]);
