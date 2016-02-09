@@ -408,7 +408,8 @@ ul {
 
 .featured-truck {
   padding-top: 2rem;
-  padding-bottom: 5rem; }
+  padding-bottom: 5rem;
+  background-color: #f3f3f3; }
   .featured-truck .featured-truck-title a {
     font-family: "Open Sans Condensed", sans-serif;
     font-weight: bold;

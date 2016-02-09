@@ -1,5 +1,5 @@
-app.controller('TruckController', ['$http', '$scope', '$routeParams', '$timeout', '$sce', 
-	function($http, $scope, $routeParams, $timeout, $sce) {
+app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams', '$timeout', '$sce', 
+	function($http, $scope, $resource, $routeParams, $timeout, $sce) {
 		$scope.truckRoute = $routeParams.truckRoute;
 		$scope.mapCenter = {lat: 42.356, lng: -71.08, zoom: 13};
 		$scope.defaults = {
@@ -61,16 +61,18 @@ app.controller('TruckController', ['$http', '$scope', '$routeParams', '$timeout'
 			if (dayIndex == -1) dayIndex = 6;
 		}
 
+		var TwitterAPI = $resource("https://api.twitter.com/1/statuses/oembed.json",
+    		{ callback: "JSON_CALLBACK" },
+    		{ get: { method: "JSONP" }});
+
 		$scope.embedQuote = function() {
-			$http.get("https://api.twitter.com/1/statuses/oembed.json", {
-				params: { 
-					url: $scope.truck.tweet,
-					hide_thread: true,
-					hide_media: true,
-					omit_script: true,
-					align: 'center'
-				}
-			}).success(function(data) {
+			TwitterAPI.get({ 
+				url: $scope.truck.tweet,
+				hide_thread: true,
+				hide_media: true,
+				omit_script: true,
+				align: 'center'
+			}, function(data) {
 				var rawdata = data.html;
 				rawdata = rawdata.replace(/<blockquote[^>]*>?/g, '');
 				rawdata = rawdata.replace(/<\/blockquote>/g, '');

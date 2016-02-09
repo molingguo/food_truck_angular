@@ -1,6 +1,6 @@
 
 app.controller('MainController', 
-	['$http', '$scope', '$filter', '$timeout', '$sce', 'selectTimeFilter', 'selectGeneralFilter', function($http, $scope, $filter, $timeout, $sce, selectTimeFilter, selectGeneralFilter) {
+	['$http', '$scope', '$resource', '$filter', '$timeout', '$sce', 'selectTimeFilter', 'selectGeneralFilter', function($http, $scope, $resource, $filter, $timeout, $sce, selectTimeFilter, selectGeneralFilter) {
 	//INITIALIZE
 	$scope.appTitle = "Hungry Hunter";
 	$scope.appLocation = "Boston";
@@ -39,6 +39,7 @@ app.controller('MainController',
 		//TODO: move this to after view loads
 		loadAllAnimations();
 		$timeout(function () { twttr.widgets.load(); }, 1000); 
+		$scope.embedQuote();
 	});
 
 	$scope.$watchCollection('[dayFilter, timeFilter, foodTypeFilter, neighborhoodFilter]', function(newValues, oldValues){
@@ -143,20 +144,24 @@ app.controller('MainController',
 		$scope.mapCenter = mapCenter;
 	}
 
-	$http.get("https://api.twitter.com/1/statuses/oembed.json", {
-		params: { 
-			url: 'https://twitter.com/melissakpalardy/status/598534759418089472',
-			hide_thread: true,
+	var TwitterAPI = $resource("https://api.twitter.com/1/statuses/oembed.json",
+    		{ callback: "JSON_CALLBACK" },
+    		{ get: { method: "JSONP" }});
+
+	$scope.embedQuote = function() {
+    	TwitterAPI.get({ 
+    		url: 'https://twitter.com/melissakpalardy/status/598534759418089472',
+    		hide_thread: true,
 			hide_media: true,
 			omit_script: true,
 			align: 'center'
-		}
-	}).success(function(data) {
-		var rawdata = data.html;
-		rawdata = rawdata.replace(/<blockquote[^>]*>?/g, '');
-		rawdata = rawdata.replace(/<\/blockquote>/g, '');
-		$scope.twitter_embed = $sce.trustAsHtml(rawdata);
-	});
+		}, function(data) {
+			var rawdata = data.html;
+			rawdata = rawdata.replace(/<blockquote[^>]*>?/g, '');
+			rawdata = rawdata.replace(/<\/blockquote>/g, '');
+			$scope.twitter_embed = $sce.trustAsHtml(rawdata);
+		});
+  	};
 
 	// $scope.highlightMarkers = function(truck) {
 	// 	_.mapObject($scope.markers, function(val, key) {
