@@ -380,17 +380,24 @@ ul {
       display: inline-block; }
       .the-trucks .truck-logo a.image-wrapper:hover h3 {
         color: #1b325f; }
+    .the-trucks .truck-logo img.truck-frame {
+      width: 90%; }
     .the-trucks .truck-logo img.truck-image {
       transition: all .1s;
       position: absolute;
       margin-left: auto;
       margin-right: auto;
       left: 0;
-      right: 0; }
+      right: 0;
+      top: 0;
+      max-width: 75%; }
       .the-trucks .truck-logo img.truck-image:hover {
         transform: scale(1.08); }
     .the-trucks .truck-logo h3 {
       color: white; }
+    @media (min-width: 1200px) {
+      .the-trucks .truck-logo:nth-child(6n+1) {
+        clear: both; } }
   .the-trucks .view-all-trucks .toggle-truck-list:hover {
     cursor: pointer; }
   .the-trucks .view-all-trucks h2 {

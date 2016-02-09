@@ -24,6 +24,10 @@
 			}
 		}
 
+		img.truck-frame {
+			width: 90%;
+		}
+
 		img.truck-image {
 			transition: all .1s;
 			position: absolute;
@@ -31,6 +35,8 @@
 			margin-right: auto;
 			left: 0;
 			right: 0;
+			top: 0;
+			max-width: 75%;
 
 			&:hover {
 				transform: scale(1.08);
@@ -39,6 +45,12 @@
 
 		h3 {
 			color: white;
+		}
+
+		@media (min-width: 1200px) {
+			&:nth-child(6n+1) {
+				clear: both;
+			}
 		}
 	}
 

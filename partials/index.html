@@ -163,7 +163,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in filteredTruck = (alltrucks | filter:searchText) | limitTo:8">
+				<div class="truck-logo col-xs-6 col-md-3 col-lg-2" ng-repeat="truck in filteredTruck = (alltrucks | filter:searchText) | limitTo:12">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img src="img/trucks/bg.png" class="truck-frame" />
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" />
@@ -172,7 +172,7 @@
 				</div>
 			</div>
 			<div class="row" uib-collapse="isCollapsed">
-				<div class="truck-logo col-xs-6 col-md-3" ng-repeat="truck in alltrucks | filter:searchText | limitTo:30:8">
+				<div class="truck-logo col-xs-6 col-md-3 col-lg-2" ng-repeat="truck in alltrucks | filter:searchText | limitTo:50:12">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img src="img/trucks/bg.png" class="truck-frame" />
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" />
@@ -182,8 +182,8 @@
 			</div>
 			<div class="view-all-trucks">
 				<a class="toggle-truck-list text-center" ng-click="isCollapsed = !isCollapsed">
-					<h2 ng-show="isCollapsed && filteredTruck.length > 8">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2>
-					<h2 ng-show="!isCollapsed && filteredTruck.length > 8">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></h2>		
+					<h2 ng-show="isCollapsed && filteredTruck.length > 12">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2>
+					<h2 ng-show="!isCollapsed && filteredTruck.length > 12">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></h2>		
 				</a>
 			</div>
 		</div>
