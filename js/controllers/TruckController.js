@@ -23,6 +23,9 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 			//console.log($scope.truck);
 			if ($scope.truck.tweet) $scope.embedQuote();
 			$timeout(function () { twttr.widgets.load(); }, 1000); 
+
+			var instagram_embed_html = "<iframe src='"+$scope.truck.instagram_iframe+"' id='"+$scope.truck.instagram_id+"' name='"+$scope.truck.instagram_id+"'  scrolling='no' allowtransparency='true' class='instansive-widget' style='width: 100%; border: 0; overflow: hidden;'></iframe>";
+			$scope.instagram_embed = $sce.trustAsHtml(instagram_embed_html);
 		});
 
 		//get truck schedule

@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 require_once 'db.php'; // The mysql database connection script
 
-$query="select truck.name, truck.route_name, truck.food_type, truck.yelp_rating, location.id, location.location, location.neighborhood, location.latitude, location.longitude, open_time, close_time, time, schedule.day from truck, schedule, location where
+$query="select truck.name, truck.route_name, truck.food_type_single, truck.yelp_rating, location.id, location.location, location.neighborhood, location.latitude, location.longitude, open_time, close_time, time, schedule.day from truck, schedule, location where
 truck.route_name = schedule.truck_route 
 and location.id = schedule.location_id 
 and schedule.is_open = true 
@@ -79,7 +79,7 @@ if(isset($_GET['route_name'])){
 				$nestedarray['truck_name'] = $rs2[name];
 				$nestedarray['truck_route'] = $rs2[route_name];
 				$nestedarray['food_type'] = $foodtypes[$rs2[route_name]];
-				$nestedarray['food_type_single'] = $rs2[food_type];
+				$nestedarray['food_type_single'] = $rs2[food_type_single];
 				$nestedarray['yelp_rating'] = (float)$rs2[yelp_rating];
 				$nestedarray['lat'] = (float)$rs2[latitude];
 				$nestedarray['lng'] = (float)$rs2[longitude];
