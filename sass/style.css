@@ -405,6 +405,10 @@ ul {
   .the-trucks .view-all-trucks .toggle-carets {
     top: 0.5rem;
     left: 0.5rem; }
+  .the-trucks .no-truck-match {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 2rem; }
 
 .featured-truck {
   padding-top: 2rem;

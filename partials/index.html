@@ -83,7 +83,7 @@
 							<div class="truck-foodtype col-xs-5">
 								{{truck.food_type}}
 							</div>
-							<div class="truck-review col-xs-5">
+							<div class="truck-review col-xs-5" ng-show="truck.yelp_rating>0">
 								<span ng-repeat="n in [1, 2, 3, 4, 5]">	
 									<i class="icon-star" ng-if="truck.yelp_rating>=n"></i>
 									<i class="icon-star-half-empty" ng-if="truck.yelp_rating<n&&truck.yelp_rating>=(n-0.5)"></i>
@@ -161,6 +161,9 @@
 					<span id="searchclear" class="glyphicon glyphicon-remove-circle" ng-click="searchText=undefined"></span>
 					<span class="glyphicon glyphicon-search"></span>
 				</div>
+			</div>
+			<div class="no-truck-match" ng-show="filteredTruck.length==0">
+				{{noResultText}}
 			</div>
 			<div class="row">
 				<div class="truck-logo col-xs-6 col-md-3 col-lg-2" ng-repeat="truck in filteredTruck = (alltrucks | filter:searchText) | limitTo:12">

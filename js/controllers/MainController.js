@@ -117,10 +117,10 @@ app.controller('MainController',
 		$scope.dayFilter = [dayOfWeek[dayIndex]];
 
 		//set the time
-		if (currentHour <= 10) {
+		if (currentHour < 10) {
 			$scope.timeFilter = [timeOfDay[0]];
 		}
-		else if (currentHour <= 15) {
+		else if (currentHour < 15) {
 			$scope.timeFilter = [timeOfDay[1]];
 		}
 		else if (currentHour <= 19) {
