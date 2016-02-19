@@ -25,14 +25,19 @@
 	}
 
 	.featured-highlight {
-		margin-top: 3rem;
+		position: relative;
+		height: $featured-element-height;
+		padding-left: 0;
 
 		h1 {
 			text-transform: uppercase;
 			font-weight: bold;
 			color: $red;
 			margin: 0;
-			opacity: 0.7
+			opacity: 0.7;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 
 		.large-number {
@@ -50,8 +55,11 @@
 		}
 	}
 
-	.featured-image img {
-		max-width: 100%;
+	.featured-image {
+		padding: 0 0.5rem;
+		img {
+			max-width: 100%;
+		}
 	}
 
 	.featured-quote {

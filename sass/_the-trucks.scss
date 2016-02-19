@@ -2,6 +2,10 @@
 	padding-top: 2rem;
 	background-color: $light-blue;
 
+	.the-trucks-header {
+		margin-bottom: 2rem;
+	}
+
 	.the-trucks-title {
 		font-family: $header-font;
 		color: $blue;
@@ -11,40 +15,32 @@
 
 	.truck-logo {
 
-		margin: 3rem 0;
+		margin: 1.5rem 0;
+
+		&:hover {
+			a.image-wrapper h3 {
+				color: $dark-blue;
+			}
+
+			img.truck-image {
+				transform: scale(1.08);
+			}
+
+		}
 
 		a.image-wrapper {
 			width: 100%;
 			display: inline-block;
-
-			&:hover {
-				h3 {
-					color: $dark-blue;
-				}
-			}
-		}
-
-		img.truck-frame {
-			width: 90%;
 		}
 
 		img.truck-image {
 			transition: all .1s;
-			position: absolute;
-			margin-left: auto;
-			margin-right: auto;
-			left: 0;
-			right: 0;
-			top: 0;
 			max-width: 75%;
-
-			&:hover {
-				transform: scale(1.08);
-			}
 		}
 
 		h3 {
 			color: white;
+			margin-top: 1rem;
 		}
 
 		@media (min-width: 1200px) {

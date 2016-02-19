@@ -24,8 +24,10 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 			if ($scope.truck.tweet) $scope.embedQuote();
 			$timeout(function () { twttr.widgets.load(); }, 1000); 
 
-			var instagram_embed_html = "<iframe src='"+$scope.truck.instagram_iframe+"' id='"+$scope.truck.instagram_id+"' name='"+$scope.truck.instagram_id+"'  scrolling='no' allowtransparency='true' class='instansive-widget' style='width: 100%; border: 0; overflow: hidden;'></iframe>";
-			$scope.instagram_embed = $sce.trustAsHtml(instagram_embed_html);
+			if ($scope.truck.instagram_iframe) {
+				var instagram_embed_html = "<iframe src='"+$scope.truck.instagram_iframe+"' id='"+$scope.truck.instagram_id+"' name='"+$scope.truck.instagram_id+"'  scrolling='no' allowtransparency='true' class='instansive-widget' style='width: 100%; border: 0; overflow: hidden;'></iframe>";
+				$scope.instagram_embed = $sce.trustAsHtml(instagram_embed_html);
+			}
 		});
 
 		//get truck schedule
@@ -33,6 +35,7 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 			$scope.schedule = data;
 			processDays($scope.schedule);
 			//console.log($scope.schedule);
+			$scope.getCurrentSchedule();
 			
 			//TODO: move this to event after view is loaded
 			truckAnimation();
@@ -59,9 +62,40 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 			var currentDay = currentdate.getDay();
 			var currentHour = currentdate.getHours();
 
-			//set the day
-			dayIndex = currentDay-1;
-			if (dayIndex == -1) dayIndex = 6;
+			//set the day, 1-Mongday, 7-Sunday
+			dayIndex = currentDay;
+			if (dayIndex == 0) dayIndex = 7;
+
+			//filter to current day
+			var filterResults = _.filter($scope.schedule, function(sche) {
+				var dayFilter = sche.day.indexOf(dayIndex.toString()) > -1;
+				var timeFilter;
+
+				if(!dayFilter) return false;
+				
+				if (sche.open_time && sche.close_time) {
+					timeFilter = (Number(sche.open_time) <= currentHour && Number(sche.close_time) > currentHour);
+				} else if (sche.time) {
+					switch(sche.time) {
+						case "Breakfast":
+							timeFilter = currentHour < 10;
+							break;
+						case "Lunch":
+							timeFilter = currentHour >= 10 && currentHour < 15;
+							break;
+						case "Dinner":
+							timeFilter = currentHour >= 15 && currentHour < 21;
+							break;
+						default: 
+							timeFilter = currentHour >= 21 && currentHour <= 23;
+							break;
+					}
+				}
+				return dayFilter && timeFilter;
+			});
+
+			// console.log(filterResults);
+			$scope.currentLocation = filterResults
 		}
 
 		var TwitterAPI = $resource("https://api.twitter.com/1/statuses/oembed.json",

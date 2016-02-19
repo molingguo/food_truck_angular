@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,300,600|Open+Sans+Condensed:300,700);
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?yuveun");
-  src: url("../fonts/icomoon.eot?yuveun#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?yuveun") format("truetype"), url("../fonts/icomoon.woff?yuveun") format("woff"), url("../fonts/icomoon.svg?yuveun#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?ijgapx");
+  src: url("../fonts/icomoon.eot?ijgapx#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?ijgapx") format("truetype"), url("../fonts/icomoon.woff?ijgapx") format("woff"), url("../fonts/icomoon.svg?ijgapx#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 [class^="icon-"], [class*=" icon-"] {
@@ -17,6 +17,78 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.icon-truckoutline:before {
+  content: "\e922"; }
+
+.icon-arrow-down-circle:before {
+  content: "\e913"; }
+
+.icon-arrow-down:before {
+  content: "\e914"; }
+
+.icon-arrow-left-circle:before {
+  content: "\e915"; }
+
+.icon-arrow-left:before {
+  content: "\e916"; }
+
+.icon-arrow-right-circle:before {
+  content: "\e917"; }
+
+.icon-arrow-right:before {
+  content: "\e918"; }
+
+.icon-arrow-simple-down:before {
+  content: "\e919"; }
+
+.icon-arrow-simple-left:before {
+  content: "\e91a"; }
+
+.icon-arrow-simple-right:before {
+  content: "\e91b"; }
+
+.icon-arrow-simple-up:before {
+  content: "\e91c"; }
+
+.icon-arrow-up-circle:before {
+  content: "\e91d"; }
+
+.icon-arrow-up:before {
+  content: "\e91e"; }
+
+.icon-clock:before {
+  content: "\e91f"; }
+
+.icon-target2:before {
+  content: "\e920"; }
+
+.icon-truckfill:before {
+  content: "\e921"; }
+
+.icon-x:before {
+  content: "\e923"; }
+
+.icon-heart:before {
+  content: "\e910"; }
+
+.icon-location:before {
+  content: "\e911"; }
+
+.icon-yelp:before {
+  content: "\e912"; }
+
+.icon-instacircle:before {
+  content: "\e90d"; }
+
+.icon-twittercircle:before {
+  content: "\e90e"; }
+
+.icon-yelpcircle:before {
+  content: "\e90f"; }
+
+.icon-facebookcircle:before {
+  content: "\e90c"; }
 
 .icon-burgers:before {
   content: "\e900"; }
@@ -51,17 +123,11 @@
 .icon-asian:before {
   content: "\e90a"; }
 
-.icon-heart:before {
-  content: "\f004"; }
-
 .icon-star:before {
   content: "\f005"; }
 
 .icon-star-empty:before {
   content: "\f006"; }
-
-.icon-map-marker:before {
-  content: "\f041"; }
 
 .icon-twitter:before {
   content: "\f099"; }
@@ -83,9 +149,6 @@
 
 .icon-instagram:before {
   content: "\f16d"; }
-
-.icon-yelp:before {
-  content: "\f1e9"; }
 
 .icon-target:before {
   content: "\e90b"; }
@@ -353,9 +416,10 @@ ul, li {
     border: none; }
     .map-list .special-filter-wrapper button:focus {
       outline: none; }
-    .map-list .special-filter-wrapper button span {
+    .map-list .special-filter-wrapper button i {
       font-size: 2rem;
-      top: 0.3rem;
+      position: relative;
+      top: 0.2rem;
       right: 0.3rem; }
   .map-list .no-result-match {
     padding-left: 2rem;
@@ -410,33 +474,28 @@ ul, li {
 .the-trucks {
   padding-top: 2rem;
   background-color: #9cc4e4; }
+  .the-trucks .the-trucks-header {
+    margin-bottom: 2rem; }
   .the-trucks .the-trucks-title {
     font-family: "Open Sans Condensed", sans-serif;
     color: #446cb3;
     font-weight: bold;
     text-transform: uppercase; }
   .the-trucks .truck-logo {
-    margin: 3rem 0; }
+    margin: 1.5rem 0; }
+    .the-trucks .truck-logo:hover a.image-wrapper h3 {
+      color: #1b325f; }
+    .the-trucks .truck-logo:hover img.truck-image {
+      transform: scale(1.08); }
     .the-trucks .truck-logo a.image-wrapper {
       width: 100%;
       display: inline-block; }
-      .the-trucks .truck-logo a.image-wrapper:hover h3 {
-        color: #1b325f; }
-    .the-trucks .truck-logo img.truck-frame {
-      width: 90%; }
     .the-trucks .truck-logo img.truck-image {
       transition: all .1s;
-      position: absolute;
-      margin-left: auto;
-      margin-right: auto;
-      left: 0;
-      right: 0;
-      top: 0;
       max-width: 75%; }
-      .the-trucks .truck-logo img.truck-image:hover {
-        transform: scale(1.08); }
     .the-trucks .truck-logo h3 {
-      color: white; }
+      color: white;
+      margin-top: 1rem; }
     @media (min-width: 1200px) {
       .the-trucks .truck-logo:nth-child(6n+1) {
         clear: both; } }
@@ -468,13 +527,18 @@ ul, li {
   .featured-truck .featured-text p {
     font-size: 1.64rem; }
   .featured-truck .featured-highlight {
-    margin-top: 3rem; }
+    position: relative;
+    height: 380px;
+    padding-left: 0; }
     .featured-truck .featured-highlight h1 {
       text-transform: uppercase;
       font-weight: bold;
       color: #ef7271;
       margin: 0;
-      opacity: 0.7; }
+      opacity: 0.7;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); }
     .featured-truck .featured-highlight .large-number {
       font-size: 16rem;
       opacity: 1;
@@ -483,8 +547,10 @@ ul, li {
       font-size: 4.5rem; }
     .featured-truck .featured-highlight .medium-text {
       font-size: 3.8rem; }
-  .featured-truck .featured-image img {
-    max-width: 100%; }
+  .featured-truck .featured-image {
+    padding: 0 0.5rem; }
+    .featured-truck .featured-image img {
+      max-width: 100%; }
   .featured-truck .featured-quote {
     margin-top: 5rem; }
     .featured-truck .featured-quote .quote-credit, .featured-truck .featured-quote .twitter_quote {
@@ -566,7 +632,9 @@ ul.social-media {
     z-index: 2;
     width: 35%; }
     .truck-illustration .large-truck img {
-      min-width: 100%; }
+      min-width: 120%; }
+  .truck-illustration .truck-large-image {
+    width: 120%; }
   .truck-illustration .truck-name-wrapper {
     color: #009193;
     position: absolute;
@@ -584,11 +652,24 @@ ul.social-media {
     width: 80%;
     margin-top: 3rem;
     color: #469b9d; }
+  .truck-illustration .truck-sociallinks {
+    margin-top: 2rem;
+    color: #469b9d; }
+    .truck-illustration .truck-sociallinks a {
+      color: #469b9d; }
+      .truck-illustration .truck-sociallinks a:hover, .truck-illustration .truck-sociallinks a:focus {
+        text-decoration: none; }
+    .truck-illustration .truck-sociallinks i {
+      font-size: 5rem;
+      margin-right: 1rem; }
+      .truck-illustration .truck-sociallinks i:hover {
+        color: #009193; }
   .truck-illustration .truck-info {
     margin-top: 10rem;
     margin-bottom: 2rem; }
     .truck-illustration .truck-info .truck-info-section {
-      padding: 2rem 0; }
+      padding: 2rem 0;
+      height: 220px; }
       .truck-illustration .truck-info .truck-info-section:hover {
         background: #6bc2bb; }
         .truck-illustration .truck-info .truck-info-section:hover .info-type, .truck-illustration .truck-info .truck-info-section:hover .info-image i, .truck-illustration .truck-info .truck-info-section:hover .info-type-content {
@@ -600,22 +681,35 @@ ul.social-media {
       font-weight: bold; }
     .truck-illustration .truck-info .info-image {
       padding-top: 3rem;
-      padding-bottom: 3rem;
-      height: 126px; }
+      padding-bottom: 3rem; }
       .truck-illustration .truck-info .info-image i {
         font-size: 6rem;
-        color: #6bc2bb; }
+        color: #469b9d; }
     .truck-illustration .truck-info .info-type-content {
       color: #999999;
       font-size: 1.5rem; }
+    .truck-illustration .truck-info .info-section-hover {
+      position: absolute;
+      width: 100%;
+      bottom: 3rem;
+      color: white;
+      font-size: 1.5rem; }
+      .truck-illustration .truck-info .info-section-hover .info-section-hover-list-wrapper {
+        margin-top: 3rem; }
+      .truck-illustration .truck-info .info-section-hover .info-section-hover-list {
+        margin: 0.5rem 0; }
+    .truck-illustration .truck-info .truck-info-section.current-location .info-section-hover {
+      display: none; }
+    .truck-illustration .truck-info .truck-info-section.current-location:hover.multiple-location .info-section-hover {
+      display: inherit; }
+    .truck-illustration .truck-info .truck-info-section.current-location:hover.multiple-location .info-image {
+      display: none; }
+    .truck-illustration .truck-info .truck-info-section.current-location:hover.multiple-location .info-type-content {
+      display: none; }
   .truck-illustration .foodtype-list {
     display: inline-block;
     padding-left: 1rem;
     padding-right: 1rem; }
-    .truck-illustration .foodtype-list .foodtype-icon {
-      position: relative;
-      top: -0.25rem;
-      font-size: 7rem !important; }
 
 .truck-schedule {
   padding-top: 2rem;

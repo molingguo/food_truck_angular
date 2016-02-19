@@ -162,14 +162,4 @@ app.controller('MainController',
 			$scope.twitter_embed = $sce.trustAsHtml(rawdata);
 		});
   	};
-
-	// $scope.highlightMarkers = function(truck) {
-	// 	_.mapObject($scope.markers, function(val, key) {
-	// 		if (val.truck_route == truck.truck_route) {
-	// 			val.icon.iconUrl = "img/truckicon_highlight.png";
-	// 		} else {
-	// 			val.icon.iconUrl = "img/truckicon.png";
-	// 		}
-	// 	});
-	// }
 }]);

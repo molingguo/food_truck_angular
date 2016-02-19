@@ -12,10 +12,11 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="#overview" du-smooth-scroll du-scrollspy offset="60">Overview</a></li>
+				<li><a href="#overview" du-smooth-scroll du-scrollspy offset="60">About</a></li>
 				<li><a href="#menu" du-smooth-scroll du-scrollspy offset="60" ng-show="menu[0].menu_item[0]">Menu</a></li>
 				<li><a href="#schedule" du-smooth-scroll du-scrollspy offset="60" ng-show="schedule[0]">Schedule</a></li>
 				<li><a href="#instagram" du-smooth-scroll du-scrollspy offset="60">Photos</a></li>
+				<li><a href="#more" du-smooth-scroll du-scrollspy offset="60">More</a></li>
 				<li><a href="#map" du-smooth-scroll du-scrollspy offset="60" ng-show="markers.length>0">Map</a></li>
 			</ul>
 		</div>
@@ -26,7 +27,8 @@
 	<div class="truck-illustration" id="overview">
 		<div class="container">
 			<div class="large-truck">
-				<img src="img/food_truck.svg" alt="">
+				<img src="img/food_truck.svg" alt="" ng-hide="truck.large_image" />
+				<img class="truck-large-image" ng-src="img/truck_graphics/{{truck.large_image}}" alt="" ng-show="truck.large_image" />
 			</div>
 			<div class="truck-name-wrapper">
 <!-- 				<img ng-src="img/logos/{{truck.logo}}" class="truck-name-logo" alt="" ng-show="truck.logo"> -->
@@ -34,6 +36,23 @@
 				<div class="truck-description">
 					{{truck.description}}
 					<div ng-hide="truck.description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.</div>
+				</div>
+				<div class="truck-sociallinks">
+					<a href="{{truck.website}}" target="_blank" ng-show="truck.website">
+						<i class="icon-truckfill"></i>
+					</a>
+					<a href="https://www.facebook.com/{{truck.facebook}}" target="_blank" ng-show="truck.facebook">
+						<i class="icon-facebookcircle"></i>
+					</a>
+					<a href="https://twitter.com/{{truck.twitter}}" target="_blank" ng-show="truck.twitter">
+						<i class="icon-twittercircle"></i>
+					</a>
+					<a href="https://www.instagram.com/{{truck.instagram}}" target="_blank" ng-show="truck.instagram">
+						<i class="icon-instacircle"></i>
+					</a>
+					<a href="https://www.yelp.com/biz/{{truck.yelp}}" target="_blank" ng-show="truck.yelp">
+						<i class="icon-yelpcircle"></i>
+					</a>
 				</div>
 			</div>
 			<div class="row truck-info">
@@ -72,12 +91,23 @@
 					<div class="info-type-content text-center">{{truck.popular_dish}}</div>
 					<div class="info-type-content text-center" ng-show="!truck.popular_dish">Lorem ipsum</div>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section current-location" ng-class="{'multiple-location':currentLocation.length>1}">
 					<div class="info-type text-center">Current Location</div>
 					<div class="info-image text-center">
-						<i class="icon-map-marker"></i>
+						<i class="icon-location"></i>
 					</div>
-					<div class="info-type-content text-center">Government Center</div>
+					<div class="info-type-content text-center" ng-show="currentLocation.length==0">Closed</div>
+					<div class="info-type-content text-center" ng-show="currentLocation.length>0">
+						<div>{{currentLocation[0].location}}&nbsp;&nbsp;&nbsp;<span>{{currentLocation[0].time_format}}</span></div>
+						
+					</div>
+					<div class="info-section-hover" ng-show="currentLocation.length>1">
+						<div class="info-section-hover-list-wrapper">
+							<div class="info-section-hover-list text-center" ng-repeat="cs in currentLocation">
+								<div>{{cs.location}}&nbsp;&nbsp;&nbsp;<span>{{cs.time_format}}</span></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -123,12 +153,15 @@
 		<script src="//instansive.com/widget/js/instansive.js"></script>
 		<div ng-bind-html="instagram_embed"></div>
 	</div>
-	<div class="featured-truck truck-page">
+	<div class="featured-truck truck-page" id="more">
 		<div class="container">
 			<div class="row content-wrapper">
-				<div class="col-xs-12 col-md-4 featured-text">
+				<div class="col-xs-12 col-md-4 featured-text" ng-show="truck.twitter_widget_id">
 				<a ng-show="truck.twitter_widget_id" class="twitter-timeline" href="https://twitter.com/{{truck.twitter}}" data-widget-id="{{truck.twitter_widget_id}}" data-chrome="noheader nofooter noborders">Tweets by @{{truck.twitter}}</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+				<div class="col-xs-12 col-md-4 featured-image" ng-hide="truck.twitter_widget_id">
+					<img src="img/truck_food/{{truck.food_image_2}}" alt="">
 				</div>
 				<div class="col-xs-12 col-md-4 featured-highlight">
 					<!-- <h1 class="text-center large-text">On average</h1>

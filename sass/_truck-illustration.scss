@@ -11,8 +11,12 @@
 		width: 35%;
 
 		img {
-			min-width: 100%;
+			min-width: 120%;
 		}
+	}
+
+	.truck-large-image {
+		width: 120%;
 	}
 
 	.truck-name-wrapper {
@@ -41,12 +45,35 @@
 		color: $green;
 	}
 
+	.truck-sociallinks {
+		margin-top: 2rem;
+		color: $green;
+
+		a {
+			color: $green;
+
+			&:hover, &:focus {
+				text-decoration: none;
+			}
+		}
+
+		i {
+			font-size: 5rem;
+			margin-right: 1rem;
+
+			&:hover {
+				color: $dark-green;
+			}
+		}
+	}
+
 	.truck-info {
 		margin-top: 10rem;
 		margin-bottom: 2rem;
 
 		.truck-info-section {
 			padding: 2rem 0;
+			height: 220px;
 
 			&:hover {
 				background: $medium-green;
@@ -67,11 +94,10 @@
 		.info-image {
 			padding-top: 3rem;
 			padding-bottom: 3rem;
-			height: 126px;
 
 			i {
 				font-size: 6rem;
-				color: $medium-green;
+				color: $green;
 			}
 		}
 
@@ -79,18 +105,50 @@
 			color: $gray;
 			font-size: 1.5rem;
 		}
+
+		.info-section-hover {
+			position: absolute;
+			width: 100%;
+			bottom: 3rem;
+			color: white;
+			font-size: 1.5rem;
+
+			.info-section-hover-list-wrapper {
+				margin-top: 3rem;
+			}
+
+			.info-section-hover-list {
+				margin: 0.5rem 0;
+			}
+		}
+
+		.truck-info-section.current-location {
+			.info-section-hover {
+				display: none;
+			}
+
+			&:hover {
+
+				&.multiple-location {
+					.info-section-hover {
+						display: inherit;
+					}
+					.info-image {
+						display: none;
+					}
+
+					.info-type-content {
+						display: none;
+					}
+				}
+			}
+		}
 	}
 
 	.foodtype-list {
 		display: inline-block;
 		padding-left: 1rem;
 		padding-right: 1rem;
-
-		.foodtype-icon {
-			position: relative;
-			top: -0.25rem;
-			font-size: 7rem !important;
-		}
 	}
 }
 
