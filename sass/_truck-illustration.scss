@@ -20,7 +20,6 @@
 	}
 
 	.truck-name-wrapper {
-		color: $dark-green;
 		position: absolute;
 		top: 6rem;
 		width: 50%;
@@ -31,10 +30,10 @@
 	}
 
 	.truck-name {
+		color: $dark-gray;
 		display: inline-block;
 		//padding-left: 1rem;
 		font-size: 4rem;
-		font-weight: bold;
 		font-family: $header-font;
 		text-transform: uppercase;
 	}
@@ -42,15 +41,19 @@
 	.truck-description {
 		width: 80%;
 		margin-top: 3rem;
-		color: $green;
+		color: $gray;
+	}
+
+	.truck-website {
+		margin-top: 1rem;
 	}
 
 	.truck-sociallinks {
 		margin-top: 2rem;
-		color: $green;
+		color: $link-color;
 
 		a {
-			color: $green;
+			color: $link-color;
 
 			&:hover, &:focus {
 				text-decoration: none;
@@ -62,7 +65,7 @@
 			margin-right: 1rem;
 
 			&:hover {
-				color: $dark-green;
+				color: $hover-link-color;
 			}
 		}
 	}
@@ -109,12 +112,12 @@
 		.info-section-hover {
 			position: absolute;
 			width: 100%;
-			bottom: 3rem;
+			bottom: 2rem;
 			color: white;
 			font-size: 1.5rem;
 
 			.info-section-hover-list-wrapper {
-				margin-top: 3rem;
+				padding-top: 3rem;
 			}
 
 			.info-section-hover-list {
@@ -130,9 +133,11 @@
 			&:hover {
 
 				&.multiple-location {
+
 					.info-section-hover {
 						display: inherit;
 					}
+
 					.info-image {
 						display: none;
 					}
@@ -162,10 +167,6 @@
 		text-transform: uppercase;
 	}
 
-	h1 {
-		font-weight: bold;
-	}
-
 	h5 {
 		color: $dark-blue;
 		font-size: 1.6rem;
@@ -176,7 +177,6 @@
 		border-bottom: 1px solid $light-gray;
 
 		.schedule-day {
-			font-weight: bold;
 			text-transform: uppercase;
 			font-size: 1.6rem;
 		}
@@ -204,12 +204,12 @@
 	.menu-title {
 		color: $pink;
 		text-transform: uppercase;
-		font-weight: bold;
 	}
 
 	h5 {
 		color: $dark-blue;
 		font-size: 1.6rem;
+		text-transform: uppercase;
 	}
 
 	.menu-section {
@@ -264,10 +264,23 @@
 	h1 {
 		color: $pink;
 		text-transform: uppercase;
-		font-weight: bold;
 	}
 }
 
 .featured-truck.truck-page {
 	background-image: url("../img/paper_texture.jpg");
 }
+
+.truck-map-wrapper {
+	position: relative;
+
+	.truck-map-toggle {
+		width: 16rem;
+		position: absolute;
+		top: 2rem;
+		left: 2rem;
+		z-index: 9;
+		text-transform: uppercase;
+	}
+}
+

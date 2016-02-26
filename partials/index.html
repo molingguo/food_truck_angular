@@ -48,14 +48,14 @@
 					<span class="glyphicon toggle-list-button" ng-click="toggleMapList()" ng-class="{'glyphicon-circle-arrow-left': mapListActive, 'glyphicon-circle-arrow-right':!mapListActive}"></span>
 
 					<div class="special-filter-wrapper">
-						<div class="col-xs-4">
+						<div class="col-xs-6">
 							<button ng-click="filterNow()"><i class="icon-clock"></i>Now</button>
 						</div>
-						<div class="col-xs-4">
-							<button tooltip-placement="top-left" uib-tooltip="{{tooltipNearMe}}" ng-click="filterNearMe()"><i class="icon-target2"></i>Near Me</button>
-						</div>
-						<div class="col-xs-4">
-							<button ng-click="clearFilters()"><i class="icon-x"></i>Clear All</button>
+<!-- 						<div class="col-xs-4">
+							<button tooltip-placement="top-left" uib-tooltip="{{tooltipNearMe}}" ng-click="filterNearMe()"><i class="icon-target2"></i>Near Me</button> -->
+<!-- 						</div> -->
+						<div class="col-xs-6">
+							<button ng-click="clearFilters()"><i class="icon-x"></i>Clear All Filters</button>
 						</div>
 					</div>
 				</div>
@@ -127,7 +127,11 @@
 					<div class="dropdown filter-dropdown col-xs-6 col-md-3">
 						<div class="dropdown-wrapper">
 							<span class="icon-caret-down dropdown-caret"></span>
-							<ol id="dynamic-options" class="nya-bs-select col-xs-12" ng-model="neighborhoodFilter" title="Neighborhood" multiple>
+							<ol id="dynamic-options" class="nya-bs-select col-xs-12 neighborhood-filter" ng-model="neighborhoodFilter" title="Neighborhood" multiple>
+								<li tooltip-placement="top-left" uib-tooltip="{{tooltipNearMe}}" ng-click="filterNearMe()">
+									<a>Near Me<i class="icon-target2 map-filter-nearme-icon"></i></a>
+								</li>
+								<div class="divider map-filter-divider"></div>
 								<li nya-bs-option="neighbor in neighborhood">
 									<a>	{{ neighbor }}
 										<span class="glyphicon glyphicon-ok check-mark"></span>
@@ -161,7 +165,7 @@
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" ng-hide="truck.small_image" />
 						<img ng-src="img/truck_graphics/{{truck.small_image}}" alt="" class="truck-image" ng-show="truck.small_image" />
-						<h3 class="text-center">{{truck.name}}</h3>
+						<div class="text-center truck-logo-name">{{truck.name}}</div>
 					</a>
 				</div>
 			</div>
@@ -170,7 +174,7 @@
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" ng-hide="truck.small_image" />
 						<img ng-src="img/truck_graphics/{{truck.small_image}}" alt="" class="truck-image" ng-show="truck.small_image" />
-						<h3 class="text-center">{{truck.name}}</h3>
+						<div class="text-center truck-logo-name">{{truck.name}}</div>
 					</a>
 				</div>
 			</div>

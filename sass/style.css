@@ -153,11 +153,17 @@
 .icon-target:before {
   content: "\e90b"; }
 
+@font-face {
+  font-family: 'norwesterregular';
+  src: url("../fonts/norwester-webfont.eot");
+  src: url("../fonts/norwester-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/norwester-webfont.woff2") format("woff2"), url("../fonts/norwester-webfont.woff") format("woff"), url("../fonts/norwester-webfont.ttf") format("truetype"), url("../fonts/norwester-webfont.svg#norwesterregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 body {
   font-family: "Raleway", sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans Condensed", sans-serif; }
+  font-family: "norwesterregular", sans-serif; }
 
 a {
   text-decoration: none; }
@@ -231,8 +237,7 @@ ul, li {
     color: #009193; }
   .splash .splash-header {
     margin-top: 5.5rem;
-    font-weight: bold;
-    font-family: "Open Sans Condensed", sans-serif;
+    font-family: "norwesterregular", sans-serif;
     font-size: 5rem; }
   .splash .splash-sub-header {
     margin-top: 0;
@@ -305,7 +310,9 @@ ul, li {
     background-color: #446cb3;
     color: white;
     font-weight: 500;
-    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    font-size: 1.25rem;
     border-radius: 0;
     border: none;
     text-align: center; }
@@ -335,9 +342,17 @@ ul, li {
       background-color: inherit;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
-      font-size: 1.4rem; }
+      text-transform: uppercase;
+      letter-spacing: 0px;
+      font-size: 1.25rem; }
       .filter-dropdown .filter-dropdown-menu > li a:focus, .filter-dropdown .dropdown-menu > li a:focus {
         outline: none; }
+  .filter-dropdown .map-filter-divider {
+    margin: 0.25rem 0; }
+  .filter-dropdown .map-filter-nearme-icon {
+    font-size: 2rem;
+    position: absolute;
+    right: 1.25rem; }
 
 .map-wrapper .leaflet-popup-content {
   line-height: 1; }
@@ -384,8 +399,7 @@ ul, li {
     .map-list .toggle-list .find-food {
       font-size: 2.6rem;
       padding: 1rem 0 0.5rem 0;
-      font-family: "Open Sans Condensed", sans-serif;
-      font-weight: bold;
+      font-family: "norwesterregular", sans-serif;
       text-transform: uppercase;
       color: #446cb3; }
     .map-list .toggle-list .toggle-list-button {
@@ -402,11 +416,11 @@ ul, li {
     overflow-y: scroll;
     height: 455px;
     pointer-events: none; }
-  .map-list .special-filter-wrapper > .col-xs-4 {
+  .map-list .special-filter-wrapper > .col-xs-6 {
     padding: 0 0.25rem; }
-    .map-list .special-filter-wrapper > .col-xs-4:first-child {
+    .map-list .special-filter-wrapper > .col-xs-6:first-child {
       padding-left: 0; }
-    .map-list .special-filter-wrapper > .col-xs-4:last-child {
+    .map-list .special-filter-wrapper > .col-xs-6:last-child {
       padding-right: 0; }
   .map-list .special-filter-wrapper button {
     width: 100%;
@@ -417,9 +431,9 @@ ul, li {
     .map-list .special-filter-wrapper button:focus {
       outline: none; }
     .map-list .special-filter-wrapper button i {
-      font-size: 2rem;
+      font-size: 1.75rem;
       position: relative;
-      top: 0.2rem;
+      top: 0.3rem;
       right: 0.3rem; }
   .map-list .no-result-match {
     padding-left: 2rem;
@@ -477,9 +491,8 @@ ul, li {
   .the-trucks .the-trucks-header {
     margin-bottom: 2rem; }
   .the-trucks .the-trucks-title {
-    font-family: "Open Sans Condensed", sans-serif;
+    font-family: "norwesterregular", sans-serif;
     color: #446cb3;
-    font-weight: bold;
     text-transform: uppercase; }
   .the-trucks .truck-logo {
     margin: 1.5rem 0; }
@@ -493,9 +506,11 @@ ul, li {
     .the-trucks .truck-logo img.truck-image {
       transition: all .1s;
       max-width: 75%; }
-    .the-trucks .truck-logo h3 {
+    .the-trucks .truck-logo .truck-logo-name {
       color: white;
-      margin-top: 1rem; }
+      margin-top: 1rem;
+      font-size: 1.75rem;
+      line-height: 1; }
     @media (min-width: 1200px) {
       .the-trucks .truck-logo:nth-child(6n+1) {
         clear: both; } }
@@ -516,8 +531,7 @@ ul, li {
   padding-bottom: 5rem;
   background-color: #f3f3f3; }
   .featured-truck .featured-truck-title a {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-weight: bold;
+    font-family: "norwesterregular", sans-serif;
     text-transform: uppercase;
     color: #ef7271; }
     .featured-truck .featured-truck-title a:hover {
@@ -532,7 +546,6 @@ ul, li {
     padding-left: 0; }
     .featured-truck .featured-highlight h1 {
       text-transform: uppercase;
-      font-weight: bold;
       color: #ef7271;
       margin: 0;
       opacity: 0.7;
@@ -555,15 +568,13 @@ ul, li {
     margin-top: 5rem; }
     .featured-truck .featured-quote .quote-credit, .featured-truck .featured-quote .twitter_quote {
       font-size: 1.5rem;
-      font-weight: bold;
       color: #999999;
       text-transform: initial; }
     .featured-truck .featured-quote .quote-body, .featured-truck .featured-quote .quote-mark, .featured-truck .featured-quote .twitter_quote > p {
-      font-family: "Open Sans Condensed", sans-serif;
+      font-family: "norwesterregular", sans-serif;
       text-transform: uppercase;
       color: #ef7271;
       font-size: 2.75rem;
-      font-weight: bold;
       opacity: 0.9; }
     .featured-truck .featured-quote .quote-mark {
       font-size: 8rem;
@@ -574,8 +585,7 @@ ul, li {
   padding-bottom: 5rem;
   background-color: #76c7c0; }
   .about h1 {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-weight: bold;
+    font-family: "norwesterregular", sans-serif;
     text-transform: uppercase;
     color: #009193;
     margin-bottom: 5rem; }
@@ -636,34 +646,35 @@ ul.social-media {
   .truck-illustration .truck-large-image {
     width: 120%; }
   .truck-illustration .truck-name-wrapper {
-    color: #009193;
     position: absolute;
     top: 6rem;
     width: 50%; }
   .truck-illustration .truck-name-logo {
     max-width: 10%; }
   .truck-illustration .truck-name {
+    color: #666666;
     display: inline-block;
     font-size: 4rem;
-    font-weight: bold;
-    font-family: "Open Sans Condensed", sans-serif;
+    font-family: "norwesterregular", sans-serif;
     text-transform: uppercase; }
   .truck-illustration .truck-description {
     width: 80%;
     margin-top: 3rem;
-    color: #469b9d; }
+    color: #999999; }
+  .truck-illustration .truck-website {
+    margin-top: 1rem; }
   .truck-illustration .truck-sociallinks {
     margin-top: 2rem;
-    color: #469b9d; }
+    color: #337ab7; }
     .truck-illustration .truck-sociallinks a {
-      color: #469b9d; }
+      color: #337ab7; }
       .truck-illustration .truck-sociallinks a:hover, .truck-illustration .truck-sociallinks a:focus {
         text-decoration: none; }
     .truck-illustration .truck-sociallinks i {
       font-size: 5rem;
       margin-right: 1rem; }
       .truck-illustration .truck-sociallinks i:hover {
-        color: #009193; }
+        color: #446cb3; }
   .truck-illustration .truck-info {
     margin-top: 10rem;
     margin-bottom: 2rem; }
@@ -691,11 +702,11 @@ ul.social-media {
     .truck-illustration .truck-info .info-section-hover {
       position: absolute;
       width: 100%;
-      bottom: 3rem;
+      bottom: 2rem;
       color: white;
       font-size: 1.5rem; }
       .truck-illustration .truck-info .info-section-hover .info-section-hover-list-wrapper {
-        margin-top: 3rem; }
+        padding-top: 3rem; }
       .truck-illustration .truck-info .info-section-hover .info-section-hover-list {
         margin: 0.5rem 0; }
     .truck-illustration .truck-info .truck-info-section.current-location .info-section-hover {
@@ -718,8 +729,6 @@ ul.social-media {
   color: white; }
   .truck-schedule h1, .truck-schedule h5 {
     text-transform: uppercase; }
-  .truck-schedule h1 {
-    font-weight: bold; }
   .truck-schedule h5 {
     color: #1b325f;
     font-size: 1.6rem; }
@@ -727,7 +736,6 @@ ul.social-media {
     padding: 1.2rem 0;
     border-bottom: 1px solid #dddddd; }
     .truck-schedule .schedule-list .schedule-day {
-      font-weight: bold;
       text-transform: uppercase;
       font-size: 1.6rem; }
     .truck-schedule .schedule-list .schedule-location {
@@ -746,11 +754,11 @@ ul.social-media {
   padding-top: 2rem; }
   .menu .menu-title {
     color: #f78f8f;
-    text-transform: uppercase;
-    font-weight: bold; }
+    text-transform: uppercase; }
   .menu h5 {
     color: #1b325f;
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    text-transform: uppercase; }
   .menu .menu-section {
     margin: 3rem 0; }
   .menu .menu-type {
@@ -781,10 +789,19 @@ ul.social-media {
 
 .instagram h1 {
   color: #f78f8f;
-  text-transform: uppercase;
-  font-weight: bold; }
+  text-transform: uppercase; }
 
 .featured-truck.truck-page {
   background-image: url("../img/paper_texture.jpg"); }
+
+.truck-map-wrapper {
+  position: relative; }
+  .truck-map-wrapper .truck-map-toggle {
+    width: 16rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 9;
+    text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map */

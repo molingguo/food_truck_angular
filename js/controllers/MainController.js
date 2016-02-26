@@ -131,8 +131,28 @@ app.controller('MainController',
 	}
 
 	$scope.filterNearMe = function() {
+		var autoDiscover = true;
 		$scope.mapCenter = {autoDiscover: true};
 		$scope.mapCenter.zoom = 15;
+		angular.element('.neighborhood-filter').removeClass('open');
+
+		//TODO: add dot to current location
+		// $scope.$watch('mapCenter.autoDiscover', function() {
+		// 	if ($scope.mapCenter.autoDiscover===false) {
+		// 		$scope.markers.push({
+		// 			lat: $scope.mapCenter.lat,
+		// 			lng: $scope.mapCenter.lng,
+		// 			focus: false,
+		// 			message: null,
+		// 			icon: {
+		// 				iconUrl: "img/selfmarker.png",
+		// 				iconAnchor: [15, 15]
+		// 			}
+		// 		});
+		// 		console.log($scope.mapCenter.lat);
+		// 		console.log($scope.mapCenter.lng);
+		// 	}
+		// });
 	}
 
 	$scope.clearFilters = function() {

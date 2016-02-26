@@ -15,6 +15,7 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 			scrollWheelZoom: false
 		};
 		$scope.markers = {};
+		$scope.allmarkers = {};
 		$scope.showMap = true;
 
 		//get truck basic information
@@ -51,16 +52,65 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 		$http.get("backend/getLocation.php?route_name="+$scope.truckRoute).success(function(data) {
 			if (data.length>0) {
 				$scope.markers = processMarkerMessage(data);
+				$scope.allmarkers = processMarkerMessage(data);
+				$scope.truckMapToggle = 'Now';
+				$scope.filterNow($scope.markers);
 			} else {
 				$scope.showMap = false;
 			}
 		});
+
+		$scope.filterAll = function() {
+			$scope.markers = $scope.allmarkers;
+		}
+
+		$scope.filterNow = function(markers) {
+			var currentdate = new Date();
+			var currentDay = currentdate.getDay();
+			var currentHour = currentdate.getHours();
+			var currentMin = currentdate.getMinutes();
+			var currentTime = currentHour + currentMin/60;
+
+			//set the day, 1-Mongday, 7-Sunday
+			dayIndex = currentDay;
+			if (dayIndex == 0) dayIndex = 7;
+
+			var filterResults = _.filter(markers, function(marker) {
+				var dayFilter = marker.day.indexOf(dayIndex.toString()) > -1;
+				var timeFilter;
+
+				if(!dayFilter) return false;
+
+				if (marker.open_time && marker.close_time) {
+					timeFilter = (Number(marker.open_time) <= currentTime && Number(marker.close_time) > currentTime);
+				} else if (marker.time) {
+					switch(marker.time) {
+						case "Breakfast":
+						timeFilter = currentTime < 10;
+						break;
+						case "Lunch":
+						timeFilter = currentTime >= 10 && currentTime < 15;
+						break;
+						case "Dinner":
+						timeFilter = currentTime >= 15 && currentTime < 21;
+						break;
+						default: 
+						timeFilter = currentTime >= 21 && currentTime <= 23;
+						break;
+					}
+				}
+				return dayFilter && timeFilter;
+			});
+			$scope.markers = filterResults;
+		}
 
 		//TODO: Current Location: deal with multiple locations?
 		$scope.getCurrentSchedule = function(schedulearray) {
 			var currentdate = new Date();
 			var currentDay = currentdate.getDay();
 			var currentHour = currentdate.getHours();
+			var currentMin = currentdate.getMinutes();
+			var currentTime = currentHour + currentMin/60;
 
 			//set the day, 1-Mongday, 7-Sunday
 			dayIndex = currentDay;
@@ -74,27 +124,25 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 				if(!dayFilter) return false;
 				
 				if (sche.open_time && sche.close_time) {
-					timeFilter = (Number(sche.open_time) <= currentHour && Number(sche.close_time) > currentHour);
+					timeFilter = (Number(sche.open_time) <= currentTime && Number(sche.close_time) > currentTime);
 				} else if (sche.time) {
 					switch(sche.time) {
 						case "Breakfast":
-							timeFilter = currentHour < 10;
+							timeFilter = currentTime < 10;
 							break;
 						case "Lunch":
-							timeFilter = currentHour >= 10 && currentHour < 15;
+							timeFilter = currentTime >= 10 && currentTime < 15;
 							break;
 						case "Dinner":
-							timeFilter = currentHour >= 15 && currentHour < 21;
+							timeFilter = currentTime >= 15 && currentTime < 21;
 							break;
 						default: 
-							timeFilter = currentHour >= 21 && currentHour <= 23;
+							timeFilter = currentTime >= 21 && currentTime <= 23;
 							break;
 					}
 				}
 				return dayFilter && timeFilter;
 			});
-
-			// console.log(filterResults);
 			$scope.currentLocation = filterResults
 		}
 

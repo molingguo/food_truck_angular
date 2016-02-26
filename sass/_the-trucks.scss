@@ -9,7 +9,6 @@
 	.the-trucks-title {
 		font-family: $header-font;
 		color: $blue;
-		font-weight: bold;
 		text-transform: uppercase;
 	}
 
@@ -38,9 +37,11 @@
 			max-width: 75%;
 		}
 
-		h3 {
+		.truck-logo-name {
 			color: white;
 			margin-top: 1rem;
+			font-size: 1.75rem;
+			line-height: 1;
 		}
 
 		@media (min-width: 1200px) {

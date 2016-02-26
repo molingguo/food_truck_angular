@@ -35,12 +35,13 @@
 				<div class="truck-name">{{truck.name}}</div>
 				<div class="truck-description">
 					{{truck.description}}
+					<!-- TODO: remove lipsum description -->
 					<div ng-hide="truck.description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia libero. Cras orci lectus, sagittis quis nisi vitae, molestie lacinia est. Duis libero nisi, eleifend vitae felis eget, elementum placerat arcu. Vestibulum iaculis nisi eros, at cursus neque mattis et. Proin diam erat, viverra in risus sit amet, iaculis pulvinar purus. Integer auctor elit at mollis gravida. Morbi posuere urna et nisi euismod tincidunt. Vestibulum ac consequat arcu.</div>
+					<div ng-show="truck.website" class="truck-website">
+						<a href="{{truck.website}}" target="_blank">{{truck.website}}</a>
+					</div>
 				</div>
 				<div class="truck-sociallinks">
-					<a href="{{truck.website}}" target="_blank" ng-show="truck.website">
-						<i class="icon-truckfill"></i>
-					</a>
 					<a href="https://www.facebook.com/{{truck.facebook}}" target="_blank" ng-show="truck.facebook">
 						<i class="icon-facebookcircle"></i>
 					</a>
@@ -98,7 +99,7 @@
 					</div>
 					<div class="info-type-content text-center" ng-show="currentLocation.length==0">Closed</div>
 					<div class="info-type-content text-center" ng-show="currentLocation.length>0">
-						<div>{{currentLocation[0].location}}&nbsp;&nbsp;&nbsp;<span>{{currentLocation[0].time_format}}</span></div>
+						<div>{{currentLocation[0].location}}&nbsp;&nbsp;&nbsp;<span>{{currentLocation[0].time_format}}</span>&nbsp;&nbsp;({{currentLocation.length-1}} More)</div>
 						
 					</div>
 					<div class="info-section-hover" ng-show="currentLocation.length>1">
@@ -189,7 +190,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="map-wrapper" id="map">
+	<div class="map-wrapper truck-map-wrapper" id="map">
+		<div class="btn-group truck-map-toggle">
+			<label class="btn btn-primary col-xs-6" ng-model="truckMapToggle" uib-btn-radio="'Now'" ng-click="filterNow(markers)">Now</label>
+			<label class="btn btn-primary col-xs-6" ng-model="truckMapToggle" uib-btn-radio="'All'" ng-click="filterAll()">All</label>
+		</div>
 		<leaflet id='map2' ng-show="showMap" lf-center="mapCenter" defaults="defaults" markers="markers"></leaflet>
 	</div>
 </div>

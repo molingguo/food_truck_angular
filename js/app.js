@@ -47,7 +47,7 @@ app.filter('selectTime', function() {
 					out = out.concat(filterTimeHelper(input, 24, 17, "Dinner"));
 					break;
 				case 'Late Night':
-					out = out.concat(filterTimeHelper(input, 24, 21, "Late Night"));
+					out = out.concat(filterTimeHelper(input, 24, 22, "Late Night"));
 					break;
 				default:
 					break;
