@@ -297,13 +297,6 @@ ul, li {
   margin-bottom: 1rem; }
   .filter-dropdown .dropdown-wrapper {
     position: relative; }
-  .filter-dropdown .dropdown-caret {
-    position: absolute;
-    color: white;
-    z-index: 9;
-    font-size: 2rem;
-    top: 7px;
-    right: 16px; }
   .filter-dropdown .filter-button, .filter-dropdown .dropdown-toggle {
     width: 100%;
     padding: 6px 20px;
@@ -322,7 +315,9 @@ ul, li {
     .filter-dropdown .filter-button .select-option, .filter-dropdown .dropdown-toggle .select-option {
       background-color: #446cb3; }
     .filter-dropdown .filter-button .caret, .filter-dropdown .dropdown-toggle .caret {
-      display: none; }
+      border-top: 6px dashed;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent; }
   .filter-dropdown .btn-group.open .dropdown-toggle {
     background-color: #446cb3;
     box-shadow: none;
