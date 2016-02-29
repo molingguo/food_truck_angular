@@ -363,6 +363,7 @@ ul, li {
   .map-wrapper .leaflet-popup-content h5 {
     font-family: "Raleway", sans-serif;
     margin-top: 1rem;
+    margin-bottom: 0.25rem;
     color: #f46161; }
 
 .map-list {

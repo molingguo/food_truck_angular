@@ -186,7 +186,9 @@ var processMarkerMessage = function(inputMarkers) {
 			}
 		}
 
-		value.message = counters[value.location_id] + "<h5>" + value.location + "</h5>";
+		value.message = counters[value.location_id] + "<h5>" + value.location + "</h5>" + 
+		"<a href='https://www.google.com/maps/dir/Current+Location/" + 
+		value.lat + "," + value.lng + "' target='_blank'><div>Get Directions</div></a>";
 		return value;
 	});
 	//console.log("processMarkerMessage");
