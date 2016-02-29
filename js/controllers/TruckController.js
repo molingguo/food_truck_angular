@@ -164,5 +164,11 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 				$scope.twitter_embed = $sce.trustAsHtml(rawdata);
 			});
 		}
+
+		$scope.disableDefault = function() {
+			if (angular.element(event.currentTarget).hasClass('disabled-link')) {
+				event.preventDefault();
+			}
+		}
 	}
 ]);

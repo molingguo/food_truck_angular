@@ -170,7 +170,7 @@ app.controller('MainController',
 
 	$scope.embedQuote = function() {
     	TwitterAPI.get({ 
-    		url: 'https://twitter.com/melissakpalardy/status/598534759418089472',
+    		url: 'https://twitter.com/LibbahLoo/status/679113401923207172',
     		hide_thread: true,
 			hide_media: true,
 			omit_script: true,

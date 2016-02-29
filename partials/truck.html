@@ -17,13 +17,13 @@
 				<li><a href="#schedule" du-smooth-scroll du-scrollspy offset="60" ng-show="schedule[0]">Schedule</a></li>
 				<li><a href="#instagram" du-smooth-scroll du-scrollspy offset="60">Photos</a></li>
 				<li><a href="#more" du-smooth-scroll du-scrollspy offset="60">More</a></li>
-				<li><a href="#map" du-smooth-scroll du-scrollspy offset="60" ng-show="markers.length>0">Map</a></li>
+				<li><a href="#map" du-smooth-scroll du-scrollspy offset="60" ng-show="showMap">Map</a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
 
-<div id="container" du-scroll-container>
+
 	<div class="truck-illustration" id="overview">
 		<div class="container">
 			<div class="large-truck">
@@ -57,6 +57,7 @@
 				</div>
 			</div>
 			<div class="row truck-info">
+				<a href="#menu" du-smooth-scroll du-scrollspy offset="60" ng-class="{'disabled-link':!menu[0].menu_item[0]}">
 				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
 					<div class="info-type text-center">Type</div>
 					<div class="text-center">
@@ -69,8 +70,8 @@
 							</div>
 						</li>
 					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+				</div></a>
+				<a href="https://www.yelp.com/biz/{{truck.yelp}}" target="_blank" ng-class="{'disabled-link':!truck.yelp}" ng-click="disableDefault()"><div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
 					<div class="info-type text-center">Ratings</div>
 					<div class="info-image text-center">
 						<i class="icon-yelp"></i>
@@ -83,36 +84,37 @@
 							<i class="icon-star-empty" ng-if="truck.yelp_rating<(n-0.5)"></i>
 						</span>
 					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+				</div></a>
+				<a href="#menu" du-smooth-scroll du-scrollspy offset="60" ng-class="{'disabled-link':!menu[0].menu_item[0]}"><div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
 					<div class="info-type text-center">Popular Item</div>
 					<div class="info-image text-center">
 						<i class="icon-heart"></i>
 					</div>
 					<div class="info-type-content text-center">{{truck.popular_dish}}</div>
 					<div class="info-type-content text-center" ng-show="!truck.popular_dish">Lorem ipsum</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section current-location" ng-class="{'multiple-location':currentLocation.length>1}">
+				</div></a>
+				<a href="#map" du-smooth-scroll du-scrollspy offset="60"><div class="col-xs-12 col-sm-6 col-md-3 truck-info-section current-location" ng-class="{'multiple-location':currentLocation.length>1}">
 					<div class="info-type text-center">Current Location</div>
 					<div class="info-image text-center">
 						<i class="icon-location"></i>
 					</div>
 					<div class="info-type-content text-center" ng-show="currentLocation.length==0">Closed</div>
 					<div class="info-type-content text-center" ng-show="currentLocation.length>0">
-						<div>{{currentLocation[0].location}}&nbsp;&nbsp;&nbsp;<span>{{currentLocation[0].time_format}}</span>&nbsp;&nbsp;({{currentLocation.length-1}} More)</div>
+						<div>{{currentLocation[0].location}}&nbsp;&nbsp;&nbsp;<span>{{currentLocation[0].time_format}}</span>&nbsp;&nbsp; <span ng-show="currentLocation.length > 1">({{currentLocation.length-1}} More)</span></div>
 						
 					</div>
-					<div class="info-section-hover" ng-show="currentLocation.length>1">
+					<!-- <div class="info-section-hover" ng-show="currentLocation.length>1">
 						<div class="info-section-hover-list-wrapper">
 							<div class="info-section-hover-list text-center" ng-repeat="cs in currentLocation">
 								<div>{{cs.location}}&nbsp;&nbsp;&nbsp;<span>{{cs.time_format}}</span></div>
 							</div>
 						</div>
-					</div>
-				</div>
+					</div> -->
+				</div></a>
 			</div>
 		</div>
 	</div>
+<div id="container" du-scroll-container>
 	<div class="menu" ng-show="menu[0].menu_item[0]" id="menu">
 		<div class="container">
 			<h1 class="menu-title">Menu</h1>
@@ -190,7 +192,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="map-wrapper truck-map-wrapper" id="map">
+	<div class="map-wrapper truck-map-wrapper" id="map" ng-show="showMap">
 		<div class="btn-group truck-map-toggle">
 			<label class="btn btn-primary col-xs-6" ng-model="truckMapToggle" uib-btn-radio="'Now'" ng-click="filterNow(markers)">Now</label>
 			<label class="btn btn-primary col-xs-6" ng-model="truckMapToggle" uib-btn-radio="'All'" ng-click="filterAll()">All</label>

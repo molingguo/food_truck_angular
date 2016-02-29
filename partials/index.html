@@ -157,7 +157,7 @@
 				{{noResultText}}
 			</div>
 			<div class="row">
-				<div class="truck-logo col-xs-6 col-md-3 col-lg-2" ng-repeat="truck in filteredTruck = (alltrucks | filter:searchText) | limitTo:12">
+				<div class="truck-logo col-xs-6 col-md-3 col-lg-2" ng-repeat="truck in filteredTruck = (alltrucks | filter:searchText) | limitTo:18">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" ng-hide="truck.small_image" />
 						<img ng-src="img/truck_graphics/{{truck.small_image}}" alt="" class="truck-image" ng-show="truck.small_image" />
@@ -166,7 +166,7 @@
 				</div>
 			</div>
 			<div class="row" uib-collapse="isCollapsed">
-				<div class="truck-logo col-xs-6 col-md-3 col-lg-2" ng-repeat="truck in alltrucks | filter:searchText | limitTo:50:12">
+				<div class="truck-logo col-xs-6 col-md-3 col-lg-2" ng-repeat="truck in alltrucks | filter:searchText | limitTo:60:18">
 					<a href="#{{truck.route_name}}" class="image-wrapper text-center">
 						<img ng-src="img/trucks/{{truck.truck_color}}.png" class="truck-image" ng-hide="truck.small_image" />
 						<img ng-src="img/truck_graphics/{{truck.small_image}}" alt="" class="truck-image" ng-show="truck.small_image" />
@@ -176,8 +176,8 @@
 			</div>
 			<div class="view-all-trucks">
 				<a class="toggle-truck-list text-center" ng-click="isCollapsed = !isCollapsed">
-					<h2 ng-show="isCollapsed && filteredTruck.length > 12">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2>
-					<h2 ng-show="!isCollapsed && filteredTruck.length > 12">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></h2>		
+					<h2 ng-show="isCollapsed && filteredTruck.length > 18">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2>
+					<h2 ng-show="!isCollapsed && filteredTruck.length > 18">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></h2>		
 				</a>
 			</div>
 		</div>
@@ -202,14 +202,14 @@
 				</div>
 			</div>
 			<div class="row featured-quote">
-				<div class="col-xs-2 quote-mark text-right">
+				<div class="col-xs-2 quote-mark text-right" ng-show="twitter_embed">
 					&#8220;
 				</div>
 				<div class="col-xs-8 quote-body text-center">
 					<div ng-bind-html="twitter_embed" class="twitter_quote">
 					</div>
 				</div>
-				<div class="col-xs-2 quote-mark">
+				<div class="col-xs-2 quote-mark" ng-show="twitter_embed">
 					&#8221;
 				</div>
 			</div>

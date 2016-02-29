@@ -693,7 +693,8 @@ ul.social-media {
         color: #469b9d; }
     .truck-illustration .truck-info .info-type-content {
       color: #999999;
-      font-size: 1.5rem; }
+      font-size: 1.5rem;
+      line-height: 1.2; }
     .truck-illustration .truck-info .info-section-hover {
       position: absolute;
       width: 100%;
@@ -704,14 +705,6 @@ ul.social-media {
         padding-top: 3rem; }
       .truck-illustration .truck-info .info-section-hover .info-section-hover-list {
         margin: 0.5rem 0; }
-    .truck-illustration .truck-info .truck-info-section.current-location .info-section-hover {
-      display: none; }
-    .truck-illustration .truck-info .truck-info-section.current-location:hover.multiple-location .info-section-hover {
-      display: inherit; }
-    .truck-illustration .truck-info .truck-info-section.current-location:hover.multiple-location .info-image {
-      display: none; }
-    .truck-illustration .truck-info .truck-info-section.current-location:hover.multiple-location .info-type-content {
-      display: none; }
   .truck-illustration .foodtype-list {
     display: inline-block;
     padding-left: 1rem;
