@@ -462,13 +462,13 @@ ul, li {
       font-size: 2.5rem;
       color: #446cb3; }
     .map-list .map-truck-list .truck-name {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       padding-left: 0;
       text-decoration: underline; }
       .map-list .map-truck-list .truck-name a:hover {
         color: #dddddd !important; }
     .map-list .map-truck-list .truck-foodtype, .map-list .map-truck-list .truck-review {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: #999999;
       padding-left: 0; }
     .map-list .map-truck-list .truck-foodtype {
