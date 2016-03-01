@@ -26,7 +26,7 @@ app.controller('TruckController', ['$http', '$scope', '$resource', '$routeParams
 			$timeout(function () { twttr.widgets.load(); }, 1000); 
 
 			if ($scope.truck.instagram_iframe) {
-				var instagram_embed_html = "<iframe src='"+$scope.truck.instagram_iframe+"' id='"+$scope.truck.instagram_id+"' name='"+$scope.truck.instagram_id+"'  scrolling='no' allowtransparency='true' class='instansive-widget' style='width: 100%; border: 0; overflow: hidden;'></iframe>";
+				var instagram_embed_html = "<iframe src='//lightwidget.com/widgets/"+$scope.truck.instagram_iframe+".html' id='lightwidget_"+$scope.truck.instagram_id+"' name='lightwidget_"+$scope.truck.instagram_id+"'  scrolling='no' allowtransparency='true' class='lightwidget-widget' style='width: 100%; border: 0; overflow: hidden;'></iframe>";
 				$scope.instagram_embed = $sce.trustAsHtml(instagram_embed_html);
 			}
 		});
