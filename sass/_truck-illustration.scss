@@ -61,7 +61,7 @@
 		}
 
 		i {
-			font-size: 5rem;
+			font-size: 4rem;
 			margin-right: 1rem;
 
 			&:hover {
@@ -164,13 +164,8 @@
 	background-color: $pink;
 	color: white;
 
-	h1, h5 {
+	h1 {
 		text-transform: uppercase;
-	}
-
-	h5 {
-		color: $dark-blue;
-		font-size: 1.6rem;
 	}
 
 	.schedule-list {
@@ -204,12 +199,6 @@
 
 	.menu-title {
 		color: $pink;
-		text-transform: uppercase;
-	}
-
-	h5 {
-		color: $dark-blue;
-		font-size: 1.6rem;
 		text-transform: uppercase;
 	}
 

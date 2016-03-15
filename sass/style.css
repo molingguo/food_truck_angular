@@ -426,11 +426,6 @@ ul, li {
     border: none; }
     .map-list .special-filter-wrapper button:focus {
       outline: none; }
-    .map-list .special-filter-wrapper button i {
-      font-size: 1.75rem;
-      position: relative;
-      top: 0.3rem;
-      right: 0.3rem; }
   .map-list .no-result-match {
     padding-left: 2rem;
     padding-top: 2rem;
@@ -463,8 +458,7 @@ ul, li {
       color: #446cb3; }
     .map-list .map-truck-list .truck-name {
       font-size: 1.5rem;
-      padding-left: 0;
-      text-decoration: underline; }
+      padding-left: 0; }
       .map-list .map-truck-list .truck-name a:hover {
         color: #dddddd !important; }
     .map-list .map-truck-list .truck-foodtype, .map-list .map-truck-list .truck-review {
@@ -567,10 +561,8 @@ ul, li {
       color: #999999;
       text-transform: initial; }
     .featured-truck .featured-quote .quote-body, .featured-truck .featured-quote .quote-mark, .featured-truck .featured-quote .twitter_quote > p {
-      font-family: "norwesterregular", sans-serif;
-      text-transform: uppercase;
       color: #ef7271;
-      font-size: 2.75rem;
+      font-size: 2.5rem;
       opacity: 0.9; }
     .featured-truck .featured-quote .quote-mark {
       font-size: 8rem;
@@ -667,7 +659,7 @@ ul.social-media {
       .truck-illustration .truck-sociallinks a:hover, .truck-illustration .truck-sociallinks a:focus {
         text-decoration: none; }
     .truck-illustration .truck-sociallinks i {
-      font-size: 5rem;
+      font-size: 4rem;
       margin-right: 1rem; }
       .truck-illustration .truck-sociallinks i:hover {
         color: #446cb3; }
@@ -716,11 +708,8 @@ ul.social-media {
   padding-bottom: 5rem;
   background-color: #f78f8f;
   color: white; }
-  .truck-schedule h1, .truck-schedule h5 {
+  .truck-schedule h1 {
     text-transform: uppercase; }
-  .truck-schedule h5 {
-    color: #1b325f;
-    font-size: 1.6rem; }
   .truck-schedule .schedule-list {
     padding: 1.2rem 0;
     border-bottom: 1px solid #dddddd; }
@@ -743,10 +732,6 @@ ul.social-media {
   padding-top: 2rem; }
   .menu .menu-title {
     color: #f78f8f;
-    text-transform: uppercase; }
-  .menu h5 {
-    color: #1b325f;
-    font-size: 1.6rem;
     text-transform: uppercase; }
   .menu .menu-section {
     margin: 3rem 0; }

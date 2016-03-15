@@ -118,7 +118,7 @@
 	<div class="menu" ng-show="menu[0].menu_item[0]" id="menu">
 		<div class="container">
 			<h1 class="menu-title">Menu</h1>
-			<h5>(Subject to change)</h5>
+			<div>(Subject to change)</div>
 			<div class="menu-section" ng-repeat="amenu in menu">
 				<div class="menu-type col-xs-12" ng-show="amenu.type_name">
 					{{amenu.type_name}}
@@ -142,7 +142,7 @@
 	<div class="truck-schedule" id="schedule" ng-show="schedule[0]">
 		<div class="container">
 			<h1>Schedule</h1>
-			<h5>(Subject to change)</h5>
+			<div>(Subject to change)</div>
 			<div class="schedule col-md-10 col-md-offset-1">
 				<div class="row schedule-list" ng-repeat="sche in schedule">
 					<div class="col-xs-3 schedule-day">{{sche.day_format}}</div>
