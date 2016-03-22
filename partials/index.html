@@ -51,15 +51,13 @@
 						<div class="col-xs-6">
 							<button ng-click="filterNow()">Now</button>
 						</div>
-<!-- 						<div class="col-xs-4">
-							<button tooltip-placement="top-left" uib-tooltip="{{tooltipNearMe}}" ng-click="filterNearMe()"><i class="icon-target2"></i>Near Me</button> -->
-<!-- 						</div> -->
 						<div class="col-xs-6">
-							<button ng-click="clearFilters()">Clear All Filters</button>
+							<button ng-click="clearFilters()">All Trucks</button>
 						</div>
 					</div>
 				</div>
-				<div class="scroll-list">
+				<div class="row">
+					<div class="scroll-list col-xs-12">
 					<div class="no-result-match" ng-show="markers_trucklist.length==0">
 							{{noResultText}}
 					</div>
@@ -84,6 +82,7 @@
 							<span class="glyphicon glyphicon-ok"></span>
 						</li>
 					</ul>
+				</div>
 				</div>
 			</div>
 			<div class="filter-wrapper">
@@ -174,10 +173,10 @@
 					</a>
 				</div>
 			</div>
-			<div class="view-all-trucks">
-				<a class="toggle-truck-list text-center" ng-click="isCollapsed = !isCollapsed">
-					<h2 ng-show="isCollapsed && filteredTruck.length > 18">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></h2>
-					<h2 ng-show="!isCollapsed && filteredTruck.length > 18">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></h2>		
+			<div class="view-all-trucks text-center">
+				<a class="btn btn-default toggle-truck-list text-center" ng-click="isCollapsed = !isCollapsed">
+					<div ng-show="isCollapsed && filteredTruck.length > 18">View More<span class="glyphicon glyphicon-chevron-down toggle-carets"></span></div>
+					<div ng-show="!isCollapsed && filteredTruck.length > 18">View Less<span class="glyphicon glyphicon-chevron-up toggle-carets"></span></div>		
 				</a>
 			</div>
 		</div>

@@ -1,7 +1,8 @@
 .featured-truck {
 	padding-top: 2rem;
 	padding-bottom: 5rem;
-	background-color: $very-light-gray;
+	background-image: url("../img/paper_texture.jpg");
+	background-size: cover;
 
 	.featured-truck-title a {
 		font-family: $header-font;

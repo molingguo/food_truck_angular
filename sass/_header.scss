@@ -43,7 +43,7 @@
 .navbar-nav {
 	float: right;
 	height: $navbar-height;
-	font-size: 2rem;
+	font-size: $nav-link-font-size;
 	letter-spacing: 1px;
 	
 	> li {
