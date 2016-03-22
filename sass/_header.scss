@@ -10,30 +10,16 @@
 
 	&:hover {
 		cursor: pointer;
+		background: $green;
 	}
 }
 
 .navbar-header {
 	.logo {
 		img {
-			max-width: 65px;
+			max-width: 110px;
 		}
 	}
-
-	// .brand-name {
-	// 	color: $gray;
-	// 	line-height: 1;
-	// 	font-size: 3rem;
-	// 	margin-top: -10px;
-
-	// 	span{
-	// 		font-family: $header-font;
-	// 		font-weight: bold;
-	// 		color: $green;
-	// 		font-size: 5rem;
-	// 		padding-right: 1rem;
-	// 	}
-	// }
 
 	.glyphicon-menu-hamburger {
 		font-size: 2rem;

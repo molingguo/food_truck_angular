@@ -191,10 +191,11 @@ ul, li {
 .navbar-brand {
   height: 60px; }
   .navbar-brand:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    background: #469b9d; }
 
 .navbar-header .logo img {
-  max-width: 65px; }
+  max-width: 110px; }
 .navbar-header .glyphicon-menu-hamburger {
   font-size: 2rem; }
 
@@ -232,17 +233,17 @@ ul, li {
 .splash {
   height: 520px;
   background-color: #76c7c0; }
-  .splash .splash-header, .splash .splash-sub-header {
-    text-transform: uppercase;
-    color: #009193; }
-  .splash .splash-header {
-    margin-top: 5.5rem;
-    font-family: "norwesterregular", sans-serif;
-    font-size: 5rem; }
+  .splash .splash-logo {
+    padding-top: 5rem;
+    padding-bottom: 3rem; }
+    .splash .splash-logo img {
+      width: 30%; }
   .splash .splash-sub-header {
     margin-top: 0;
     font-family: "Raleway", sans-serif;
-    font-size: 2rem; }
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #009193; }
   .splash .splash-image {
     margin-top: 5rem; }
     .splash .splash-image img {
