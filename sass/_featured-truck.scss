@@ -52,7 +52,15 @@
 		.medium-text {
 			font-size: 3.8rem;
 		}
+
+		@media (min-width: 1200px) {
+			.featured-highlight-homepage {
+				font-size: 5.5rem;
+			}
+		}
 	}
+
+
 
 	.featured-image {
 		padding: 0 0.5rem;

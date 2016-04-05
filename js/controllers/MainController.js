@@ -4,7 +4,7 @@ app.controller('MainController',
 	//INITIALIZE
 	$scope.appTitle = "Hungry Hunter";
 	$scope.appLocation = "Boston";
-	$scope.splashText = "Maecenas tincidunt, augue et rutrum condimentum, libero lectus mattis orci, ut commodo. Augue et rutrum condimentum, libero lectus mattis orci, ut commodo.";
+	$scope.splashText = "Hungry? Check out the food trucks around Boston right now";
 	$scope.searchPlaceholder = "Search for Trucks";
 	$scope.findFoodTitle = "Find Food";
 	$scope.truckListTitle = "The Trucks";

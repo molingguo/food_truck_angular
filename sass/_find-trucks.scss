@@ -136,7 +136,7 @@
 	height: $map-height;
 	width: $map-list-width;
     z-index: 2;
-	background-color: $very-light-blue;
+	background-color: #f3f3f3;
 	-ms-transform: translateX(-$map-list-width+50px); /* IE 9 */
    	-webkit-transform: translateX(-$map-list-width+50px); /* Safari */
     transform: translateX(-$map-list-width+50px);

@@ -249,12 +249,12 @@ ul, li {
     .splash .splash-image img {
       max-width: 100%; }
   .splash .splash-text {
-    width: 50%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5rem;
     color: white;
-    font-size: 1.8rem; }
+    font-size: 2rem; }
   .splash .splash-arrow {
     width: 100%;
     margin-top: 2rem;
@@ -354,7 +354,7 @@ ul, li {
   height: 540px;
   width: 330px;
   z-index: 2;
-  background-color: #C5EFF7;
+  background-color: #f3f3f3;
   -ms-transform: translateX(-280px);
   /* IE 9 */
   -webkit-transform: translateX(-280px);
@@ -563,6 +563,9 @@ ul, li {
       font-size: 4.5rem; }
     .featured-truck .featured-highlight .medium-text {
       font-size: 3.8rem; }
+    @media (min-width: 1200px) {
+      .featured-truck .featured-highlight .featured-highlight-homepage {
+        font-size: 5.5rem; } }
   .featured-truck .featured-image {
     padding: 0 0.5rem; }
     .featured-truck .featured-image img {
@@ -619,18 +622,27 @@ ul, li {
   .footer-wrapper .copyright img {
     max-width: 50px;
     margin-right: 2.5rem; }
+  .footer-wrapper .feedback-wrapper a {
+    color: white; }
+    .footer-wrapper .feedback-wrapper a:hover {
+      color: #446cb3; }
+  .footer-wrapper .feedback-text {
+    padding-right: 1rem; }
+  .footer-wrapper .feedback-icon {
+    font-size: 2.8rem;
+    position: absolute;
+    top: -0.5rem; }
 
 ul.sitemap li {
   display: inline-block;
   padding: 0 2rem; }
 
-ul.social-media {
+.social-media > li {
   margin-top: -7px;
-  margin-bottom: 0; }
-  ul.social-media > li {
-    display: inline-block;
-    font-size: 2.8rem;
-    padding: 0 1rem; }
+  margin-bottom: 0;
+  display: inline-block;
+  font-size: 2.8rem;
+  padding: 0 1rem; }
 
 .truck-illustration {
   background-color: #f3f3f3;
