@@ -183,7 +183,35 @@
 		</div>
 	</div>
 	<div class="featured-truck" id="featured">
-		<div class="container">
+		<div class="container" ng-repeat="featured in featured_trucks">
+			<h1 class="featured-truck-title"><a ng-href="#/{{featured.route_name}}">Featured: {{featured.name}}</a></h1>
+			<div class="row content-wrapper">
+				<div class="col-xs-12 col-md-4 featured-text" ng-show="featured.twitter_widget_id">
+				<a ng-show="featured.twitter_widget_id" class="twitter-timeline" href="https://twitter.com/{{featured.twitter}}" data-widget-id="{{featured.twitter_widget_id}}" data-chrome="noheader nofooter noborders">Tweets by @{{featured.twitter}}</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+				<div class="col-xs-12 col-md-4 featured-highlight">
+					<h1 class="text-center large-text">{{featured.tidbit}}</h1>
+					<h1 class="text-center large-text" ng-show="!featured.tidbit">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+				</div>
+				<div class="col-xs-12 col-md-4 featured-image">
+					<img ng-src="img/truck_food/{{featured.food_image}}" alt="" ng-show="featured.food_image">
+				</div>
+			</div>
+			<div class="row featured-quote" ng-show="featured.tweet">
+				<div class="col-xs-2 quote-mark text-right">
+					&#8220;
+				</div>
+				<div class="col-xs-8 quote-body text-center">
+					<div ng-bind-html="twitter_embeds[$index]" class="twitter_quote">
+					</div>
+				</div>
+				<div class="col-xs-2 quote-mark">
+					&#8221;
+				</div>
+			</div>
+		</div>
+<!-- 		<div class="container">
 			<h1 class="featured-truck-title"><a href="#/roxy">Featured: Roxy's Grilled Cheese</a></h1>
 			<div class="row content-wrapper">
 				<div class="col-xs-12 col-md-4 featured-text">
@@ -191,10 +219,6 @@
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 				</div>
 				<div class="col-xs-12 col-md-4 featured-highlight">
-<!-- 					<h1 class="text-center large-text">On average</h1>
-					<h1 class="text-center large-number">780</h1>
-					<h1 class="text-center large-text">Sandwiches</h1>
-					<h1 class="text-center medium-text">sold per week</h1> -->
 					<h1 class="text-center large-text featured-highlight-homepage">Will have 4 brick & mortar locations by summer 2016</h1>
 				</div>
 				<div class="col-xs-12 col-md-4 featured-image">
@@ -213,7 +237,7 @@
 					&#8221;
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 	<!-- <div class="about" id="about">
 		<div class="container">

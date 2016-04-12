@@ -19,6 +19,17 @@ app.controller('MainController',
 	$scope.mapListActive = true;
 	$scope.isCollapsed = true;
 	$scope.featured_id = "655557534334455808";
+	$scope.featured_truckroutes = ["freshtruck"];
+	$scope.featured_trucks = [];
+	$scope.twitter_embeds = [];
+
+	_.each($scope.featured_truckroutes, function(route) {
+		$http.get("backend/getTruck.php?route_name="+route).success(function(data) {
+			$scope.featured_trucks.push(data[0]);
+			console.log($scope.featured_trucks);
+			$scope.embedQuote(data[0].tweet);
+		});
+	});
 
 	$scope.toTheTop = function() {
 		$("html,body").animate({ scrollTop: 0 }, "slow");
@@ -39,7 +50,7 @@ app.controller('MainController',
 		//TODO: move this to after view loads
 		loadAllAnimations();
 		$timeout(function () { twttr.widgets.load(); }, 1000); 
-		$scope.embedQuote();
+		//$scope.embedQuote();
 	});
 
 	$scope.$watchCollection('[dayFilter, timeFilter, foodTypeFilter, neighborhoodFilter]', function(newValues, oldValues){
@@ -168,9 +179,9 @@ app.controller('MainController',
     		{ callback: "JSON_CALLBACK" },
     		{ get: { method: "JSONP" }});
 
-	$scope.embedQuote = function() {
+	$scope.embedQuote = function(url) {
     	TwitterAPI.get({ 
-    		url: 'https://twitter.com/LibbahLoo/status/679113401923207172',
+    		url: url,
     		hide_thread: true,
 			hide_media: true,
 			omit_script: true,
@@ -179,7 +190,8 @@ app.controller('MainController',
 			var rawdata = data.html;
 			rawdata = rawdata.replace(/<blockquote[^>]*>?/g, '');
 			rawdata = rawdata.replace(/<\/blockquote>/g, '');
-			$scope.twitter_embed = $sce.trustAsHtml(rawdata);
+			//$scope.twitter_embed = $sce.trustAsHtml(rawdata);
+			$scope.twitter_embeds.push($sce.trustAsHtml(rawdata));
 		});
   	};
 }]);

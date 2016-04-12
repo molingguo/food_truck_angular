@@ -164,18 +164,14 @@
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 				</div>
 				<div class="col-xs-12 col-md-4 featured-image" ng-hide="truck.twitter_widget_id">
-					<img src="img/truck_food/{{truck.food_image_2}}" alt="">
+					<img ng-src="img/truck_food/{{truck.food_image_2}}" alt="">
 				</div>
 				<div class="col-xs-12 col-md-4 featured-highlight">
-					<!-- <h1 class="text-center large-text">On average</h1>
-					<h1 class="text-center large-number">780</h1>
-					<h1 class="text-center large-text">Sandwiches</h1>
-					<h1 class="text-center medium-text">sold per week</h1> -->
 					<h1 class="text-center large-text">{{truck.tidbit}}</h1>
 					<h1 class="text-center large-text" ng-show="!truck.tidbit">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
 				</div>
 				<div class="col-xs-12 col-md-4 featured-image">
-					<img src="img/truck_food/{{truck.food_image}}" alt="" ng-show="truck.food_image">
+					<img ng-src="img/truck_food/{{truck.food_image}}" alt="" ng-show="truck.food_image">
 				</div>
 			</div>
 			<div class="row featured-quote" ng-show="truck.tweet">
