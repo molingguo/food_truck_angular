@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?ijgapx');
-    src:    url('../fonts/icomoon.eot?ijgapx#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?ijgapx') format('truetype'),
-        url('../fonts/icomoon.woff?ijgapx') format('woff'),
-        url('../fonts/icomoon.svg?ijgapx#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?4v4iry');
+    src:    url('../fonts/icomoon.eot?4v4iry#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?4v4iry') format('truetype'),
+        url('../fonts/icomoon.woff?4v4iry') format('woff'),
+        url('../fonts/icomoon.svg?4v4iry#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,6 +24,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-dessert:before {
+    content: "\e907";
+}
+.icon-pizza:before {
+    content: "\e924";
+}
 .icon-truckoutline:before {
     content: "\e922";
 }
@@ -99,9 +105,6 @@
 .icon-burgers:before {
     content: "\e900";
 }
-.icon-dessert:before {
-    content: "\e901";
-}
 .icon-drinks:before {
     content: "\e902";
 }
@@ -116,9 +119,6 @@
 }
 .icon-mexican:before {
     content: "\e906";
-}
-.icon-pizza:before {
-    content: "\e907";
 }
 .icon-sandwiches:before {
     content: "\e908";
