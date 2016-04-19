@@ -245,8 +245,42 @@ ul, li {
     text-transform: uppercase;
     color: #009193; }
   .splash .splash-image {
+    margin-top: 5rem;
+    position: relative;
+    display: none; }
+    @media (min-width: 992px) {
+      .splash .splash-image {
+        display: inherit;
+        height: 14rem;
+        width: 100rem; }
+        .splash .splash-image .splash-trucks {
+          width: 12rem; } }
+    @media (min-width: 1200px) {
+      .splash .splash-image {
+        width: 120rem;
+        height: 16rem; }
+        .splash .splash-image .splash-trucks {
+          width: 15rem; } }
+    .splash .splash-image .splash-image-up {
+      position: absolute;
+      top: 0;
+      width: 100%; }
+      .splash .splash-image .splash-image-up .splash-trucks {
+        right: -30rem; }
+    .splash .splash-image .splash-image-bt {
+      position: absolute;
+      top: 6rem;
+      width: 100%; }
+      .splash .splash-image .splash-image-bt .splash-trucks {
+        left: -30rem; }
+    .splash .splash-image .splash-trucks {
+      position: absolute; }
+  .splash .splash-image-smallscreen {
     margin-top: 5rem; }
-    .splash .splash-image img {
+    @media (min-width: 992px) {
+      .splash .splash-image-smallscreen {
+        display: none; } }
+    .splash .splash-image-smallscreen img {
       max-width: 100%; }
   .splash .splash-text {
     width: 80%;

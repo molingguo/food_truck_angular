@@ -21,6 +21,59 @@
 
 	.splash-image {
 		margin-top: 5rem;
+		position: relative;
+		display: none;
+
+		@media (min-width: $medium-screen) {
+			display: inherit;
+			height: 14rem;
+			width: 100rem;
+
+			.splash-trucks {
+				width: 12rem;
+			}
+		}
+
+		@media (min-width: $large-screen) {
+			width: 120rem;
+			height: 16rem;
+
+			.splash-trucks {
+				width: 15rem;
+			}
+		}
+
+		.splash-image-up {
+			position: absolute;
+			top: 0;
+			width: 100%;
+
+			.splash-trucks {
+				right: -30rem;
+			}
+		}
+
+		.splash-image-bt {
+			position: absolute;
+			top: 6rem;
+			width: 100%;
+
+			.splash-trucks {
+				left: -30rem;
+			}
+		}
+
+		.splash-trucks {
+			position: absolute;
+		}
+	}
+
+	.splash-image-smallscreen {
+		margin-top: 5rem;
+
+		@media (min-width: $medium-screen) {
+			display: none;
+		}
 
 		img {
 			max-width: 100%;

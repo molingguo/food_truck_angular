@@ -26,7 +26,6 @@ app.controller('MainController',
 	_.each($scope.featured_truckroutes, function(route) {
 		$http.get("backend/getTruck.php?route_name="+route).success(function(data) {
 			$scope.featured_trucks.push(data[0]);
-			console.log($scope.featured_trucks);
 			$scope.embedQuote(data[0].tweet);
 		});
 	});
