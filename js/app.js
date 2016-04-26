@@ -2,7 +2,7 @@
 //Global CONSTANTS
 var dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 var dayOfWeekShort = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
-var timeOfDay = ["Breakfast", "Lunch", "Dinner", "Late Night"];
+var timeOfDay = ["Breakfast 7am-10am", "Lunch 10am-3pm", "Dinner 3pm-11pm", "Late Night 9pm-12am"];
 var mapCenter = {lat: 42.356, lng: -71.121, zoom: 13};
 
 var app = angular.module('foodTruck',['ngRoute', 'ngResource', 'leaflet-directive', 'ui.bootstrap', 'ngAnimate', 'nya.bootstrap.select', 'angular-underscore', 'duScroll']);
@@ -37,17 +37,17 @@ app.filter('selectTime', function() {
 
 		for (i = 0; i < timeArray.length; i++) {
 			switch(timeArray[i]) {
-				case 'Breakfast':
-					out = out.concat(filterTimeHelper(input, 10, 1, "Breakfast"));
+				case 'Breakfast 7am-10am':
+					out = out.concat(filterTimeHelper(input, 9, 1, "Breakfast"));
 					break;
-				case 'Lunch':
-					out = out.concat(filterTimeHelper(input, 15, 10, "Lunch"));
+				case 'Lunch 10am-3pm':
+					out = out.concat(filterTimeHelper(input, 14, 10, "Lunch"));
 					break;
-				case 'Dinner':
-					out = out.concat(filterTimeHelper(input, 24, 17, "Dinner"));
+				case 'Dinner 3pm-11pm':
+					out = out.concat(filterTimeHelper(input, 23, 15, "Dinner"));
 					break;
-				case 'Late Night':
-					out = out.concat(filterTimeHelper(input, 24, 22, "Late Night"));
+				case 'Late Night 9pm-12am':
+					out = out.concat(filterTimeHelper(input, 24, 21, "Late Night"));
 					break;
 				default:
 					break;
@@ -64,7 +64,7 @@ function filterTimeHelper(markers, opentime, closetime, time) {
 
 	_.each(markers, function(marker) {
 		if (marker.open_time>0 && marker.close_time>0) {
-			if ((marker.open_time <= opentime) && (marker.close_time >= closetime)) {
+			if ((marker.open_time <= opentime) && (marker.close_time > closetime)) {
 				result.push(marker);
 			}
 		} else if (marker.time) {

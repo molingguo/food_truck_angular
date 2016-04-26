@@ -20,7 +20,7 @@ var searchClear = function() {
 }
 
 var truckAnimation = function() {
-  $(".truck-illustration .large-truck").delay(1000).animate({left: '52%'}, 1500);
+  $(".truck-illustration .large-truck").delay(1000).animate({left: '54%'}, 2000);
 }
 
 var splashAnimation = function() {

@@ -91,7 +91,7 @@ if(isset($_GET['route_name'])){
 				$nestedarray['time'] = $rs2[time];
 				$nestedarray['day'] = $rs2[day];
 				$nestedarray['focus'] = false;
-				$nestedarray['icon'] = [ "iconUrl" => "img/truckicon.png", "iconAnchor" => [22, 5]];
+				$nestedarray['icon'] = [ "iconUrl" => "img/food_truck_generic.png", "iconAnchor" => [22, 5]];
 				$marker = $truckroute.$x;
 				$arr[$marker] = $nestedarray;
 			}

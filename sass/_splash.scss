@@ -1,5 +1,4 @@
 .splash {
-	height: $splash-height;
 	background-color: $splash-background;
 
 	.splash-logo {
@@ -7,7 +6,19 @@
 		padding-bottom: 3rem;
 
 		img {
-			width: 30%;
+			width: 60%;
+
+			@media (min-width: $small-screen) {
+				width: 50%;
+			}
+
+			@media (min-width: $medium-screen) {
+				width: 40%;
+			}
+
+			@media (min-width: $large-screen) {
+				width: 30%;
+			}
 		}
 	}
 
@@ -49,7 +60,11 @@
 			width: 100%;
 
 			.splash-trucks {
-				right: -30rem;
+				right: -30%;
+
+				@media (min-width: 1600px) {
+					right: -40%;
+				}
 			}
 		}
 
@@ -59,7 +74,15 @@
 			width: 100%;
 
 			.splash-trucks {
-				left: -30rem;
+				left: -30%;
+
+				@media (min-width: 1500px) {
+					left: -40%;
+				}
+
+				@media (min-width: 1800px) {
+					left: -50%;
+				}
 			}
 		}
 

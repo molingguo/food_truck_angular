@@ -6,9 +6,25 @@
 	.large-truck {
 		position: relative;
 		top: 5rem;
-		left: -600px;
+		left: -50%;
 		z-index: 2;
-		width: 35%;
+		width: 12.5rem;
+
+		@media (min-width: $small-screen) {
+			width: 35%;
+		}
+
+		@media (min-width: $large-screen) {
+			left: -60%;
+		}
+
+		@media (min-width: 1500px) {
+			left: -70%;
+		}
+
+		@media (min-width: 1800px) {
+			left: -80%;
+		}
 
 		img {
 			min-width: 120%;
@@ -20,9 +36,15 @@
 	}
 
 	.truck-name-wrapper {
-		position: absolute;
-		top: 6rem;
-		width: 50%;
+		width: 100%;
+		margin-top: -3rem;
+
+		@media (min-width: $small-screen) {
+			position: absolute;
+			margin-top: 0;
+			top: 6rem;
+			width: 50%;
+		}
 	}
 
 	.truck-name-logo {
@@ -32,16 +54,37 @@
 	.truck-name {
 		color: $dark-gray;
 		display: inline-block;
-		//padding-left: 1rem;
-		font-size: 4rem;
+		font-size: 3rem;
+		margin-bottom: 2rem;
+		line-height: 1;
+		width: 55%;
 		font-family: $header-font;
 		text-transform: uppercase;
+
+		@media (min-width: $small-screen) {
+			font-size: 4rem;
+			width: 100%;
+			margin-bottom: 0;
+		}
 	}
 
 	.truck-description {
-		width: 80%;
+		width: 100%;
 		margin-top: 3rem;
 		color: $gray;
+		padding-right: 2rem;
+
+		@media (min-width: $small-screen) {
+			width: 80%;
+		}
+
+		@media (min-width: 1500px) {
+			width: 70%;
+		}
+
+		@media (min-width: 1800px) {
+			width: 60%;
+		}
 	}
 
 	.truck-website {
@@ -71,8 +114,20 @@
 	}
 
 	.truck-info {
-		margin-top: 10rem;
+		margin-top: 3rem;
 		margin-bottom: 2rem;
+
+		@media (min-width: $small-screen) {
+			margin-top: 20rem;
+		}
+
+		@media (min-width: $medium-screen) {
+			margin-top: 15rem;
+		}
+
+		@media (min-width: $large-screen) {
+			margin-top: 10rem;
+		}
 
 		.truck-info-section {
 			padding: 2rem 0;
@@ -172,10 +227,14 @@
 	.schedule-list {
 		padding: 1.2rem 0;
 		border-bottom: 1px solid $light-gray;
+		font-size: 1.2rem;
+
+		@media (min-width: $small-screen) {
+			font-size: 1.4rem;
+		}
 
 		.schedule-day {
 			text-transform: uppercase;
-			font-size: 1.5rem;
     		letter-spacing: 0.5px;
 		}
 

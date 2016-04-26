@@ -10,13 +10,20 @@
 	margin-top: 1.5rem;
 
 	.copyright {
-		img {
-			max-width: 50px;
-			margin-right: 2.5rem;
+		font-size: 1.1rem;
+
+		@media (min-width: $small-screen) {
+			font-size: 1.6rem;
 		}
 	}
 
 	.feedback-wrapper {
+		line-height: 1;
+
+		@media (min-width: $small-screen) {
+			line-height: inherit;
+		}
+
 		a {
 			color: white;
 
@@ -26,13 +33,23 @@
 		}
 	}
 	.feedback-text {
-		padding-right: 1rem;
+		font-size: 1.1rem;
+
+		@media (min-width: $small-screen) {
+			font-size: 1.6rem;
+			padding-right: 1rem;
+		}
 	}
 
 	.feedback-icon {
-		font-size: 2.8rem;
-		position: absolute;
-		top: -0.5rem;
+		display: none;
+
+		@media (min-width: $small-screen) {
+			display: inherit;
+			position: absolute;
+			top: -0.5rem;
+			font-size: 2.8rem;
+		}
 	}
 }
 

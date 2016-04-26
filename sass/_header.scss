@@ -28,9 +28,12 @@
 
 .navbar-nav {
 	float: right;
-	height: $navbar-height;
 	font-size: $nav-link-font-size;
 	letter-spacing: 1px;
+
+	@media (min-width: $small-screen) {
+		height: $navbar-height;
+	}
 	
 	> li {
 		height: 100%;

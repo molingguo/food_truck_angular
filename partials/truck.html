@@ -57,7 +57,7 @@
 			</div>
 			<div class="row truck-info">
 				<a href="#menu" du-smooth-scroll du-scrollspy offset="60" ng-class="{'disabled-link':!menu[0].menu_item[0]}">
-				<div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+				<div class="col-xs-6 col-sm-6 col-md-3 truck-info-section">
 					<div class="info-type text-center">Type</div>
 					<div class="text-center">
 						<li ng-repeat="foodtype in truck.food_type" class="foodtype-list">
@@ -70,7 +70,7 @@
 						</li>
 					</div>
 				</div></a>
-				<a href="https://www.yelp.com/biz/{{truck.yelp}}" target="_blank" ng-class="{'disabled-link':!truck.yelp}" ng-click="disableDefault()"><div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+				<a href="https://www.yelp.com/biz/{{truck.yelp}}" target="_blank" ng-class="{'disabled-link':!truck.yelp}" ng-click="disableDefault()"><div class="col-xs-6 col-sm-6 col-md-3 truck-info-section">
 					<div class="info-type text-center">Ratings</div>
 					<div class="info-image text-center">
 						<i class="icon-yelp"></i>
@@ -84,7 +84,7 @@
 						</span>
 					</div>
 				</div></a>
-				<a href="#menu" du-smooth-scroll du-scrollspy offset="60" ng-class="{'disabled-link':!menu[0].menu_item[0]}"><div class="col-xs-12 col-sm-6 col-md-3 truck-info-section">
+				<a href="#menu" du-smooth-scroll du-scrollspy offset="60" ng-class="{'disabled-link':!menu[0].menu_item[0]}"><div class="col-xs-6 col-sm-6 col-md-3 truck-info-section">
 					<div class="info-type text-center">Popular Item</div>
 					<div class="info-image text-center">
 						<i class="icon-heart"></i>
@@ -92,7 +92,7 @@
 					<div class="info-type-content text-center">{{truck.popular_dish}}</div>
 					<div class="info-type-content text-center" ng-show="!truck.popular_dish">Lorem ipsum</div>
 				</div></a>
-				<a href="#map" du-smooth-scroll du-scrollspy offset="60"><div class="col-xs-12 col-sm-6 col-md-3 truck-info-section current-location" ng-class="{'multiple-location':currentLocation.length>1}">
+				<a href="#map" du-smooth-scroll du-scrollspy offset="60"><div class="col-xs-6 col-sm-6 col-md-3 truck-info-section current-location" ng-class="{'multiple-location':currentLocation.length>1}">
 					<div class="info-type text-center">Current Location</div>
 					<div class="info-image text-center">
 						<i class="icon-location"></i>

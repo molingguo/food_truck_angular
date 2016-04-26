@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,300,600|Open+Sans+Condensed:300,700);
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?4v4iry");
-  src: url("../fonts/icomoon.eot?4v4iry#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?4v4iry") format("truetype"), url("../fonts/icomoon.woff?4v4iry") format("woff"), url("../fonts/icomoon.svg?4v4iry#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?208ivn");
+  src: url("../fonts/icomoon.eot?208ivn#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?208ivn") format("truetype"), url("../fonts/icomoon.woff?208ivn") format("woff"), url("../fonts/icomoon.svg?208ivn#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 [class^="icon-"], [class*=" icon-"] {
@@ -17,6 +17,12 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.icon-arrow-left-circle-black:before {
+  content: "\e901"; }
+
+.icon-arrow-right-circle-black:before {
+  content: "\e925"; }
 
 .icon-dessert:before {
   content: "\e907"; }
@@ -201,9 +207,11 @@ ul, li {
 
 .navbar-nav {
   float: right;
-  height: 60px;
   font-size: 1.5rem;
   letter-spacing: 1px; }
+  @media (min-width: 768px) {
+    .navbar-nav {
+      height: 60px; } }
   .navbar-nav > li {
     height: 100%; }
   .navbar-nav li.active a {
@@ -231,13 +239,21 @@ ul, li {
       top: -1px; }
 
 .splash {
-  height: 520px;
   background-color: #76c7c0; }
   .splash .splash-logo {
     padding-top: 5rem;
     padding-bottom: 3rem; }
     .splash .splash-logo img {
-      width: 30%; }
+      width: 60%; }
+      @media (min-width: 768px) {
+        .splash .splash-logo img {
+          width: 50%; } }
+      @media (min-width: 992px) {
+        .splash .splash-logo img {
+          width: 40%; } }
+      @media (min-width: 1200px) {
+        .splash .splash-logo img {
+          width: 30%; } }
   .splash .splash-sub-header {
     margin-top: 0;
     font-family: "Raleway", sans-serif;
@@ -266,13 +282,22 @@ ul, li {
       top: 0;
       width: 100%; }
       .splash .splash-image .splash-image-up .splash-trucks {
-        right: -30rem; }
+        right: -30%; }
+        @media (min-width: 1600px) {
+          .splash .splash-image .splash-image-up .splash-trucks {
+            right: -40%; } }
     .splash .splash-image .splash-image-bt {
       position: absolute;
       top: 6rem;
       width: 100%; }
       .splash .splash-image .splash-image-bt .splash-trucks {
-        left: -30rem; }
+        left: -30%; }
+        @media (min-width: 1500px) {
+          .splash .splash-image .splash-image-bt .splash-trucks {
+            left: -40%; } }
+        @media (min-width: 1800px) {
+          .splash .splash-image .splash-image-bt .splash-trucks {
+            left: -50%; } }
     .splash .splash-image .splash-trucks {
       position: absolute; }
   .splash .splash-image-smallscreen {
@@ -300,12 +325,18 @@ ul, li {
   padding-top: 0rem; }
 
 .filter-wrapper {
-  position: absolute;
   z-index: 2;
-  margin-left: 350px;
   padding-left: 10px;
-  padding-right: 10px;
-  width: calc(100% - 400px); }
+  padding-right: 10px; }
+  @media (min-width: 768px) {
+    .filter-wrapper {
+      padding-top: 0;
+      position: absolute;
+      z-index: 2;
+      margin-left: 350px;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: calc(100% - 380px); } }
 
 .filter {
   margin-top: 1rem; }
@@ -314,6 +345,14 @@ ul, li {
   margin-bottom: 1rem; }
   .filter-dropdown .dropdown-wrapper {
     position: relative; }
+    .filter-dropdown .dropdown-wrapper .filter-dropdown-caret {
+      position: absolute;
+      right: 0.75rem;
+      top: 0.75rem;
+      font-size: 1.4rem;
+      color: white;
+      z-index: 9;
+      pointer-events: none; }
   .filter-dropdown .filter-button, .filter-dropdown .dropdown-toggle {
     width: 100%;
     padding: 6px 20px;
@@ -332,9 +371,7 @@ ul, li {
     .filter-dropdown .filter-button .select-option, .filter-dropdown .dropdown-toggle .select-option {
       background-color: #446cb3; }
     .filter-dropdown .filter-button .caret, .filter-dropdown .dropdown-toggle .caret {
-      border-top: 6px dashed;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent; }
+      display: none; }
   .filter-dropdown .btn-group.open .dropdown-toggle {
     background-color: #446cb3;
     box-shadow: none;
@@ -366,28 +403,31 @@ ul, li {
     position: absolute;
     right: 1.25rem; }
 
-.map-wrapper .leaflet-popup-content {
-  line-height: 1; }
-  .map-wrapper .leaflet-popup-content h2 {
-    font-family: "Raleway", sans-serif;
-    font-weight: bold;
-    margin-bottom: 0;
-    margin-top: 1rem; }
-  .map-wrapper .leaflet-popup-content h4 {
-    font-family: "Raleway", sans-serif;
-    margin-bottom: 0;
-    font-size: 1.3rem; }
-  .map-wrapper .leaflet-popup-content h5 {
-    font-family: "Raleway", sans-serif;
-    margin-top: 1rem;
-    margin-bottom: 0.25rem;
-    color: #f46161; }
+.map-wrapper {
+  position: relative; }
+  .map-wrapper .leaflet-popup-content {
+    line-height: 1; }
+    .map-wrapper .leaflet-popup-content h2 {
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      margin-bottom: 0;
+      margin-top: 1rem; }
+    .map-wrapper .leaflet-popup-content h4 {
+      font-family: "Raleway", sans-serif;
+      margin-bottom: 0;
+      font-size: 1.3rem; }
+    .map-wrapper .leaflet-popup-content h5 {
+      font-family: "Raleway", sans-serif;
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
+      color: #f46161; }
 
 .map-list {
   position: absolute;
   height: 540px;
   width: 330px;
   z-index: 2;
+  top: 16rem;
   background-color: #f3f3f3;
   -ms-transform: translateX(-280px);
   /* IE 9 */
@@ -395,6 +435,9 @@ ul, li {
   /* Safari */
   transform: translateX(-280px);
   transition: all 0.5s; }
+  @media (min-width: 768px) {
+    .map-list {
+      top: 0; } }
   .map-list.active {
     -ms-transform: translateX(0);
     /* IE 9 */
@@ -427,7 +470,7 @@ ul, li {
   .map-list .scroll-list {
     position: relative;
     overflow-y: scroll;
-    height: 455px;
+    height: 450px;
     pointer-events: none; }
   .map-list .special-filter-wrapper > .col-xs-6 {
     padding: 0 0.25rem; }
@@ -464,6 +507,8 @@ ul, li {
         color: white;
         cursor: pointer; }
         .map-list .map-truck-list > li:hover .truck-name a {
+          color: white; }
+        .map-list .map-truck-list > li:hover .truck-icon {
           color: white; }
       .map-list .map-truck-list > li.active .glyphicon-ok {
         display: inherit; }
@@ -537,10 +582,24 @@ ul, li {
     .the-trucks .truck-logo .truck-logo-name {
       color: white;
       margin-top: 1rem;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       letter-spacing: 0.5px;
       line-height: 1; }
+      @media (min-width: 768px) {
+        .the-trucks .truck-logo .truck-logo-name {
+          font-size: 1.5rem; } }
+    .the-trucks .truck-logo:nth-child(3n+1) {
+      clear: both; }
+    @media (min-width: 768px) {
+      .the-trucks .truck-logo:nth-child(3n+1) {
+        clear: none; }
+      .the-trucks .truck-logo:nth-child(4n+1) {
+        clear: both; } }
     @media (min-width: 1200px) {
+      .the-trucks .truck-logo:nth-child(3n+1) {
+        clear: none; }
+      .the-trucks .truck-logo:nth-child(4n+1) {
+        clear: none; }
       .the-trucks .truck-logo:nth-child(6n+1) {
         clear: both; } }
   .the-trucks .view-all-trucks .toggle-truck-list {
@@ -612,8 +671,14 @@ ul, li {
       text-transform: initial; }
     .featured-truck .featured-quote .quote-body, .featured-truck .featured-quote .quote-mark, .featured-truck .featured-quote .twitter_quote > p {
       color: #ef7271;
-      font-size: 2.5rem;
+      font-size: 1.5rem;
       opacity: 0.9; }
+      @media (min-width: 768px) {
+        .featured-truck .featured-quote .quote-body, .featured-truck .featured-quote .quote-mark, .featured-truck .featured-quote .twitter_quote > p {
+          font-size: 2rem; } }
+      @media (min-width: 992px) {
+        .featured-truck .featured-quote .quote-body, .featured-truck .featured-quote .quote-mark, .featured-truck .featured-quote .twitter_quote > p {
+          font-size: 2.5rem; } }
     .featured-truck .featured-quote .quote-mark {
       font-size: 8rem;
       line-height: 0.6; }
@@ -653,19 +718,34 @@ ul, li {
 
 .footer-wrapper {
   margin-top: 1.5rem; }
-  .footer-wrapper .copyright img {
-    max-width: 50px;
-    margin-right: 2.5rem; }
-  .footer-wrapper .feedback-wrapper a {
-    color: white; }
-    .footer-wrapper .feedback-wrapper a:hover {
-      color: #446cb3; }
+  .footer-wrapper .copyright {
+    font-size: 1.1rem; }
+    @media (min-width: 768px) {
+      .footer-wrapper .copyright {
+        font-size: 1.6rem; } }
+  .footer-wrapper .feedback-wrapper {
+    line-height: 1; }
+    @media (min-width: 768px) {
+      .footer-wrapper .feedback-wrapper {
+        line-height: inherit; } }
+    .footer-wrapper .feedback-wrapper a {
+      color: white; }
+      .footer-wrapper .feedback-wrapper a:hover {
+        color: #446cb3; }
   .footer-wrapper .feedback-text {
-    padding-right: 1rem; }
+    font-size: 1.1rem; }
+    @media (min-width: 768px) {
+      .footer-wrapper .feedback-text {
+        font-size: 1.6rem;
+        padding-right: 1rem; } }
   .footer-wrapper .feedback-icon {
-    font-size: 2.8rem;
-    position: absolute;
-    top: -0.5rem; }
+    display: none; }
+    @media (min-width: 768px) {
+      .footer-wrapper .feedback-icon {
+        display: inherit;
+        position: absolute;
+        top: -0.5rem;
+        font-size: 2.8rem; } }
 
 ul.sitemap li {
   display: inline-block;
@@ -685,29 +765,64 @@ ul.sitemap li {
   .truck-illustration .large-truck {
     position: relative;
     top: 5rem;
-    left: -600px;
+    left: -50%;
     z-index: 2;
-    width: 35%; }
+    width: 12.5rem; }
+    @media (min-width: 768px) {
+      .truck-illustration .large-truck {
+        width: 35%; } }
+    @media (min-width: 1200px) {
+      .truck-illustration .large-truck {
+        left: -60%; } }
+    @media (min-width: 1500px) {
+      .truck-illustration .large-truck {
+        left: -70%; } }
+    @media (min-width: 1800px) {
+      .truck-illustration .large-truck {
+        left: -80%; } }
     .truck-illustration .large-truck img {
       min-width: 120%; }
   .truck-illustration .truck-large-image {
     width: 120%; }
   .truck-illustration .truck-name-wrapper {
-    position: absolute;
-    top: 6rem;
-    width: 50%; }
+    width: 100%;
+    margin-top: -3rem; }
+    @media (min-width: 768px) {
+      .truck-illustration .truck-name-wrapper {
+        position: absolute;
+        margin-top: 0;
+        top: 6rem;
+        width: 50%; } }
   .truck-illustration .truck-name-logo {
     max-width: 10%; }
   .truck-illustration .truck-name {
     color: #666666;
     display: inline-block;
-    font-size: 4rem;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1;
+    width: 55%;
     font-family: "norwesterregular", sans-serif;
     text-transform: uppercase; }
+    @media (min-width: 768px) {
+      .truck-illustration .truck-name {
+        font-size: 4rem;
+        width: 100%;
+        margin-bottom: 0; } }
   .truck-illustration .truck-description {
-    width: 80%;
+    width: 100%;
     margin-top: 3rem;
-    color: #999999; }
+    color: #999999;
+    padding-right: 2rem; }
+    @media (min-width: 768px) {
+      .truck-illustration .truck-description {
+        width: 80%; } }
+    @media (min-width: 1500px) {
+      .truck-illustration .truck-description {
+        width: 70%; } }
+    @media (min-width: 1800px) {
+      .truck-illustration .truck-description {
+        width: 60%; } }
   .truck-illustration .truck-website {
     margin-top: 1rem; }
   .truck-illustration .truck-sociallinks {
@@ -723,8 +838,17 @@ ul.sitemap li {
       .truck-illustration .truck-sociallinks i:hover {
         color: #446cb3; }
   .truck-illustration .truck-info {
-    margin-top: 10rem;
+    margin-top: 3rem;
     margin-bottom: 2rem; }
+    @media (min-width: 768px) {
+      .truck-illustration .truck-info {
+        margin-top: 20rem; } }
+    @media (min-width: 992px) {
+      .truck-illustration .truck-info {
+        margin-top: 15rem; } }
+    @media (min-width: 1200px) {
+      .truck-illustration .truck-info {
+        margin-top: 10rem; } }
     .truck-illustration .truck-info .truck-info-section {
       padding: 2rem 0;
       height: 220px; }
@@ -772,10 +896,13 @@ ul.sitemap li {
     text-transform: uppercase; }
   .truck-schedule .schedule-list {
     padding: 1.2rem 0;
-    border-bottom: 1px solid #dddddd; }
+    border-bottom: 1px solid #dddddd;
+    font-size: 1.2rem; }
+    @media (min-width: 768px) {
+      .truck-schedule .schedule-list {
+        font-size: 1.4rem; } }
     .truck-schedule .schedule-list .schedule-day {
       text-transform: uppercase;
-      font-size: 1.5rem;
       letter-spacing: 0.5px; }
     .truck-schedule .schedule-list .schedule-location {
       padding-left: 5rem; }

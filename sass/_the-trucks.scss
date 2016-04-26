@@ -65,12 +65,38 @@
 		.truck-logo-name {
 			color: white;
 			margin-top: 1rem;
-			font-size: $truck-list-label-size;
+			font-size: 1.2rem;
 			letter-spacing: $truck-list-label-spacing;
 			line-height: 1;
+
+			@media (min-width: $small-screen) {
+				font-size: $truck-list-label-size;
+			}
 		}
 
-		@media (min-width: 1200px) {
+		&:nth-child(3n+1) {
+			clear: both;
+		}
+
+		@media (min-width: $small-screen) {
+			&:nth-child(3n+1) {
+				clear: none;
+			}
+
+			&:nth-child(4n+1) {
+				clear: both;
+			}
+		}
+
+		@media (min-width: $large-screen) {
+			&:nth-child(3n+1) {
+				clear: none;
+			}
+
+			&:nth-child(4n+1) {
+				clear: none;
+			}
+
 			&:nth-child(6n+1) {
 				clear: both;
 			}

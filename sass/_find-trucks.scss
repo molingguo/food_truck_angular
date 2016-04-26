@@ -3,12 +3,19 @@
 }
 
 .filter-wrapper {
-	position: absolute;
     z-index: 2;
-    margin-left: $map-list-width + 20px;
     padding-left: 10px;
     padding-right: 10px;
-    width: calc(100% - 400px);
+
+    @media (min-width: $small-screen) {
+    	padding-top: 0;
+    	position: absolute;
+    	z-index: 2;
+    	margin-left: $map-list-width + 20px;
+    	padding-left: 10px;
+    	padding-right: 10px;
+    	width: calc(100% - 380px);
+    }
 }
 
 .filter {
@@ -20,6 +27,16 @@
 
 	.dropdown-wrapper {
 		position: relative;
+
+		.filter-dropdown-caret {
+			position: absolute;
+			right: 0.75rem;
+			top: 0.75rem;
+			font-size: 1.4rem;
+			color: white;
+			z-index: 9;
+			pointer-events: none;
+		}
 	}
 
 	.filter-button, .dropdown-toggle {
@@ -45,9 +62,7 @@
 		}
 
 		.caret {
-			border-top: 6px dashed;
-			border-left: 6px solid transparent;
-			border-right: 6px solid transparent;
+			display: none;
 		}
 	}
 
@@ -103,6 +118,8 @@
 }
 
 .map-wrapper {
+	position: relative;
+
 	.leaflet-popup-content {
 		line-height: 1;
 		
@@ -136,11 +153,16 @@
 	height: $map-height;
 	width: $map-list-width;
     z-index: 2;
+    top: 16rem;
 	background-color: #f3f3f3;
 	-ms-transform: translateX(-$map-list-width+50px); /* IE 9 */
    	-webkit-transform: translateX(-$map-list-width+50px); /* Safari */
     transform: translateX(-$map-list-width+50px);
 	transition: all 0.5s;
+
+	@media (min-width: $small-screen) {
+		top: 0;
+    }
 
 	&.active {
 		-ms-transform: translateX(0); /* IE 9 */
@@ -184,7 +206,7 @@
 	.scroll-list {
 		position: relative;
     	overflow-y: scroll;
-    	height: $map-height - $map-list-header-height;
+    	height: $map-height - $map-list-header-height - 5px;
     	pointer-events: none;
 	}
 
@@ -239,6 +261,10 @@
     			cursor: pointer;
 
     			.truck-name a {
+    				color: white;
+    			}
+
+    			.truck-icon {
     				color: white;
     			}
     		}
