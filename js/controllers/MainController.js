@@ -100,6 +100,7 @@ app.controller('MainController',
 			zoomControlPosition: 'bottomright',
 			tileLayerOptions: {
 				//opacity: 0.9,
+				attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 				detectRetina: true,
 				reuseTiles: true,
 				apikey: 'pk.eyJ1IjoibW9ybmluZzIxMzkiLCJhIjoiWWpJNloxOCJ9.mpb_pZ7JT8iNsaiu6OpZmA',
